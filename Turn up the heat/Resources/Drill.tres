@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="GunData" load_steps=3 format=3 uid="uid://7fhe6gupp5ys"]
+
+[ext_resource type="Script" path="res://Resources/Gun_data.gd" id="1_2bd51"]
+[ext_resource type="Texture2D" uid="uid://dn1sqifqn4j5r" path="res://Temp_images/Drill.png" id="2_75aub"]
+
+[resource]
+script = ExtResource("1_2bd51")
+damage = 10.0
+clip = 0
+fire_cost = 1
+rpm = 300.0
+reload_time = 0.0
+spread = 30.0
+bullets_fired = 3
+pierce = 999
+bounce = 0
+texture = ExtResource("2_75aub")

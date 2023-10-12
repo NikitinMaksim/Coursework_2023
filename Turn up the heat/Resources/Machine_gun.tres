@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="GunData" load_steps=4 format=3 uid="uid://cgg7wit8qtreu"]
+
+[ext_resource type="PackedScene" uid="uid://bsowby1rtlnue" path="res://Resources/bullet.tscn" id="1_afq8r"]
+[ext_resource type="Script" path="res://Resources/Gun_data.gd" id="1_n8emd"]
+[ext_resource type="Texture2D" uid="uid://v7iy0etlfafx" path="res://Temp_images/Gun.png" id="2_menfp"]
+
+[resource]
+script = ExtResource("1_n8emd")
+damage = 10.0
+clip = 20
+fire_cost = 1
+bullets_per_second = 2.0
+reload_time = 1.5
+spread = 0.0
+projectiles_fired = 1
+pierce = 0
+bounce = 0
+texture = ExtResource("2_menfp")
+projectile = ExtResource("1_afq8r")
+x_offset = 14
+y_offset = 3
+bullet_scale = 1.0
+bullet_speed = 450
+bullet_max_distance = 20000
