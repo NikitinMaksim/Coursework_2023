@@ -206,7 +206,7 @@ advance_condition = &"is_idle"
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_pctbh"]
 states/Idle/node = SubResource("AnimationNodeBlendSpace2D_muika")
-states/Idle/position = Vector2(390, 100)
+states/Idle/position = Vector2(371, 100)
 states/Start/position = Vector2(219, 100)
 states/Walk/node = SubResource("AnimationNodeBlendSpace2D_v1dll")
 states/Walk/position = Vector2(544, 100)
