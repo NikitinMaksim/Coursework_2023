@@ -226,7 +226,6 @@ weapons = Array[Resource("res://Resources/Gun_data.gd")]([ExtResource("2_n882w")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(3.8147e-07, 4.8)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_17h1f")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
