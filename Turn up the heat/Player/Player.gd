@@ -15,8 +15,8 @@ signal change_offset(x)
 
 var direction : Vector2 = Vector2.ZERO
 var current_gun: int = 0
-@export var max_clip: int = 0
-@export var clip: int = 0
+var max_clip: int = 0
+var clip: int = 0
 var second_weapon_clip: int = 0
 var is_melee: bool = false
 

@@ -221,6 +221,7 @@ transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition
 [node name="Player" type="CharacterBody2D"]
 scale = Vector2(5, 5)
 script = ExtResource("1_8kf3r")
+speed = 6000.0
 weapons = Array[Resource("res://Resources/Gun_data.gd")]([ExtResource("2_n882w"), ExtResource("3_wvggi")])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

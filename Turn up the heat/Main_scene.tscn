@@ -210,7 +210,7 @@ sources/0 = SubResource("TileSetAtlasSource_kc1pk")
 z_index = 1
 y_sort_enabled = true
 position = Vector2(21, 37)
-speed = 150.0
+speed = 400.0
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 remote_path = NodePath("../../Camera2D")
