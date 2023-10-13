@@ -9,7 +9,7 @@ extends CharacterBody2D
 @onready var label = $Control/Label
 @onready var marker_2d = $Gun/Marker2D
 
-signal change_offset(x,y)
+signal change_offset(x)
 
 @export var weapons: Array[GunData]
 
@@ -60,15 +60,22 @@ func update_animation_parameters():
 func shoot():
 	clip -= 1
 	var weapon = weapons[current_gun]
-	var projectile = weapons[current_gun].projectile.instantiate()
-	if (is_melee):
-		pass
-	else:
-		projectile.speed = weapon.bullet_speed
-		projectile.max_distance = weapon.bullet_max_distance
-	projectile.global_position = $Gun/Marker2D.global_position
-	projectile.rotation = $Gun.rotation
-	owner.add_child(projectile)
+	for x in weapon.projectiles_fired:
+		var projectile = weapons[current_gun].projectile.instantiate()
+		var spread = weapon.spread
+		
+		if (is_melee):
+			pass
+		else:
+			projectile.speed = weapon.bullet_speed
+			projectile.max_distance = weapon.bullet_max_distance
+		projectile.attack = weapon.damage
+		projectile.global_position = $Gun/Marker2D.global_position
+		if weapon.projectiles_fired == 1:
+			projectile.rotation = $Gun.rotation
+		else:
+			projectile.rotation = ($Gun.rotation - deg_to_rad(spread/2) + deg_to_rad(spread/(weapon.projectiles_fired-1)*x))
+		owner.add_child(projectile)
 	timer_between_shots.start()
 	update_magazine_label()
 	
@@ -81,8 +88,6 @@ func change_gun(choosen_gun: int):
 	store = clip
 	clip = second_weapon_clip
 	second_weapon_clip = store
-	change_offset.emit(int(weapon.x_offset),int(weapon.y_offset))
-
 	timer_between_shots.wait_time = 1/weapon.bullets_per_second
 	timer_reload.wait_time = weapon.reload_time
 	current_gun = choosen_gun

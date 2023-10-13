@@ -5,10 +5,11 @@
 [ext_resource type="Texture2D" uid="uid://cs5fxbt0w15fb" path="res://Temp_images/Temp_character_spritesheet.png" id="2_ngyrq"]
 [ext_resource type="Resource" uid="uid://7fhe6gupp5ys" path="res://Resources/Drill.tres" id="3_wvggi"]
 [ext_resource type="Script" path="res://Player/Gun.gd" id="4_koxme"]
-[ext_resource type="Texture2D" uid="uid://dn1sqifqn4j5r" path="res://Temp_images/Drill.png" id="5_tit77"]
+[ext_resource type="Texture2D" uid="uid://v7iy0etlfafx" path="res://Temp_images/Gun.png" id="5_lbhw0"]
 [ext_resource type="Script" path="res://Player/ReloadProgressBar.gd" id="7_45pkp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_17h1f"]
+size = Vector2(14, 22)
 
 [sub_resource type="Animation" id="Animation_4r0j1"]
 resource_name = "Move_down"
@@ -223,6 +224,8 @@ script = ExtResource("1_8kf3r")
 weapons = Array[Resource("res://Resources/Gun_data.gd")]([ExtResource("2_n882w"), ExtResource("3_wvggi")])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3.8147e-07, 4.8)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_17h1f")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -248,14 +251,12 @@ parameters/Walk/blend_position = Vector2(-0.64, -0.0658683)
 
 [node name="Gun" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.560784)
-position = Vector2(1, 4)
-texture = ExtResource("5_tit77")
-centered = false
-offset = Vector2(-12, -13)
+position = Vector2(3.55271e-15, 6.2)
+texture = ExtResource("5_lbhw0")
 script = ExtResource("4_koxme")
 
 [node name="Marker2D" type="Marker2D" parent="Gun"]
-position = Vector2(8.8, 5.4)
+position = Vector2(15, 0)
 
 [node name="Timer_between_shots" type="Timer" parent="."]
 wait_time = 0.5

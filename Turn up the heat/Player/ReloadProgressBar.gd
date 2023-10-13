@@ -7,7 +7,7 @@ extends ProgressBar
 func _ready():
 	pass
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if not timer_reload.is_stopped(): 
 		max_value = timer_reload.wait_time
 		value = max_value - timer_reload.time_left
