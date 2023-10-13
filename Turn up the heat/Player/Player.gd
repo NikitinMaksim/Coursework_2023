@@ -7,6 +7,9 @@ extends CharacterBody2D
 @onready var timer_between_shots = $Timer_between_shots
 @onready var timer_reload = $Timer_reload
 @onready var label = $Control/Label
+@onready var marker_2d = $Gun/Marker2D
+
+signal change_offset(x,y)
 
 @export var weapons: Array[GunData]
 
@@ -15,6 +18,7 @@ var current_gun: int = 0
 @export var max_clip: int = 0
 @export var clip: int = 0
 var second_weapon_clip: int = 0
+var is_melee: bool = false
 
 func _ready():
 	anitree.active = true
@@ -56,29 +60,36 @@ func update_animation_parameters():
 func shoot():
 	clip -= 1
 	var weapon = weapons[current_gun]
-	var bullet = weapons[current_gun].projectile.instantiate()
-	bullet.speed = weapon.bullet_speed
-	bullet.max_distance = weapon.bullet_max_distance
-	bullet.global_position = $Gun/Marker2D.global_position
-	bullet.rotation = $Gun.rotation
-	owner.add_child(bullet)
+	var projectile = weapons[current_gun].projectile.instantiate()
+	if (is_melee):
+		pass
+	else:
+		projectile.speed = weapon.bullet_speed
+		projectile.max_distance = weapon.bullet_max_distance
+	projectile.global_position = $Gun/Marker2D.global_position
+	projectile.rotation = $Gun.rotation
+	owner.add_child(projectile)
 	timer_between_shots.start()
 	update_magazine_label()
 	
 func change_gun(choosen_gun: int):
 	var weapon = weapons[choosen_gun]
 	var store: int
+	is_melee = choosen_gun
 	gun.texture = weapon.texture
 	max_clip = weapon.clip
 	store = clip
 	clip = second_weapon_clip
 	second_weapon_clip = store
+	change_offset.emit(int(weapon.x_offset),int(weapon.y_offset))
+
 	timer_between_shots.wait_time = 1/weapon.bullets_per_second
 	timer_reload.wait_time = weapon.reload_time
 	current_gun = choosen_gun
 	update_magazine_label()
 	
 func swap_weapon():
+	timer_reload.stop()
 	if current_gun == 1: change_gun(0)
 	else: change_gun(1)
 

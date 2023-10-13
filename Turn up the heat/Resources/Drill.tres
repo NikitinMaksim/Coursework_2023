@@ -1,17 +1,24 @@
-[gd_resource type="Resource" script_class="GunData" load_steps=3 format=3 uid="uid://7fhe6gupp5ys"]
+[gd_resource type="Resource" script_class="GunData" load_steps=4 format=3 uid="uid://7fhe6gupp5ys"]
 
 [ext_resource type="Script" path="res://Resources/Gun_data.gd" id="1_2bd51"]
+[ext_resource type="PackedScene" uid="uid://dyoy1pn7iwf3k" path="res://Resources/Melee hits/melee_projectile.tscn" id="1_v0u33"]
 [ext_resource type="Texture2D" uid="uid://dn1sqifqn4j5r" path="res://Temp_images/Drill.png" id="2_75aub"]
 
 [resource]
 script = ExtResource("1_2bd51")
 damage = 10.0
-clip = 0
+clip = 30
 fire_cost = 1
-rpm = 300.0
-reload_time = 0.0
+bullets_per_second = 5.0
+reload_time = 3.0
 spread = 30.0
-bullets_fired = 3
+projectiles_fired = 1
 pierce = 999
 bounce = 0
 texture = ExtResource("2_75aub")
+projectile = ExtResource("1_v0u33")
+x_offset = 15
+y_offset = 5
+bullet_scale = 1.0
+bullet_speed = 450
+bullet_max_distance = 20000
