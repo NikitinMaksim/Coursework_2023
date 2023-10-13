@@ -210,8 +210,6 @@ z_index = 1
 y_sort_enabled = true
 position = Vector2(21, 37)
 speed = 150.0
-max_clip = 0
-clip = 0
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 remote_path = NodePath("../../Camera2D")
