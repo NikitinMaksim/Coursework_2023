@@ -63,12 +63,13 @@ func shoot():
 	for x in weapon.projectiles_fired:
 		var projectile = weapons[current_gun].projectile.instantiate()
 		var spread = weapon.spread
-		
 		if (is_melee):
 			pass
 		else:
-			projectile.speed = weapon.bullet_speed
-			projectile.max_distance = weapon.bullet_max_distance
+			projectile.max_pierce = weapon.pierce
+			projectile.max_bounces = weapon.bounce
+		projectile.speed = weapon.bullet_speed
+		projectile.max_distance = weapon.bullet_max_distance
 		projectile.attack = weapon.damage
 		projectile.global_position = $Gun/Marker2D.global_position
 		if weapon.projectiles_fired == 1:

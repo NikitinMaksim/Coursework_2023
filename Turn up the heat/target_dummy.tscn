@@ -7,7 +7,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_up6u3"]
 size = Vector2(27.25, 30)
 
-[node name="Target_dummy" type="Node2D"]
+[node name="Target_dummy" type="Node2D" groups=["enemy"]]
 scale = Vector2(4, 4)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -17,6 +17,8 @@ texture = ExtResource("1_jv7jo")
 Max_health = 1000.0
 
 [node name="HitboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("2_u8jv1")]
+collision_layer = 3
+collision_mask = 3
 health_component = NodePath("../HealthComponent")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
