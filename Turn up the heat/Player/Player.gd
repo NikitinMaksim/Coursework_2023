@@ -58,8 +58,8 @@ func update_animation_parameters():
 		anitree["parameters/Walk/blend_position"] = direction
 
 func shoot():
-	clip -= 1
 	var weapon = weapons[current_gun]
+	clip -= weapon.fire_cost
 	for x in weapon.projectiles_fired:
 		var projectile = weapons[current_gun].projectile.instantiate()
 		var spread = weapon.spread
@@ -79,6 +79,8 @@ func shoot():
 		owner.add_child(projectile)
 	timer_between_shots.start()
 	update_magazine_label()
+	if clip<=0:
+		reload()
 	
 func change_gun(choosen_gun: int):
 	var weapon = weapons[choosen_gun]
@@ -87,6 +89,7 @@ func change_gun(choosen_gun: int):
 	gun.texture = weapon.texture
 	max_clip = weapon.clip
 	store = clip
+	change_offset.emit(weapon.x_offset)
 	clip = second_weapon_clip
 	second_weapon_clip = store
 	timer_between_shots.wait_time = 1/weapon.bullets_per_second

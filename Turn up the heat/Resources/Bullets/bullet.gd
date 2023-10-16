@@ -4,7 +4,7 @@ extends Node2D
 @export var max_distance: int = 100
 @export var max_pierce: int = 0
 @export var max_bounces: int = 0
-var current_bounces: int = 1
+var current_bounces: int = 0
 var current_pierce: int = 0
 var attack: float
 var remaining_distance: int = 100
@@ -28,10 +28,11 @@ func _on_area_2d_area_entered(area):
 		area.damage(attack)
 		current_pierce -= 1
 		if current_pierce<0:
-			if current_bounces<0:
+			if current_bounces<=0:
 				queue_free()
 			else:
 				bounce_to_closest(area)
+				current_bounces-=1
 
 func bounce_to_closest(area: Area2D):
 	var distance_to_closest: float = 0
@@ -40,9 +41,8 @@ func bounce_to_closest(area: Area2D):
 	all_enemy.erase(area)
 	for enemy in all_enemy:
 		var distance = position.distance_to(enemy.position)
-		if distance_to_closest<distance: 
+		if distance_to_closest<distance and distance_to_closest>=0: 
 			distance_to_closest = distance
 			closest = enemy
-		print(enemy)
-	look_at(closest.position)
+	look_at(closest.get_parent().position)
 	
