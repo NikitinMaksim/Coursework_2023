@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://tkfoeiya5d55"]
 
-[ext_resource type="PackedScene" uid="uid://dup4aygtorqy0" path="res://health_component.tscn" id="1_gqidf"]
+[ext_resource type="PackedScene" uid="uid://dup4aygtorqy0" path="res://Component/health_component.tscn" id="1_gqidf"]
 [ext_resource type="Texture2D" uid="uid://bjeuuy7qfpiqi" path="res://Temp_images/target_dummy.png" id="1_jv7jo"]
-[ext_resource type="PackedScene" uid="uid://bgx54257k05ql" path="res://hitbox_component.tscn" id="2_u8jv1"]
+[ext_resource type="PackedScene" uid="uid://bgx54257k05ql" path="res://Component/hitbox_component.tscn" id="2_u8jv1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_up6u3"]
 size = Vector2(27.25, 30)

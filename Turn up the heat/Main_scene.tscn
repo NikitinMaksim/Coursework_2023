@@ -238,10 +238,10 @@ position = Vector2(374.987, 57.7661)
 position = Vector2(692.517, 62.6615)
 
 [node name="Target_dummy4" parent="." instance=ExtResource("3_jq3h0")]
-position = Vector2(685.46, 233.023)
+position = Vector2(689.493, -277.082)
 
 [node name="Target_dummy5" parent="." instance=ExtResource("3_jq3h0")]
-position = Vector2(380.027, -199.734)
+position = Vector2(382.043, -274.144)
 
 [node name="Target_dummy6" parent="." instance=ExtResource("3_jq3h0")]
 position = Vector2(690.501, -109.658)
