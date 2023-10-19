@@ -1,9 +1,9 @@
 [gd_scene load_steps=34 format=3 uid="uid://cm1kk7fl1jtqd"]
 
 [ext_resource type="Script" path="res://Player/Player.gd" id="1_8kf3r"]
-[ext_resource type="Resource" uid="uid://cgg7wit8qtreu" path="res://Resources/Machine_gun.tres" id="2_n882w"]
+[ext_resource type="Resource" uid="uid://cgg7wit8qtreu" path="res://Resources/Guns/Machine_gun.tres" id="2_6ecqg"]
 [ext_resource type="Texture2D" uid="uid://cs5fxbt0w15fb" path="res://Temp_images/Temp_character_spritesheet.png" id="2_ngyrq"]
-[ext_resource type="Resource" uid="uid://7fhe6gupp5ys" path="res://Resources/Drill.tres" id="3_wvggi"]
+[ext_resource type="Resource" uid="uid://7fhe6gupp5ys" path="res://Resources/Guns/Drill.tres" id="3_jyuny"]
 [ext_resource type="Script" path="res://Player/Gun.gd" id="4_koxme"]
 [ext_resource type="Texture2D" uid="uid://v7iy0etlfafx" path="res://Temp_images/Gun.png" id="5_lbhw0"]
 [ext_resource type="Script" path="res://Player/Muzzle.gd" id="7_6pfxh"]
@@ -222,8 +222,7 @@ transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition
 [node name="Player" type="CharacterBody2D"]
 scale = Vector2(5, 5)
 script = ExtResource("1_8kf3r")
-speed = 6000.0
-weapons = Array[Resource("res://Resources/Gun_data.gd")]([ExtResource("2_n882w"), ExtResource("3_wvggi")])
+weapons = Array[Resource("res://Resources/Guns/Gun_data.gd")]([ExtResource("2_6ecqg"), ExtResource("3_jyuny")])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(3.8147e-07, 4.8)

@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://c6gvx3h1wsmxr"]
+[gd_scene load_steps=8 format=3 uid="uid://c6gvx3h1wsmxr"]
 
 [ext_resource type="PackedScene" uid="uid://cm1kk7fl1jtqd" path="res://Player/Player.tscn" id="1_4lbih"]
 [ext_resource type="Texture2D" uid="uid://byat7of71781d" path="res://Temp_images/Temp_tilemap.png" id="2_e342k"]
+[ext_resource type="Resource" uid="uid://ndvyfpcxgqp6" path="res://Resources/Bodys/Standart_body.tres" id="2_tntu8"]
 [ext_resource type="PackedScene" uid="uid://tkfoeiya5d55" path="res://target_dummy.tscn" id="3_jq3h0"]
+[ext_resource type="PackedScene" uid="uid://cempmouod714f" path="res://UI/UI.tscn" id="5_ggsaw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kc1pk"]
 texture = ExtResource("2_e342k")
@@ -205,13 +207,12 @@ terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 sources/0 = SubResource("TileSetAtlasSource_kc1pk")
 
 [node name="Node2D" type="Node2D"]
-scale = Vector2(0.992034, 1.02136)
 
 [node name="Player" parent="." instance=ExtResource("1_4lbih")]
 z_index = 1
 y_sort_enabled = true
 position = Vector2(21, 37)
-speed = 400.0
+body = ExtResource("2_tntu8")
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 remote_path = NodePath("../../Camera2D")
@@ -245,3 +246,10 @@ position = Vector2(382.043, -274.144)
 
 [node name="Target_dummy6" parent="." instance=ExtResource("3_jq3h0")]
 position = Vector2(690.501, -109.658)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+scale = Vector2(10, 10)
+transform = Transform2D(10, 0, 0, 10, 0, 0)
+
+[node name="UI" parent="CanvasLayer" instance=ExtResource("5_ggsaw")]
+scale = Vector2(0.3, 0.3)

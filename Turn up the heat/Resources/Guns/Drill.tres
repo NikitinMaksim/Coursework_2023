@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="GunData" load_steps=4 format=3 uid="uid://7fhe6gupp5ys"]
 
-[ext_resource type="Script" path="res://Resources/Gun_data.gd" id="1_2bd51"]
+[ext_resource type="Script" path="res://Resources/Guns/Gun_data.gd" id="1_2bd51"]
 [ext_resource type="PackedScene" uid="uid://dyoy1pn7iwf3k" path="res://Resources/Melee hits/melee_projectile.tscn" id="1_v0u33"]
 [ext_resource type="Texture2D" uid="uid://dn1sqifqn4j5r" path="res://Temp_images/Drill.png" id="2_75aub"]
 

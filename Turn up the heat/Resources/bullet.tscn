@@ -1,14 +1,31 @@
-[gd_scene load_steps=4 format=3 uid="uid://bsowby1rtlnue"]
+[gd_scene load_steps=4 format=3 uid="uid://pg7enujjhaeq"]
 
-[ext_resource type="Script" path="res://Resources/bullet.gd" id="1_8gupo"]
 [ext_resource type="Texture2D" uid="uid://dfv6ndu28s2vy" path="res://Sprites/Bullet.png" id="1_ygoiw"]
+
+[sub_resource type="GDScript" id="GDScript_5d3mb"]
+script/source = "extends Node2D
+
+@export var speed: int = 750
+@export var max_distance: int = 100
+
+var remaining_distance: int = 100
+
+func _ready():
+	remaining_distance = max_distance
+
+func _process(delta):
+	position += transform.x * speed * delta
+	remaining_distance -= speed
+	if (remaining_distance<0): 
+		queue_free()
+"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u4io8"]
 size = Vector2(4, 4)
 
 [node name="Bullet" type="Node2D"]
 scale = Vector2(5, 5)
-script = ExtResource("1_8gupo")
+script = SubResource("GDScript_5d3mb")
 speed = 400
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

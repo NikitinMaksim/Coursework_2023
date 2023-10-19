@@ -1,7 +1,5 @@
 extends CharacterBody2D
 
-@export var speed : float = 300.0
-
 @onready var anitree : AnimationTree = $AnimationTree
 @onready var gun = $Gun
 @onready var timer_between_shots = $Timer_between_shots
@@ -10,8 +8,10 @@ extends CharacterBody2D
 @onready var marker_2d = $Gun/Marker2D
 
 signal change_offset(x)
+signal set_ammo_ui(ammo_spent)
 
 @export var weapons: Array[GunData]
+@export var body: BodyData
 
 var direction : Vector2 = Vector2.ZERO
 var current_gun: int = 0
@@ -19,12 +19,20 @@ var max_clip: int = 0
 var clip: int = 0
 var second_weapon_clip: int = 0
 var is_melee: bool = false
+var current_armor: int = 1
+var current_ammo: int = 1
+var max_ammo: int = 1
 
 func _ready():
 	anitree.active = true
+	$Sprite2D.texture=body.sprite_sheet
 	change_gun(current_gun)
 	clip = weapons[0].clip
 	second_weapon_clip = weapons[1].clip
+	current_armor = body.armor_platings
+	max_ammo = body.max_ammo
+	current_ammo = max_ammo
+	$"../CanvasLayer/UI/Health".setArmor(current_armor)
 	update_magazine_label()
 
 func _process(_delta):
@@ -33,7 +41,7 @@ func _process(_delta):
 func _physics_process(_delta):
 	direction = Input.get_vector("move_left","move_right","move_up","move_down").normalized()
 	if direction:
-		velocity = direction * speed
+		velocity = direction * body.speed
 	else:
 		velocity = Vector2.ZERO
 	move_and_slide()
@@ -103,7 +111,9 @@ func swap_weapon():
 	else: change_gun(1)
 
 func _on_timer_reload_timeout():
+	current_ammo -= max_clip-clip
 	clip = max_clip
+	set_ammo_ui.emit(current_ammo)
 	update_magazine_label()
 
 func update_magazine_label():
