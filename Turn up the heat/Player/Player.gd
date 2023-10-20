@@ -8,7 +8,8 @@ extends CharacterBody2D
 @onready var marker_2d = $Gun/Marker2D
 
 signal change_offset(x)
-signal set_ammo_ui(ammo_spent)
+signal set_ammo_ui(ammo)
+signal set_max_ammo_ui(max_ammo)
 
 @export var weapons: Array[GunData]
 @export var body: BodyData
@@ -31,6 +32,7 @@ func _ready():
 	second_weapon_clip = weapons[1].clip
 	current_armor = body.armor_platings
 	max_ammo = body.max_ammo
+	set_max_ammo_ui.emit(max_ammo)
 	current_ammo = max_ammo
 	$"../CanvasLayer/UI/Health".setArmor(current_armor)
 	update_magazine_label()
@@ -111,13 +113,27 @@ func swap_weapon():
 	else: change_gun(1)
 
 func _on_timer_reload_timeout():
-	current_ammo -= max_clip-clip
-	clip = max_clip
-	set_ammo_ui.emit(current_ammo)
+	if not is_melee:
+		if current_ammo>max_clip:
+			current_ammo -= max_clip-clip
+			clip = max_clip
+		elif current_ammo>0:
+			clip = current_ammo
+			current_ammo = 0
+		else:
+			pass
+		set_ammo_ui.emit(current_ammo)
+	else:
+		clip = max_clip
 	update_magazine_label()
 
 func update_magazine_label():
 	label.text = str(clip)+"/"+str(max_clip)
 
 func reload():
-	timer_reload.start()
+	if timer_reload.is_stopped():
+		if not is_melee:
+			if current_ammo>0:
+				timer_reload.start()
+		else:
+			timer_reload.start()

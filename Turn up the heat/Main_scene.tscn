@@ -253,3 +253,6 @@ transform = Transform2D(10, 0, 0, 10, 0, 0)
 
 [node name="UI" parent="CanvasLayer" instance=ExtResource("5_ggsaw")]
 scale = Vector2(0.3, 0.3)
+
+[connection signal="set_ammo_ui" from="Player" to="CanvasLayer/UI" method="_on_player_set_ammo_ui"]
+[connection signal="set_max_ammo_ui" from="Player" to="CanvasLayer/UI" method="_on_player_set_max_ammo_ui"]
