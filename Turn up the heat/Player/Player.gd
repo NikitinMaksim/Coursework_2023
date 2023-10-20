@@ -61,7 +61,7 @@ func _physics_process(_delta):
 				reload()
 	if (Input.is_action_just_pressed("swap_weapon")):
 		swap_weapon()
-	if (Input.is_action_just_pressed("reload")):
+	if (Input.is_action_just_pressed("reload") and clip<max_clip):
 		reload()
 	
 func update_animation_parameters():
