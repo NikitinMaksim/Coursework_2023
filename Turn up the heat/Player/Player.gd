@@ -10,6 +10,8 @@ extends CharacterBody2D
 signal change_offset(x)
 signal set_ammo_ui(ammo)
 signal set_max_ammo_ui(max_ammo)
+signal set_fuel_ui(fuel)
+signal set_max_fuel_ui(max_fuel)
 
 @export var weapons: Array[GunData]
 @export var body: BodyData
@@ -23,6 +25,8 @@ var is_melee: bool = false
 var current_armor: int = 1
 var current_ammo: int = 1
 var max_ammo: int = 1
+var current_fuel: float = 1
+var max_fuel: int = 150
 
 func _ready():
 	anitree.active = true
@@ -34,6 +38,9 @@ func _ready():
 	max_ammo = body.max_ammo
 	set_max_ammo_ui.emit(max_ammo)
 	current_ammo = max_ammo
+	max_fuel = body.max_fuel
+	set_max_fuel_ui.emit(max_fuel)
+	current_fuel = max_fuel
 	$"../CanvasLayer/UI/Health".setArmor(current_armor)
 	update_magazine_label()
 
@@ -120,11 +127,16 @@ func _on_timer_reload_timeout():
 		elif current_ammo>0:
 			clip = current_ammo
 			current_ammo = 0
-		else:
-			pass
 		set_ammo_ui.emit(current_ammo)
 	else:
+		if current_fuel>max_clip:
+			current_fuel -= max_clip-clip
+			clip = max_clip
+		elif current_fuel>0:
+			clip = current_fuel
+			current_fuel = 0
 		clip = max_clip
+		set_fuel_ui.emit(current_fuel)
 	update_magazine_label()
 
 func update_magazine_label():
@@ -137,3 +149,7 @@ func reload():
 				timer_reload.start()
 		else:
 			timer_reload.start()
+
+func _on_timer_fuel_timeout():
+	current_fuel -= body.fuel_usage_every_sec
+	set_fuel_ui.emit(current_fuel)

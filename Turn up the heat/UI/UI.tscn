@@ -1,14 +1,17 @@
-[gd_scene load_steps=7 format=3 uid="uid://cempmouod714f"]
+[gd_scene load_steps=10 format=3 uid="uid://cempmouod714f"]
 
 [ext_resource type="Script" path="res://UI/UI.gd" id="1_3nnyk"]
 [ext_resource type="Script" path="res://UI/Health.gd" id="1_ae6d6"]
 [ext_resource type="Texture2D" uid="uid://bsaatxn0om6xf" path="res://UI/ProgressBarUnder.png" id="3_5vepw"]
 [ext_resource type="Texture2D" uid="uid://c1ewdfvcfhcsi" path="res://UI/ProgressBarProgress.png" id="4_suroe"]
-[ext_resource type="FontFile" uid="uid://bfqjdaot25jm4" path="res://PixeloidSans-mLxMm.ttf" id="4_yjd5j"]
+[ext_resource type="FontFile" uid="uid://bfqjdaot25jm4" path="res://UI/PixeloidSans-mLxMm.ttf" id="5_rmt8w"]
+[ext_resource type="Texture2D" uid="uid://djgv2uxtsj848" path="res://UI/ProgressBarsTextures/FuelProgressBarUnder.png" id="6_orq0l"]
+[ext_resource type="Texture2D" uid="uid://cu2xbem1ag7xt" path="res://UI/ProgressBarsTextures/FuelProgressBarOver.png" id="7_8nmol"]
+[ext_resource type="Texture2D" uid="uid://vum47vsb0dtf" path="res://UI/ProgressBarsTextures/FuelProgressBarProgress.png" id="8_otyxi"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_5leu6"]
 line_spacing = 0.0
-font = ExtResource("4_yjd5j")
+font = ExtResource("5_rmt8w")
 font_size = 9
 
 [node name="UI" type="VBoxContainer"]
@@ -20,8 +23,11 @@ alignment = 1
 script = ExtResource("1_3nnyk")
 
 [node name="Health" type="HBoxContainer" parent="."]
-custom_minimum_size = Vector2(16, 16)
+custom_minimum_size = Vector2(30, 20)
+layout_direction = 2
 layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 6
 script = ExtResource("1_ae6d6")
 
 [node name="Ammo" type="HBoxContainer" parent="."]
@@ -29,14 +35,14 @@ layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="Ammo"]
+[node name="AmmoBar" type="TextureProgressBar" parent="Ammo"]
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
 texture_under = ExtResource("3_5vepw")
 texture_progress = ExtResource("4_suroe")
 
-[node name="Label" type="Label" parent="Ammo"]
+[node name="AmmoLabel" type="Label" parent="Ammo"]
 y_sort_enabled = true
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
@@ -48,3 +54,20 @@ vertical_alignment = 1
 [node name="Fuel" type="HBoxContainer" parent="."]
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
+
+[node name="FuelBar" type="TextureProgressBar" parent="Fuel"]
+layout_mode = 2
+value = 100.0
+allow_greater = true
+texture_under = ExtResource("6_orq0l")
+texture_over = ExtResource("7_8nmol")
+texture_progress = ExtResource("8_otyxi")
+
+[node name="FuelLabel" type="Label" parent="Fuel"]
+y_sort_enabled = true
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "200/200"
+label_settings = SubResource("LabelSettings_5leu6")
+vertical_alignment = 1

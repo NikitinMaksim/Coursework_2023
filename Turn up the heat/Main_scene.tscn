@@ -255,4 +255,6 @@ transform = Transform2D(10, 0, 0, 10, 0, 0)
 scale = Vector2(0.3, 0.3)
 
 [connection signal="set_ammo_ui" from="Player" to="CanvasLayer/UI" method="_on_player_set_ammo_ui"]
+[connection signal="set_fuel_ui" from="Player" to="CanvasLayer/UI" method="_on_player_set_fuel_ui"]
 [connection signal="set_max_ammo_ui" from="Player" to="CanvasLayer/UI" method="_on_player_set_max_ammo_ui"]
+[connection signal="set_max_fuel_ui" from="Player" to="CanvasLayer/UI" method="_on_player_set_max_fuel_ui"]

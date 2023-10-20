@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://v7iy0etlfafx" path="res://Temp_images/Gun.png" id="5_lbhw0"]
 [ext_resource type="Script" path="res://Player/Muzzle.gd" id="7_6pfxh"]
 [ext_resource type="Script" path="res://Player/ReloadProgressBar.gd" id="7_45pkp"]
-[ext_resource type="FontFile" uid="uid://bfqjdaot25jm4" path="res://PixeloidSans-mLxMm.ttf" id="8_5akf1"]
+[ext_resource type="FontFile" uid="uid://bfqjdaot25jm4" path="res://UI/PixeloidSans-mLxMm.ttf" id="8_tuy74"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_17h1f"]
 size = Vector2(14, 22)
@@ -222,7 +222,7 @@ transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition
 
 [sub_resource type="LabelSettings" id="LabelSettings_7upxg"]
 line_spacing = 0.0
-font = ExtResource("8_5akf1")
+font = ExtResource("8_tuy74")
 font_size = 18
 
 [node name="Player" type="CharacterBody2D"]
@@ -271,6 +271,9 @@ one_shot = true
 [node name="Timer_reload" type="Timer" parent="."]
 one_shot = true
 
+[node name="Timer_fuel" type="Timer" parent="."]
+autostart = true
+
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 9
@@ -296,9 +299,10 @@ offset_left = -55.0
 offset_top = -99.0
 offset_right = 57.0
 offset_bottom = -72.0
-theme_override_fonts/font = ExtResource("8_5akf1")
+theme_override_fonts/font = ExtResource("8_tuy74")
 theme_override_font_sizes/font_size = 27
 script = ExtResource("7_45pkp")
 
 [connection signal="change_offset" from="." to="Gun/Marker2D" method="_on_player_change_offset"]
 [connection signal="timeout" from="Timer_reload" to="." method="_on_timer_reload_timeout"]
+[connection signal="timeout" from="Timer_fuel" to="." method="_on_timer_fuel_timeout"]
