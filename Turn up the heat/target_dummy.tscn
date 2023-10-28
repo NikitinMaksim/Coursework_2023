@@ -4,8 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://dup4aygtorqy0" path="res://Component/health_component.tscn" id="2_452nx"]
 [ext_resource type="PackedScene" uid="uid://bgx54257k05ql" path="res://Component/hitbox_component.tscn" id="3_skegk"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_up6u3"]
-size = Vector2(27.25, 30)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k4t7s"]
+radius = 11.0
+height = 31.0
 
 [node name="Target_dummy" type="Node2D" groups=["enemy"]]
 scale = Vector2(4, 4)
@@ -23,5 +24,5 @@ collision_mask = 3
 health_component = NodePath("../HealthComponent")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
-position = Vector2(0.625, 1)
-shape = SubResource("RectangleShape2D_up6u3")
+position = Vector2(0.5, 1)
+shape = SubResource("CapsuleShape2D_k4t7s")

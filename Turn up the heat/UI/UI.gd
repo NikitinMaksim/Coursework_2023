@@ -15,6 +15,8 @@ func _on_player_set_max_ammo_ui(max_ammo):
 func _on_player_set_fuel_ui(fuel):
 	$Fuel/FuelLabel.text = str(fuel)+"/"+str(max_fuel_internal)
 	$Fuel/FuelBar.value = fuel
+	if fuel>max_fuel_internal:
+		$Fuel/FuelLabel.add_theme_color_override("font_color",Color("#d40000"))
 
 func _on_player_set_max_fuel_ui(max_fuel):
 	max_fuel_internal = max_fuel

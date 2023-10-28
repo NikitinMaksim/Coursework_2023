@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://c6gvx3h1wsmxr"]
+[gd_scene load_steps=9 format=3 uid="uid://c6gvx3h1wsmxr"]
 
 [ext_resource type="PackedScene" uid="uid://cm1kk7fl1jtqd" path="res://Player/Player.tscn" id="1_4lbih"]
 [ext_resource type="Texture2D" uid="uid://byat7of71781d" path="res://Temp_images/Temp_tilemap.png" id="2_e342k"]
 [ext_resource type="Resource" uid="uid://ndvyfpcxgqp6" path="res://Resources/Bodys/Standart_body.tres" id="2_tntu8"]
 [ext_resource type="PackedScene" uid="uid://tkfoeiya5d55" path="res://target_dummy.tscn" id="3_jq3h0"]
 [ext_resource type="PackedScene" uid="uid://cempmouod714f" path="res://UI/UI.tscn" id="5_ggsaw"]
+[ext_resource type="PackedScene" uid="uid://db1c23t45ms3n" path="res://dispenser.tscn" id="6_4s0ap"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kc1pk"]
 texture = ExtResource("2_e342k")
@@ -253,6 +254,12 @@ transform = Transform2D(10, 0, 0, 10, 0, 0)
 
 [node name="UI" parent="CanvasLayer" instance=ExtResource("5_ggsaw")]
 scale = Vector2(0.3, 0.3)
+
+[node name="Dispenser" parent="." instance=ExtResource("6_4s0ap")]
+position = Vector2(-588, -74)
+
+[node name="Target_dummy7" parent="." instance=ExtResource("3_jq3h0")]
+position = Vector2(-97, -402)
 
 [connection signal="set_ammo_ui" from="Player" to="CanvasLayer/UI" method="_on_player_set_ammo_ui"]
 [connection signal="set_fuel_ui" from="Player" to="CanvasLayer/UI" method="_on_player_set_fuel_ui"]

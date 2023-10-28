@@ -10,8 +10,9 @@
 [ext_resource type="Script" path="res://Player/ReloadProgressBar.gd" id="7_45pkp"]
 [ext_resource type="FontFile" uid="uid://bfqjdaot25jm4" path="res://UI/PixeloidSans-mLxMm.ttf" id="8_tuy74"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_17h1f"]
-size = Vector2(14, 22)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_h081t"]
+radius = 7.4
+height = 22.0
 
 [sub_resource type="Animation" id="Animation_4r0j1"]
 resource_name = "Move_down"
@@ -225,14 +226,15 @@ line_spacing = 0.0
 font = ExtResource("8_tuy74")
 font_size = 18
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["player"]]
 scale = Vector2(5, 5)
+collision_mask = 6
 script = ExtResource("1_8kf3r")
 weapons = Array[Resource("res://Resources/Guns/Gun_data.gd")]([ExtResource("2_6ecqg"), ExtResource("3_jyuny")])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(3.8147e-07, 4.8)
-shape = SubResource("RectangleShape2D_17h1f")
+shape = SubResource("CapsuleShape2D_h081t")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_ngyrq")

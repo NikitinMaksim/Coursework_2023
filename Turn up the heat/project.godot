@@ -14,6 +14,10 @@ config/name="Turn up the heat"
 run/main_scene="res://Main_scene.tscn"
 config/features=PackedStringArray("4.0", "GL Compatibility")
 
+[autoload]
+
+SignalBus="*res://Signal_bus.gd"
+
 [input]
 
 move_left={
@@ -60,6 +64,7 @@ reload={
 
 2d_physics/layer_1="Player"
 2d_physics/layer_2="Enemy"
+2d_physics/layer_3="Utility"
 
 [rendering]
 

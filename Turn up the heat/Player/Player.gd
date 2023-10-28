@@ -27,6 +27,8 @@ var current_ammo: int = 1
 var max_ammo: int = 1
 var current_fuel: float = 1
 var max_fuel: int = 150
+var fuel_attack_speed_modifier: float = 1
+var fuel_move_speed_modifier: float = 1
 
 func _ready():
 	anitree.active = true
@@ -43,6 +45,10 @@ func _ready():
 	current_fuel = max_fuel
 	$"../CanvasLayer/UI/Health".setArmor(current_armor)
 	update_magazine_label()
+	
+	SignalBus.fill_ammo.connect(Callable(_fill_ammo.bind()))
+	SignalBus.fill_fuel.connect(Callable(_fill_fuel.bind()))
+	SignalBus.repair_armor.connect(Callable(_repair_armor.bind()))
 
 func _process(_delta):
 	update_animation_parameters()
@@ -50,7 +56,7 @@ func _process(_delta):
 func _physics_process(_delta):
 	direction = Input.get_vector("move_left","move_right","move_up","move_down").normalized()
 	if direction:
-		velocity = direction * body.speed
+		velocity = direction * (body.speed*fuel_move_speed_modifier)
 	else:
 		velocity = Vector2.ZERO
 	move_and_slide()
@@ -63,7 +69,7 @@ func _physics_process(_delta):
 		swap_weapon()
 	if (Input.is_action_just_pressed("reload") and clip<max_clip):
 		reload()
-	
+
 func update_animation_parameters():
 	if (direction == Vector2.ZERO):
 		anitree["parameters/conditions/is_idle"] = true
@@ -98,7 +104,7 @@ func shoot():
 	update_magazine_label()
 	if clip<=0:
 		reload()
-	
+
 func change_gun(choosen_gun: int):
 	var weapon = weapons[choosen_gun]
 	var store: int
@@ -113,7 +119,7 @@ func change_gun(choosen_gun: int):
 	timer_reload.wait_time = weapon.reload_time
 	current_gun = choosen_gun
 	update_magazine_label()
-	
+
 func swap_weapon():
 	timer_reload.stop()
 	if current_gun == 1: change_gun(0)
@@ -125,8 +131,12 @@ func _on_timer_reload_timeout():
 			current_ammo -= max_clip-clip
 			clip = max_clip
 		elif current_ammo>0:
-			clip = current_ammo
-			current_ammo = 0
+			if current_ammo>(max_clip-clip):
+				current_ammo -= (max_clip-clip)
+				clip = max_clip
+			else:
+				clip += current_ammo
+				current_ammo = 0
 		set_ammo_ui.emit(current_ammo)
 	else:
 		if current_fuel>max_clip:
@@ -151,5 +161,50 @@ func reload():
 			timer_reload.start()
 
 func _on_timer_fuel_timeout():
-	current_fuel -= body.fuel_usage_every_sec
+	if current_fuel>0:
+		if current_fuel>=max_fuel:
+			$Timer_fuel.wait_time=0.3
+			fuel_attack_speed_modifier = 1+((current_fuel/max_fuel)-1)*0.3
+			fuel_move_speed_modifier = 1+((current_fuel/max_fuel)-1)*0.5
+		else:
+			$Timer_fuel.wait_time=1
+			fuel_attack_speed_modifier = 1-((1-(current_fuel/max_fuel))*0.3)
+			fuel_move_speed_modifier = 1-((1-(current_fuel/max_fuel))*0.8)
+		current_fuel -= body.fuel_usage_every_sec
+		current_fuel=clamp(current_fuel,0,max_fuel*2)
+	else:
+		fuel_attack_speed_modifier = 1
+		fuel_move_speed_modifier = 1
+		if current_ammo>0:
+			current_ammo -= max_ammo/20
+			current_ammo = clamp(current_ammo,0,max_ammo)
+			set_ammo_ui.emit(current_ammo)
+		else:
+			hurt(1)
 	set_fuel_ui.emit(current_fuel)
+	$Timer_between_shots.wait_time=1/(weapons[current_gun].bullets_per_second*fuel_attack_speed_modifier)
+
+func _fill_ammo(amount):
+	current_ammo+=amount
+	current_ammo=clamp(current_ammo,0,max_ammo)
+	set_ammo_ui.emit(current_ammo)
+
+func _fill_fuel(amount):
+	current_fuel+=amount
+	current_fuel=clamp(current_fuel,0,max_fuel*2)
+	set_fuel_ui.emit(current_fuel)
+	if current_fuel>max_fuel:
+		$Timer_fuel.wait_time=0.3
+	else:
+		$Timer_fuel.wait_time=1
+
+func _repair_armor(amount):
+	current_armor+=amount
+	$"../CanvasLayer/UI/Health".setArmor(current_armor)
+
+func hurt(damage):
+	if current_armor>0:
+		current_armor -= damage
+		$"../CanvasLayer/UI/Health".setArmor(current_armor)
+	else:
+		print("Game over")

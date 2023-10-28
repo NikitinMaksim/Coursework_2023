@@ -22,7 +22,23 @@ func _process(delta):
 	if (remaining_distance<0): 
 		queue_free()
 
-func _on_area_2d_area_entered(area):
+func bounce_to_closest(area: CharacterBody2D):
+	var distance_to_closest: float = 0
+	var closest
+	var all_enemy = $Bounce_check.get_overlapping_bodies()
+	all_enemy.erase(area)
+	for enemy in all_enemy:
+		var distance = position.distance_to(enemy.position)
+		if distance_to_closest<distance: 
+			distance_to_closest = distance
+			closest = enemy
+	if all_enemy:
+		look_at(closest.get_parent().position)
+	else:
+		rotation_degrees = randi_range(0,360)
+
+
+func _on_area_2d_body_entered(area):
 	if area is HitboxComponent:
 		area.damage(attack)
 		current_pierce -= 1
@@ -32,15 +48,3 @@ func _on_area_2d_area_entered(area):
 			else:
 				bounce_to_closest(area)
 				current_bounces-=1
-
-func bounce_to_closest(area: Area2D):
-	var distance_to_closest: float = 0
-	var closest
-	var all_enemy = $Bounce_check.get_overlapping_areas()
-	all_enemy.erase(area)
-	for enemy in all_enemy:
-		var distance = position.distance_to(enemy.position)
-		if distance_to_closest<distance and distance_to_closest>=0: 
-			distance_to_closest = distance
-			closest = enemy
-	look_at(closest.get_parent().position)

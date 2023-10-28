@@ -9,5 +9,5 @@ armor_platings = 3
 speed = 300.0
 max_ammo = 300
 max_fuel = 150
-fuel_usage_every_sec = 1.0
+fuel_usage_every_sec = 15.0
 sprite_sheet = ExtResource("2_2p6r7")
