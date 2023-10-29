@@ -16,7 +16,13 @@ func _on_player_set_fuel_ui(fuel):
 	$Fuel/FuelLabel.text = str(fuel)+"/"+str(max_fuel_internal)
 	$Fuel/FuelBar.value = fuel
 	if fuel>max_fuel_internal:
-		$Fuel/FuelLabel.add_theme_color_override("font_color",Color("#d40000"))
+		$Fuel/FuelLabel.label_settings.set_font_color("#ff4f3e")
+	else:
+		$Fuel/FuelLabel.label_settings.set_font_color("#ffffff")
+	if fuel==0:
+		$Ammo/AmmoLabel.label_settings.set_font_color("#ff4f3e")
+	else:
+		$Ammo/AmmoLabel.label_settings.set_font_color("#ffffff")
 
 func _on_player_set_max_fuel_ui(max_fuel):
 	max_fuel_internal = max_fuel

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cempmouod714f"]
+[gd_scene load_steps=11 format=3 uid="uid://cempmouod714f"]
 
 [ext_resource type="Script" path="res://UI/UI.gd" id="1_3nnyk"]
 [ext_resource type="Script" path="res://UI/Health.gd" id="1_ae6d6"]
@@ -11,6 +11,10 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_5leu6"]
 line_spacing = 0.0
+font = ExtResource("5_rmt8w")
+font_size = 9
+
+[sub_resource type="LabelSettings" id="LabelSettings_n6sjw"]
 font = ExtResource("5_rmt8w")
 font_size = 9
 
@@ -69,5 +73,5 @@ custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
 size_flags_horizontal = 3
 text = "200/200"
-label_settings = SubResource("LabelSettings_5leu6")
+label_settings = SubResource("LabelSettings_n6sjw")
 vertical_alignment = 1
