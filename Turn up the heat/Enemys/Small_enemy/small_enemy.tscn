@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://yvjyxubd784a"]
+
+[ext_resource type="Script" path="res://Enemys/Small_enemy/SmallEnemy.gd" id="1_gwqom"]
+[ext_resource type="Texture2D" uid="uid://cylk0gf0n1nf8" path="res://Enemys/Small_enemy/Small_blob.png" id="2_wa31q"]
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_piw5p"]
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_p4lbv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v167g"]
+size = Vector2(13, 10)
+
+[node name="SmallEnemy" type="CharacterBody2D"]
+script = ExtResource("1_gwqom")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_wa31q")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_piw5p")
+anim_player = NodePath("../AnimationPlayer")
+parameters/playback = SubResource("AnimationNodeStateMachinePlayback_p4lbv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 1)
+shape = SubResource("RectangleShape2D_v167g")
