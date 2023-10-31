@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://cm1kk7fl1jtqd"]
+[gd_scene load_steps=37 format=3 uid="uid://cm1kk7fl1jtqd"]
 
 [ext_resource type="Script" path="res://Player/Player.gd" id="1_8kf3r"]
 [ext_resource type="Resource" uid="uid://cgg7wit8qtreu" path="res://Resources/Guns/Machine_gun.tres" id="2_6ecqg"]
@@ -10,9 +10,8 @@
 [ext_resource type="Script" path="res://Player/ReloadProgressBar.gd" id="7_45pkp"]
 [ext_resource type="FontFile" uid="uid://bfqjdaot25jm4" path="res://UI/PixeloidSans-mLxMm.ttf" id="8_tuy74"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_h081t"]
-radius = 7.4
-height = 22.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3pqqf"]
+size = Vector2(13.4, 21.6)
 
 [sub_resource type="Animation" id="Animation_4r0j1"]
 resource_name = "Move_down"
@@ -226,15 +225,19 @@ line_spacing = 0.0
 font = ExtResource("8_tuy74")
 font_size = 18
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_oqal6"]
+radius = 50.0576
+
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 scale = Vector2(5, 5)
-collision_mask = 6
+collision_mask = 15
 script = ExtResource("1_8kf3r")
 weapons = Array[Resource("res://Resources/Guns/Gun_data.gd")]([ExtResource("2_6ecqg"), ExtResource("3_jyuny")])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(3.8147e-07, 4.8)
-shape = SubResource("CapsuleShape2D_h081t")
+position = Vector2(0.1, 5)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_3pqqf")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_ngyrq")
@@ -304,6 +307,15 @@ offset_bottom = -72.0
 theme_override_fonts/font = ExtResource("8_tuy74")
 theme_override_font_sizes/font_size = 27
 script = ExtResource("7_45pkp")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 5.6)
+scale = Vector2(1, 1)
+shape = SubResource("CircleShape2D_oqal6")
 
 [connection signal="change_offset" from="." to="Gun/Marker2D" method="_on_player_change_offset"]
 [connection signal="timeout" from="Timer_reload" to="." method="_on_timer_reload_timeout"]

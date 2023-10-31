@@ -3,8 +3,12 @@ extends CharacterBody2D
 @onready var friend_zone = $FriendZone
 @onready var friend_finder = $FriendFinder
 @onready var too_close = $TooClose
+@onready var player = get_node("../Player")
 
 @export var stats: EnemyData
+@export var is_knocked_back: bool = false
+
+signal knockback()
 
 func _ready():
 	$HealthComponent.max_health = stats.health
@@ -17,24 +21,39 @@ func _physics_process(delta):
 	friends_nearby.erase($HitboxComponent)
 	var close = too_close.get_overlapping_bodies()
 	close.erase($HitboxComponent)
-	var target
+	close.erase(get_node("../Player"))
 	var direction
-	var closest_friend
-	var distance_to_closest: float = 99999999999999999
 	if (close):
-		var vectorAway: Vector2
+		var vectorAway: Vector2 = global_position.direction_to(player.global_position)
 		for friend in close:
-			vectorAway -= global_position.direction_to(friend.global_position).normalized()
+			vectorAway -= global_position.direction_to(friend.global_position)
 		direction =  vectorAway.normalized()
 	elif (friends_nearby) and (friends.size()==0):
+		var futhest_friend
+		var distance_to_furthest: float = 0
 		for friend in friends_nearby:
 			var distance = global_position.distance_to(friend.global_position)
-			if distance_to_closest>distance:
-				distance_to_closest = distance
-				closest_friend = friend
-		target = closest_friend
-		direction = global_position.direction_to(target.global_position).normalized()
+			if distance_to_furthest<distance:
+				distance_to_furthest = distance
+				futhest_friend = friend
+		direction = global_position.direction_to(futhest_friend.global_position).normalized()
 	else:
-		target = get_node("../Player")
-		direction =  global_position.direction_to(target.global_position).normalized()
+		var vector: Vector2
+		if friends_nearby.size()>0:
+			for friend in friends_nearby:
+				vector += global_position.direction_to(friend.global_position).normalized()
+		direction =  global_position.direction_to(player.global_position-vector.normalized()).normalized()
+	if is_knocked_back:
+		if $KnockBack.is_stopped():
+			$KnockBack.start()
+		direction =  global_position.direction_to(player.global_position).normalized() * -6
 	move_and_collide(direction*stats.speed*delta)
+
+func collision(body):
+	if body.is_in_group("player"):
+		$KnockBack.start()
+		is_knocked_back = true
+		SignalBus.player_hurt.emit(stats.damage)
+
+func _on_knock_back_timeout():
+	is_knocked_back = false

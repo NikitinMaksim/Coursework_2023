@@ -11,8 +11,8 @@
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_p4lbv"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_blbxx"]
-radius = 8.6
-height = 23.6
+radius = 5.8
+height = 17.6
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_c0mor"]
 radius = 23.0139
@@ -27,6 +27,7 @@ size = Vector2(13, 10)
 scale = Vector2(5, 5)
 collision_layer = 10
 collision_mask = 11
+safe_margin = 0.15
 script = ExtResource("1_gwqom")
 stats = ExtResource("2_pqto6")
 
@@ -44,7 +45,7 @@ parameters/playback = SubResource("AnimationNodeStateMachinePlayback_p4lbv")
 [node name="TooClose" type="Area2D" parent="."]
 scale = Vector2(1, 1)
 collision_layer = 0
-collision_mask = 8
+collision_mask = 9
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TooClose"]
@@ -72,8 +73,20 @@ shape = SubResource("CircleShape2D_egiio")
 [node name="HitboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("5_da2e5")]
 collision_layer = 10
 collision_mask = 11
+floor_stop_on_slope = false
+floor_block_on_wall = false
+platform_on_leave = 2
+platform_floor_layers = 4294967040
+safe_margin = 1.0
 health_component = NodePath("../HealthComponent")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
 scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_v167g")
+
+[node name="KnockBack" type="Timer" parent="."]
+wait_time = 0.25
+one_shot = true
+
+[connection signal="body_entered" from="TooClose" to="." method="collision"]
+[connection signal="timeout" from="KnockBack" to="." method="_on_knock_back_timeout"]

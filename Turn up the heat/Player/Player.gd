@@ -49,6 +49,7 @@ func _ready():
 	SignalBus.fill_ammo.connect(Callable(_fill_ammo.bind()))
 	SignalBus.fill_fuel.connect(Callable(_fill_fuel.bind()))
 	SignalBus.repair_armor.connect(Callable(_repair_armor.bind()))
+	SignalBus.player_hurt.connect(Callable(hurt.bind()))
 
 func _process(_delta):
 	update_animation_parameters()
@@ -203,6 +204,9 @@ func _repair_armor(amount):
 	$"../CanvasLayer/UI/Health".setArmor(current_armor)
 
 func hurt(damage):
+	var enemys = $Area2D.get_overlapping_bodies()
+	for enemy in enemys:
+		enemy.get_owner().is_knocked_back = true
 	if current_armor>0:
 		current_armor -= damage
 		$"../CanvasLayer/UI/Health".setArmor(current_armor)
