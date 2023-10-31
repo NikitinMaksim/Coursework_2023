@@ -1,13 +1,9 @@
 extends Node2D
 class_name HealthComponent
 
-@export var Max_health : float = 10.0
-@export var text_spread:int = 15
-
-var health: float
-
-func _ready():
-	health = Max_health
+@export var max_health : float = 10.0
+@export var text_spread: int = 15
+@export var health: float
 
 func damage(attack: float):
 	var new_popup = preload("res://UI/damage_popup.tscn").instantiate()

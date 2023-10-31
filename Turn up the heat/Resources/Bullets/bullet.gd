@@ -23,13 +23,13 @@ func _process(delta):
 		queue_free()
 
 func bounce_to_closest(area: CharacterBody2D):
-	var distance_to_closest: float = 0
+	var distance_to_closest: float = 9999999999
 	var closest
 	var all_enemy = $Bounce_check.get_overlapping_bodies()
 	all_enemy.erase(area)
 	for enemy in all_enemy:
-		var distance = position.distance_to(enemy.position)
-		if distance_to_closest<distance: 
+		var distance = global_position.distance_to(enemy.global_position)
+		if distance_to_closest>distance: 
 			distance_to_closest = distance
 			closest = enemy
 	if all_enemy:

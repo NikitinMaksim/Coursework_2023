@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://c6gvx3h1wsmxr"]
+[gd_scene load_steps=10 format=3 uid="uid://c6gvx3h1wsmxr"]
 
 [ext_resource type="PackedScene" uid="uid://cm1kk7fl1jtqd" path="res://Player/Player.tscn" id="1_4lbih"]
 [ext_resource type="Texture2D" uid="uid://byat7of71781d" path="res://Temp_images/Temp_tilemap.png" id="2_e342k"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://tkfoeiya5d55" path="res://target_dummy.tscn" id="3_jq3h0"]
 [ext_resource type="PackedScene" uid="uid://cempmouod714f" path="res://UI/UI.tscn" id="5_ggsaw"]
 [ext_resource type="PackedScene" uid="uid://db1c23t45ms3n" path="res://dispenser.tscn" id="6_4s0ap"]
+[ext_resource type="PackedScene" uid="uid://yvjyxubd784a" path="res://Enemys/Small_enemy/small_enemy.tscn" id="7_5r02h"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kc1pk"]
 texture = ExtResource("2_e342k")
@@ -260,6 +261,12 @@ position = Vector2(-588, -74)
 
 [node name="Target_dummy7" parent="." instance=ExtResource("3_jq3h0")]
 position = Vector2(-97, -402)
+
+[node name="SmallEnemy" parent="." instance=ExtResource("7_5r02h")]
+position = Vector2(638, 369)
+
+[node name="SmallEnemy2" parent="." instance=ExtResource("7_5r02h")]
+position = Vector2(231, 553)
 
 [connection signal="set_ammo_ui" from="Player" to="CanvasLayer/UI" method="_on_player_set_ammo_ui"]
 [connection signal="set_fuel_ui" from="Player" to="CanvasLayer/UI" method="_on_player_set_fuel_ui"]

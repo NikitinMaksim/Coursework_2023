@@ -15,8 +15,9 @@ scale = Vector2(4, 4)
 texture = ExtResource("1_jv7jo")
 
 [node name="HealthComponent" parent="." instance=ExtResource("2_452nx")]
-Max_health = 1000.0
+max_health = 100000.0
 text_spread = 30
+health = 100000.0
 
 [node name="HitboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("3_skegk")]
 collision_layer = 3

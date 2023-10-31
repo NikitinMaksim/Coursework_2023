@@ -1,19 +1,37 @@
-[gd_scene load_steps=6 format=3 uid="uid://yvjyxubd784a"]
+[gd_scene load_steps=12 format=3 uid="uid://yvjyxubd784a"]
 
 [ext_resource type="Script" path="res://Enemys/Small_enemy/SmallEnemy.gd" id="1_gwqom"]
+[ext_resource type="Resource" uid="uid://bt767npbqh03" path="res://Enemys/Small_enemy/Small_enemy.tres" id="2_pqto6"]
 [ext_resource type="Texture2D" uid="uid://cylk0gf0n1nf8" path="res://Enemys/Small_enemy/Small_blob.png" id="2_wa31q"]
+[ext_resource type="PackedScene" uid="uid://dup4aygtorqy0" path="res://Component/health_component.tscn" id="4_wea4g"]
+[ext_resource type="PackedScene" uid="uid://bgx54257k05ql" path="res://Component/hitbox_component.tscn" id="5_da2e5"]
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_piw5p"]
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_p4lbv"]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_blbxx"]
+radius = 8.6
+height = 23.6
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_c0mor"]
+radius = 23.0139
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_egiio"]
+radius = 116.801
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v167g"]
 size = Vector2(13, 10)
 
-[node name="SmallEnemy" type="CharacterBody2D"]
+[node name="SmallEnemy" type="CharacterBody2D" groups=["enemy", "small_enemy"]]
+scale = Vector2(5, 5)
+collision_layer = 10
+collision_mask = 11
 script = ExtResource("1_gwqom")
+stats = ExtResource("2_pqto6")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-0.5, -1)
 texture = ExtResource("2_wa31q")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -23,6 +41,39 @@ tree_root = SubResource("AnimationNodeStateMachine_piw5p")
 anim_player = NodePath("../AnimationPlayer")
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_p4lbv")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, 1)
+[node name="TooClose" type="Area2D" parent="."]
+scale = Vector2(1, 1)
+collision_layer = 0
+collision_mask = 8
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TooClose"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_blbxx")
+
+[node name="FriendZone" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FriendZone"]
+shape = SubResource("CircleShape2D_c0mor")
+
+[node name="FriendFinder" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FriendFinder"]
+shape = SubResource("CircleShape2D_egiio")
+
+[node name="HealthComponent" parent="." instance=ExtResource("4_wea4g")]
+
+[node name="HitboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("5_da2e5")]
+collision_layer = 10
+collision_mask = 11
+health_component = NodePath("../HealthComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_v167g")
