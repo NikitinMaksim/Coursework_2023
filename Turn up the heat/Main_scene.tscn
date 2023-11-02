@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://c6gvx3h1wsmxr"]
+[gd_scene load_steps=11 format=3 uid="uid://c6gvx3h1wsmxr"]
 
 [ext_resource type="PackedScene" uid="uid://cm1kk7fl1jtqd" path="res://Player/Player.tscn" id="1_4lbih"]
 [ext_resource type="Texture2D" uid="uid://byat7of71781d" path="res://Temp_images/Temp_tilemap.png" id="2_e342k"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://db1c23t45ms3n" path="res://dispenser.tscn" id="6_4s0ap"]
 [ext_resource type="PackedScene" uid="uid://yvjyxubd784a" path="res://Enemys/Small_enemy/small_enemy.tscn" id="7_5r02h"]
 [ext_resource type="PackedScene" uid="uid://ddbesfpm1phiy" path="res://Enemys/Big_enemy/Big_enemy.tscn" id="7_xhm5h"]
+[ext_resource type="Script" path="res://Ai_director.gd" id="8_mgqav"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kc1pk"]
 texture = ExtResource("2_e342k")
@@ -262,7 +263,14 @@ position = Vector2(908, 270)
 [node name="Big_enemy2" parent="." instance=ExtResource("7_xhm5h")]
 position = Vector2(744, -168)
 
+[node name="Ai_director" type="Node" parent="."]
+script = ExtResource("8_mgqav")
+
+[node name="Points_timer" type="Timer" parent="Ai_director"]
+wait_time = 15.0
+
 [connection signal="set_ammo_ui" from="Player" to="CanvasLayer/UI" method="_on_player_set_ammo_ui"]
 [connection signal="set_fuel_ui" from="Player" to="CanvasLayer/UI" method="_on_player_set_fuel_ui"]
 [connection signal="set_max_ammo_ui" from="Player" to="CanvasLayer/UI" method="_on_player_set_max_ammo_ui"]
 [connection signal="set_max_fuel_ui" from="Player" to="CanvasLayer/UI" method="_on_player_set_max_fuel_ui"]
+[connection signal="timeout" from="Ai_director/Points_timer" to="Ai_director" method="_on_points_timer_timeout"]

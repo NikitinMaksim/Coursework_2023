@@ -83,6 +83,7 @@ func update_animation_parameters():
 
 func shoot():
 	var weapon = weapons[current_gun]
+	SignalBus.add_points.emit((weapon.damage+weapon.bullets_per_second)/100)
 	clip -= weapon.fire_cost
 	for x in weapon.projectiles_fired:
 		var projectile = weapons[current_gun].projectile.instantiate()
@@ -212,3 +213,7 @@ func hurt(damage):
 		$"../CanvasLayer/UI/Health".setArmor(current_armor)
 	else:
 		print("Game over")
+	if current_armor == 0:
+		SignalBus.add_points.emit(50)
+	else:
+		SignalBus.add_points.emit(damage*-50)
