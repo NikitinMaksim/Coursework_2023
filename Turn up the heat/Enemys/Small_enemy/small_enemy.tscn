@@ -43,9 +43,8 @@ anim_player = NodePath("../AnimationPlayer")
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_p4lbv")
 
 [node name="TooClose" type="Area2D" parent="."]
-scale = Vector2(1, 1)
 collision_layer = 0
-collision_mask = 9
+collision_mask = 11
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TooClose"]
@@ -54,7 +53,7 @@ shape = SubResource("CapsuleShape2D_blbxx")
 
 [node name="FriendZone" type="Area2D" parent="."]
 collision_layer = 0
-collision_mask = 8
+collision_mask = 10
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FriendZone"]
@@ -62,7 +61,7 @@ shape = SubResource("CircleShape2D_c0mor")
 
 [node name="FriendFinder" type="Area2D" parent="."]
 collision_layer = 0
-collision_mask = 8
+collision_mask = 10
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FriendFinder"]
@@ -81,7 +80,6 @@ safe_margin = 1.0
 health_component = NodePath("../HealthComponent")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_v167g")
 
 [node name="KnockBack" type="Timer" parent="."]

@@ -236,7 +236,6 @@ weapons = Array[Resource("res://Resources/Guns/Gun_data.gd")]([ExtResource("2_6e
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.1, 5)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_3pqqf")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -314,7 +313,6 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(0, 5.6)
-scale = Vector2(1, 1)
 shape = SubResource("CircleShape2D_oqal6")
 
 [connection signal="change_offset" from="." to="Gun/Marker2D" method="_on_player_change_offset"]

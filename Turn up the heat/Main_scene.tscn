@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://c6gvx3h1wsmxr"]
+[gd_scene load_steps=10 format=3 uid="uid://c6gvx3h1wsmxr"]
 
 [ext_resource type="PackedScene" uid="uid://cm1kk7fl1jtqd" path="res://Player/Player.tscn" id="1_4lbih"]
 [ext_resource type="Texture2D" uid="uid://byat7of71781d" path="res://Temp_images/Temp_tilemap.png" id="2_e342k"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cempmouod714f" path="res://UI/UI.tscn" id="5_ggsaw"]
 [ext_resource type="PackedScene" uid="uid://db1c23t45ms3n" path="res://dispenser.tscn" id="6_4s0ap"]
 [ext_resource type="PackedScene" uid="uid://yvjyxubd784a" path="res://Enemys/Small_enemy/small_enemy.tscn" id="7_5r02h"]
+[ext_resource type="PackedScene" uid="uid://ddbesfpm1phiy" path="res://Enemys/Big_enemy/Big_enemy.tscn" id="7_xhm5h"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kc1pk"]
 texture = ExtResource("2_e342k")
@@ -254,6 +255,12 @@ position = Vector2(-815, 281)
 
 [node name="SmallEnemy5" parent="." instance=ExtResource("7_5r02h")]
 position = Vector2(236, 648)
+
+[node name="Big_enemy" parent="." instance=ExtResource("7_xhm5h")]
+position = Vector2(908, 270)
+
+[node name="Big_enemy2" parent="." instance=ExtResource("7_xhm5h")]
+position = Vector2(744, -168)
 
 [connection signal="set_ammo_ui" from="Player" to="CanvasLayer/UI" method="_on_player_set_ammo_ui"]
 [connection signal="set_fuel_ui" from="Player" to="CanvasLayer/UI" method="_on_player_set_fuel_ui"]
