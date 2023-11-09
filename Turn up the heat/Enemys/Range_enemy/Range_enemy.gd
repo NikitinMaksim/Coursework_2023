@@ -3,6 +3,9 @@ extends CharacterBody2D
 @onready var friend_finder = $FriendFinder
 @onready var too_close = $TooClose
 @onready var player = get_node("../Player")
+@onready var shoot_cooldown = $ShootCooldown
+
+var projectile = preload("res://Enemys/Range_enemy/Ball.tscn")
 
 @export var stats: EnemyData
 @export var is_knocked_back: bool = false
@@ -14,28 +17,34 @@ func _ready():
 	$HealthComponent.health = stats.health
 
 func _physics_process(delta):
+	var stop: bool = false
 	var friends_nearby = friend_finder.get_overlapping_bodies()
 	friends_nearby.erase($HitboxComponent)
 	var close = too_close.get_overlapping_bodies()
 	close.erase($HitboxComponent)
 	close.erase(get_node("../Player"))
 	var direction
-	if (close):
-		var vectorAway: Vector2 = global_position.direction_to(player.global_position)
-		for friend in close:
-			vectorAway -= global_position.direction_to(friend.global_position)
-		direction =  vectorAway.normalized()
+	if (global_position.distance_to(player.global_position)<900):
+		if shoot_cooldown.is_stopped():
+			shoot_cooldown.start()
+			var ball = projectile.instantiate()
+			ball.damage = stats.damage
+			ball.rotation = get_angle_to(player.global_position)
+			ball.global_position = global_position
+			owner.add_child(ball)
+			stop=true
+		else:
+			direction = Vector2(0,0)
 	else:
-		var vector: Vector2
-		if friends_nearby.size()>0:
-			for friend in friends_nearby:
-				vector += global_position.direction_to(friend.global_position).normalized()
-		direction =  global_position.direction_to(player.global_position-vector.normalized()).normalized()
+		stop=false
+		direction =  global_position.direction_to(player.global_position).normalized()
 	if is_knocked_back:
+		stop = false
 		if $KnockBack.is_stopped():
 			$KnockBack.start()
 		direction =  global_position.direction_to(player.global_position).normalized() * -6
-	move_and_collide(direction*stats.speed*delta)
+	if !stop:
+		move_and_collide(direction*stats.speed*delta)
 
 func collision(body):
 	if body.is_in_group("player"):

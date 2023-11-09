@@ -11,11 +11,11 @@
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_p4lbv"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_blbxx"]
-radius = 5.8
-height = 17.6
+radius = 6.6
+height = 18.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_c0mor"]
-radius = 23.0139
+radius = 37.4342
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_egiio"]
 radius = 116.801
@@ -71,7 +71,7 @@ shape = SubResource("CircleShape2D_egiio")
 
 [node name="HitboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("5_da2e5")]
 collision_layer = 10
-collision_mask = 11
+collision_mask = 10
 floor_stop_on_slope = false
 floor_block_on_wall = false
 platform_on_leave = 2

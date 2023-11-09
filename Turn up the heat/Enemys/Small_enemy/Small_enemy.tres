@@ -4,6 +4,6 @@
 
 [resource]
 script = ExtResource("1_nmja3")
-health = 30
+health = 25
 speed = 150
 damage = 1

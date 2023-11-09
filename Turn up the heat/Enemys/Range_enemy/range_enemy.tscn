@@ -1,10 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://ddbesfpm1phiy"]
+[gd_scene load_steps=11 format=3 uid="uid://cm76hx66vx6w5"]
 
-[ext_resource type="Script" path="res://Enemys/Big_enemy/Big_enemy.gd" id="1_oymmj"]
-[ext_resource type="PackedScene" uid="uid://dup4aygtorqy0" path="res://Component/health_component.tscn" id="1_txy0j"]
-[ext_resource type="Texture2D" uid="uid://dedelhwe8miej" path="res://Enemys/Big_enemy/Big_enemy.png" id="2_1l6sk"]
-[ext_resource type="Resource" uid="uid://bbsck2n0r4mw2" path="res://Enemys/Big_enemy/Big_enemy.tres" id="2_kljau"]
-[ext_resource type="PackedScene" uid="uid://bgx54257k05ql" path="res://Component/hitbox_component.tscn" id="2_rwgbi"]
+[ext_resource type="Script" path="res://Enemys/Range_enemy/Range_enemy.gd" id="1_wwb7l"]
+[ext_resource type="Resource" uid="uid://g25pb0vb08sa" path="res://Enemys/Range_enemy/RangeEnemy.tres" id="2_1whsc"]
+[ext_resource type="Texture2D" uid="uid://bbah2iumyk4m" path="res://Enemys/Range_enemy/RangeEnemy.png" id="3_8fkjw"]
+[ext_resource type="PackedScene" uid="uid://dup4aygtorqy0" path="res://Component/health_component.tscn" id="4_je244"]
+[ext_resource type="PackedScene" uid="uid://bgx54257k05ql" path="res://Component/hitbox_component.tscn" id="5_rv3vw"]
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_vkpup"]
 
@@ -14,20 +14,20 @@
 radius = 15.6
 height = 31.2
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_8leg4"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_rarbl"]
 radius = 116.801
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2a56s"]
 size = Vector2(28, 28)
 
-[node name="Big_enemy" type="CharacterBody2D"]
+[node name="RangeEnemy" type="CharacterBody2D"]
 scale = Vector2(5, 5)
-script = ExtResource("1_oymmj")
-stats = ExtResource("2_kljau")
+script = ExtResource("1_wwb7l")
+stats = ExtResource("2_1whsc")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-1, 0)
-texture = ExtResource("2_1l6sk")
+texture = ExtResource("3_8fkjw")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
@@ -46,16 +46,17 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_mip06")
 
 [node name="FriendFinder" type="Area2D" parent="."]
+scale = Vector2(1, 1)
 collision_layer = 0
 collision_mask = 10
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FriendFinder"]
-shape = SubResource("CircleShape2D_8leg4")
+shape = SubResource("CircleShape2D_rarbl")
 
-[node name="HealthComponent" parent="." instance=ExtResource("1_txy0j")]
+[node name="HealthComponent" parent="." instance=ExtResource("4_je244")]
 
-[node name="HitboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("2_rwgbi")]
+[node name="HitboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("5_rv3vw")]
 collision_layer = 10
 collision_mask = 11
 floor_stop_on_slope = false
@@ -70,6 +71,10 @@ shape = SubResource("RectangleShape2D_2a56s")
 
 [node name="KnockBack" type="Timer" parent="."]
 wait_time = 0.25
+one_shot = true
+
+[node name="ShootCooldown" type="Timer" parent="."]
+wait_time = 2.0
 one_shot = true
 
 [connection signal="body_entered" from="TooClose" to="." method="collision"]
