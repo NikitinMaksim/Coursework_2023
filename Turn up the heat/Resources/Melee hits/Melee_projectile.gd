@@ -18,3 +18,4 @@ func _process(delta):
 func _on_area_2d_area_entered(area):
 	if area is HitboxComponent:
 		area.damage(attack)
+		SignalBus.melee_damage_dealt.emit(attack)

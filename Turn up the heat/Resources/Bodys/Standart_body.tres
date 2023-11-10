@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_gf0wl")
 armor_platings = 3
-speed = 300.0
+speed = 400.0
 max_ammo = 300
 max_fuel = 150
 fuel_usage_every_sec = 1.0

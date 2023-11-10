@@ -226,7 +226,7 @@ font = ExtResource("8_tuy74")
 font_size = 18
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_oqal6"]
-radius = 50.0576
+radius = 70.2026
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 scale = Vector2(5, 5)
@@ -309,11 +309,15 @@ script = ExtResource("7_45pkp")
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 0
-collision_mask = 0
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(0, 5.6)
 shape = SubResource("CircleShape2D_oqal6")
+
+[node name="I-Frames" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
 
 [connection signal="change_offset" from="." to="Gun/Marker2D" method="_on_player_change_offset"]
 [connection signal="timeout" from="Timer_reload" to="." method="_on_timer_reload_timeout"]

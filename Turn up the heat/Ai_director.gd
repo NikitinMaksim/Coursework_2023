@@ -7,11 +7,14 @@ var modifier:int=0
 var spawn_radius = Vector2(1000,0)
 
 var small_enemy = preload("res://Enemys/Small_enemy/small_enemy.tscn")
-var small_enemy_cost = 1
+var small_enemy_cost = 3
 var big_enemy = preload("res://Enemys/Big_enemy/Big_enemy.tscn")
 var big_enemy_cost = 1
 var range_enemy = preload("res://Enemys/Range_enemy/range_enemy.tscn")
 var range_enemy_cost = 1
+
+var amount_of_enemies_spawned_last_minute: int = 0
+var amount_of_enemies_killed_last_minute: int = 0
 
 @onready var player = $"../Player"
 

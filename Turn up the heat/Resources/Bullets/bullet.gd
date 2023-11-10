@@ -41,6 +41,7 @@ func bounce_to_closest(area: CharacterBody2D):
 func _on_area_2d_body_entered(area):
 	if area is HitboxComponent:
 		area.damage(attack)
+		SignalBus.range_damage_dealt.emit(attack)
 		current_pierce -= 1
 		if current_pierce<0:
 			if current_bounces<=0:

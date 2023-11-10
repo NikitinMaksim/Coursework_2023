@@ -207,13 +207,16 @@ func _repair_armor(amount):
 func hurt(damage):
 	var enemys = $Area2D.get_overlapping_bodies()
 	for enemy in enemys:
-		enemy.get_owner().is_knocked_back = true
-	if current_armor>0:
-		current_armor -= damage
-		$"../CanvasLayer/UI/Health".setArmor(current_armor)
-	else:
-		print("Game over")
-	if current_armor == 0:
-		SignalBus.add_points.emit(50)
-	else:
-		SignalBus.add_points.emit(damage*-50)
+		enemy.is_knocked_back = true
+	if $"I-Frames".is_stopped():
+		if current_armor>0:
+			current_armor -= damage
+			$"../CanvasLayer/UI/Health".setArmor(current_armor)
+		else:
+			print("Game over")
+		if current_armor == 0:
+			SignalBus.add_points.emit(50)
+		else:
+			SignalBus.add_points.emit(damage*-50)
+		$"I-Frames".start()
+
