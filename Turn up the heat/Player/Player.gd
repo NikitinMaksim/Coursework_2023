@@ -207,7 +207,7 @@ func _repair_armor(amount):
 func hurt(damage):
 	var enemys = $Area2D.get_overlapping_bodies()
 	for enemy in enemys:
-		enemy.is_knocked_back = true
+		enemy.owner.is_knocked_back = true
 	if $"I-Frames".is_stopped():
 		if current_armor>0:
 			current_armor -= damage
