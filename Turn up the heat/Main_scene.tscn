@@ -1,14 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://c6gvx3h1wsmxr"]
+[gd_scene load_steps=9 format=3 uid="uid://c6gvx3h1wsmxr"]
 
 [ext_resource type="PackedScene" uid="uid://cm1kk7fl1jtqd" path="res://Player/Player.tscn" id="1_4lbih"]
 [ext_resource type="Texture2D" uid="uid://byat7of71781d" path="res://Temp_images/Temp_tilemap.png" id="2_e342k"]
 [ext_resource type="Resource" uid="uid://ndvyfpcxgqp6" path="res://Resources/Bodys/Standart_body.tres" id="2_tntu8"]
 [ext_resource type="PackedScene" uid="uid://cempmouod714f" path="res://UI/UI.tscn" id="5_ggsaw"]
 [ext_resource type="PackedScene" uid="uid://db1c23t45ms3n" path="res://dispenser.tscn" id="6_4s0ap"]
-[ext_resource type="PackedScene" uid="uid://yvjyxubd784a" path="res://Enemys/Small_enemy/small_enemy.tscn" id="7_5r02h"]
-[ext_resource type="PackedScene" uid="uid://ddbesfpm1phiy" path="res://Enemys/Big_enemy/Big_enemy.tscn" id="7_xhm5h"]
 [ext_resource type="Script" path="res://Ai_director.gd" id="8_mgqav"]
-[ext_resource type="PackedScene" uid="uid://cm76hx66vx6w5" path="res://Enemys/Range_enemy/range_enemy.tscn" id="9_335hg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kc1pk"]
 texture = ExtResource("2_e342k")
@@ -241,37 +238,13 @@ transform = Transform2D(10, 0, 0, 10, 0, 0)
 scale = Vector2(0.3, 0.3)
 
 [node name="Dispenser" parent="." instance=ExtResource("6_4s0ap")]
-position = Vector2(-588, -74)
-
-[node name="SmallEnemy" parent="." instance=ExtResource("7_5r02h")]
-position = Vector2(551, 475)
-
-[node name="SmallEnemy2" parent="." instance=ExtResource("7_5r02h")]
-position = Vector2(-233, 637)
-
-[node name="SmallEnemy3" parent="." instance=ExtResource("7_5r02h")]
-position = Vector2(-739, 597)
-
-[node name="SmallEnemy4" parent="." instance=ExtResource("7_5r02h")]
-position = Vector2(-815, 281)
-
-[node name="SmallEnemy5" parent="." instance=ExtResource("7_5r02h")]
-position = Vector2(236, 648)
-
-[node name="Big_enemy" parent="." instance=ExtResource("7_xhm5h")]
-position = Vector2(908, 270)
-
-[node name="Big_enemy2" parent="." instance=ExtResource("7_xhm5h")]
-position = Vector2(744, -168)
+position = Vector2(-520, -64)
 
 [node name="Ai_director" type="Node" parent="."]
 script = ExtResource("8_mgqav")
 
 [node name="Points_timer" type="Timer" parent="Ai_director"]
 wait_time = 15.0
-
-[node name="Big_enemy3" parent="." instance=ExtResource("9_335hg")]
-position = Vector2(-393, -252)
 
 [connection signal="set_ammo_ui" from="Player" to="CanvasLayer/UI" method="_on_player_set_ammo_ui"]
 [connection signal="set_fuel_ui" from="Player" to="CanvasLayer/UI" method="_on_player_set_fuel_ui"]

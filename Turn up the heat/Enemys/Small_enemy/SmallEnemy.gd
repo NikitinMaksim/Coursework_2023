@@ -38,7 +38,7 @@ func _physics_process(delta):
 				futhest_friend = friend
 		direction = global_position.direction_to(futhest_friend.global_position).normalized()
 	else:
-		var vector: Vector2
+		var vector: Vector2 = Vector2(0,0)
 		if friends_nearby.size()>0:
 			for friend in friends_nearby:
 				vector += global_position.direction_to(friend.global_position).normalized()

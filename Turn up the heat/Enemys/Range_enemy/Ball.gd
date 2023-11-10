@@ -15,6 +15,6 @@ func _process(delta):
 	if (remaining_distance<0): 
 		queue_free()
 
-func _on_area_2d_body_entered(body):
+func _on_area_2d_body_entered(_body):
 	SignalBus.player_hurt.emit(damage)
 	queue_free()
