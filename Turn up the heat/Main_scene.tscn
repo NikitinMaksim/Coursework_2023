@@ -246,8 +246,11 @@ script = ExtResource("8_mgqav")
 [node name="Points_timer" type="Timer" parent="Ai_director"]
 wait_time = 15.0
 
+[node name="Spawn_timer" type="Timer" parent="Ai_director"]
+
 [connection signal="set_ammo_ui" from="Player" to="CanvasLayer/UI" method="_on_player_set_ammo_ui"]
 [connection signal="set_fuel_ui" from="Player" to="CanvasLayer/UI" method="_on_player_set_fuel_ui"]
 [connection signal="set_max_ammo_ui" from="Player" to="CanvasLayer/UI" method="_on_player_set_max_ammo_ui"]
 [connection signal="set_max_fuel_ui" from="Player" to="CanvasLayer/UI" method="_on_player_set_max_fuel_ui"]
 [connection signal="timeout" from="Ai_director/Points_timer" to="Ai_director" method="_on_points_timer_timeout"]
+[connection signal="timeout" from="Ai_director/Spawn_timer" to="Ai_director" method="spawn_enemies"]

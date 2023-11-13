@@ -23,10 +23,10 @@ var clip: int = 0
 var second_weapon_clip: int = 0
 var is_melee: bool = false
 var current_armor: int = 1
-var current_ammo: int = 1
-var max_ammo: int = 1
-var current_fuel: float = 1
-var max_fuel: int = 150
+@export var current_ammo: int = 1
+@export var max_ammo: int = 1
+@export var current_fuel: float = 1
+@export var max_fuel: int = 150
 var fuel_attack_speed_modifier: float = 1
 var fuel_move_speed_modifier: float = 1
 
