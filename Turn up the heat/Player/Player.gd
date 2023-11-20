@@ -83,7 +83,7 @@ func update_animation_parameters():
 
 func shoot():
 	var weapon = weapons[current_gun]
-	SignalBus.add_points.emit(round((weapon.damage+weapon.bullets_per_second)/100))
+	SignalBus.add_points.emit(round((weapon.damage+weapon.bullets_per_second)/10))
 	clip -= weapon.fire_cost
 	for x in weapon.projectiles_fired:
 		var projectile = weapons[current_gun].projectile.instantiate()

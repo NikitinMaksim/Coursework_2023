@@ -24,14 +24,20 @@ func _physics_process(delta):
 	close.erase($HitboxComponent)
 	close.erase(get_node("../Player"))
 	var direction
-	if (global_position.distance_to(player.global_position)<900):
+	if (close):
+		var vectorAway: Vector2 = global_position.direction_to(player.global_position)
+		for friend in close:
+			vectorAway -= global_position.direction_to(friend.global_position)
+		direction =  vectorAway.normalized()
+		stop==false
+	elif (global_position.distance_to(player.global_position)<900):
 		if shoot_cooldown.is_stopped():
 			shoot_cooldown.start()
 			var ball = projectile.instantiate()
 			ball.damage = stats.damage
 			ball.rotation = get_angle_to(player.global_position)
 			ball.global_position = global_position
-			owner.add_child(ball)
+			add_sibling(ball)
 			stop=true
 		else:
 			direction = Vector2(0,0)

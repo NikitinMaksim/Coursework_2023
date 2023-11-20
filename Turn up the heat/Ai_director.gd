@@ -8,9 +8,9 @@ var modifier:int=0
 var small_enemy = preload("res://Enemys/Small_enemy/small_enemy.tscn")
 var small_enemy_cost = 3
 var big_enemy = preload("res://Enemys/Big_enemy/Big_enemy.tscn")
-var big_enemy_cost = 1
+var big_enemy_cost = 5
 var range_enemy = preload("res://Enemys/Range_enemy/range_enemy.tscn")
-var range_enemy_cost = 1
+var range_enemy_cost = 7
 
 var number_of_small_enemy: int
 var number_of_big_enemy: int
@@ -31,6 +31,7 @@ func _ready():
 	SignalBus.add_points.connect(Callable(add_points.bind()))
 	SignalBus.melee_damage_dealt.connect(Callable(add_melee_damage.bind()))
 	SignalBus.range_damage_dealt.connect(Callable(add_range_damage.bind()))
+	calculate_number_of_enemies()
 	spawn_enemies()
 
 func add_points(amount):
@@ -61,19 +62,37 @@ func calculate_number_of_enemies():
 	number_of_big_enemy = points_for_big/big_enemy_cost
 	number_of_range_enemy = points_for_range/range_enemy_cost
 	total_number_of_enemies = number_of_small_enemy+number_of_big_enemy+number_of_range_enemy
-	$Spawn_timer.wait_time = 15/total_number_of_enemies
+	points = 0
+	$Spawn_timer.wait_time = 15/float(total_number_of_enemies)
 	
 func spawn_enemies():
-	var half_points = points/2
 	var rng = RandomNumberGenerator.new()
-	while half_points>0:
+	if total_number_of_enemies>0:
 		var point = rng.randi_range(0,360)
-		var spawn_pos = player.global_position+Vector2(1000,0).rotated(deg_to_rad(point))
-		half_points -= small_enemy_cost
-		var enemy = small_enemy.instantiate()
+		var spawn_pos = player.global_position+Vector2(1500,0).rotated(deg_to_rad(point))
+		var who_to_spawn = roll_for_enemy()
+		var enemy
+		if who_to_spawn == "small_enemy":
+			enemy = small_enemy.instantiate()
+		elif who_to_spawn == "big_enemy":
+			enemy = big_enemy.instantiate()
+		elif who_to_spawn == "range_enemy":
+			enemy = range_enemy.instantiate()
 		enemy.position = spawn_pos
 		owner.add_child.call_deferred(enemy)
-	
+		
+func roll_for_enemy():
+	var rng = RandomNumberGenerator.new()
+	var random_spawn = rng.randi_range(1,3)
+	if random_spawn==1 and number_of_small_enemy>0:
+		return "small_enemy"
+	elif random_spawn==2 and number_of_big_enemy>0:
+		return "big_enemy"
+	elif random_spawn==3 and number_of_range_enemy>0:
+		return "range_enemy"
+	else:
+		roll_for_enemy()
+		
 func on_minute_passed():
 	if (range_damage_in_minute/melee_damage_in_minute>1.2):
 		priority = "melee"

@@ -247,6 +247,7 @@ script = ExtResource("8_mgqav")
 wait_time = 15.0
 
 [node name="Spawn_timer" type="Timer" parent="Ai_director"]
+autostart = true
 
 [connection signal="set_ammo_ui" from="Player" to="CanvasLayer/UI" method="_on_player_set_ammo_ui"]
 [connection signal="set_fuel_ui" from="Player" to="CanvasLayer/UI" method="_on_player_set_fuel_ui"]
