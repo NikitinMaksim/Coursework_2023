@@ -15,6 +15,7 @@ func _ready():
 	$HealthComponent.health = stats.health
 
 func _physics_process(delta):
+	
 	var friends = friend_zone.get_overlapping_bodies()
 	friends.erase($HitboxComponent)
 	var friends_nearby = friend_finder.get_overlapping_bodies()
@@ -57,3 +58,6 @@ func collision(body):
 
 func _on_knock_back_timeout():
 	is_knocked_back = false
+
+func _on_tree_exiting():
+	SignalBus.enemy_died.emit(global_position,stats.exp_drop)

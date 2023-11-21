@@ -29,7 +29,7 @@ func _physics_process(delta):
 		for friend in close:
 			vectorAway -= global_position.direction_to(friend.global_position)
 		direction =  vectorAway.normalized()
-		stop==false
+		stop=false
 	elif (global_position.distance_to(player.global_position)<900):
 		if shoot_cooldown.is_stopped():
 			shoot_cooldown.start()
@@ -60,3 +60,7 @@ func collision(body):
 
 func _on_knock_back_timeout():
 	is_knocked_back = false
+
+
+func _on_tree_exiting():
+	SignalBus.enemy_died.emit(global_position,stats.exp_drop)

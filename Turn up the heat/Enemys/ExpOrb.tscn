@@ -1,0 +1,53 @@
+[gd_scene load_steps=7 format=3 uid="uid://ujptqx46fa8g"]
+
+[ext_resource type="Script" path="res://Enemys/ExpOrb.gd" id="1_g1hjg"]
+
+[sub_resource type="Gradient" id="Gradient_51586"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_dyj1d"]
+gradient = SubResource("Gradient_51586")
+width = 1
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xqu3d"]
+radius = 1.6
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_q8a33"]
+radius = 22.2
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3dpsw"]
+lifetime_randomness = 0.78
+particle_flag_disable_z = true
+spread = 180.0
+gravity = Vector3(0, 0, 0)
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_min = 5.0
+scale_max = 5.0
+
+[node name="ExpOrb" type="CharacterBody2D"]
+scale = Vector2(10, 10)
+script = ExtResource("1_g1hjg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("GradientTexture1D_dyj1d")
+
+[node name="Area2D2" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+shape = SubResource("CircleShape2D_xqu3d")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_q8a33")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 30
+process_material = SubResource("ParticleProcessMaterial_3dpsw")
+
+[connection signal="body_entered" from="Area2D2" to="." method="_on_area_2d_2_body_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

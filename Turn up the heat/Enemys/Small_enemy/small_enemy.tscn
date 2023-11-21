@@ -86,5 +86,6 @@ shape = SubResource("RectangleShape2D_v167g")
 wait_time = 0.25
 one_shot = true
 
+[connection signal="tree_exiting" from="." to="." method="_on_tree_exiting"]
 [connection signal="body_entered" from="TooClose" to="." method="collision"]
 [connection signal="timeout" from="KnockBack" to="." method="_on_knock_back_timeout"]
