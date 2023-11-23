@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cempmouod714f"]
+[gd_scene load_steps=14 format=3 uid="uid://cempmouod714f"]
 
 [ext_resource type="Script" path="res://UI/UI.gd" id="1_3nnyk"]
 [ext_resource type="Script" path="res://UI/Health.gd" id="1_ae6d6"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://djgv2uxtsj848" path="res://UI/ProgressBarsTextures/FuelProgressBarUnder.png" id="6_orq0l"]
 [ext_resource type="Texture2D" uid="uid://cu2xbem1ag7xt" path="res://UI/ProgressBarsTextures/FuelProgressBarOver.png" id="7_8nmol"]
 [ext_resource type="Texture2D" uid="uid://vum47vsb0dtf" path="res://UI/ProgressBarsTextures/FuelProgressBarProgress.png" id="8_otyxi"]
+[ext_resource type="Script" path="res://Clock.gd" id="9_2n084"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_5leu6"]
 line_spacing = 0.0
@@ -18,35 +19,56 @@ font_size = 9
 font = ExtResource("5_rmt8w")
 font_size = 9
 
-[node name="UI" type="VBoxContainer"]
+[sub_resource type="LabelSettings" id="LabelSettings_xb7xo"]
+font = ExtResource("5_rmt8w")
+font_size = 9
+
+[sub_resource type="Theme" id="Theme_vaenm"]
+default_font = ExtResource("5_rmt8w")
+default_font_size = 9
+
+[node name="UI" type="BoxContainer"]
 texture_filter = 3
 custom_minimum_size = Vector2(16, 16)
-offset_right = 107.0
-offset_bottom = 64.0
-alignment = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 script = ExtResource("1_3nnyk")
 
-[node name="Health" type="HBoxContainer" parent="."]
+[node name="Grid" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Left up corner" type="VBoxContainer" parent="Grid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+
+[node name="Health" type="HBoxContainer" parent="Grid/Left up corner"]
 custom_minimum_size = Vector2(30, 20)
 layout_direction = 2
 layout_mode = 2
-size_flags_horizontal = 0
+size_flags_horizontal = 2
 size_flags_vertical = 6
 script = ExtResource("1_ae6d6")
 
-[node name="Ammo" type="HBoxContainer" parent="."]
+[node name="Ammo" type="HBoxContainer" parent="Grid/Left up corner"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
 
-[node name="AmmoBar" type="TextureProgressBar" parent="Ammo"]
+[node name="AmmoBar" type="TextureProgressBar" parent="Grid/Left up corner/Ammo"]
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
 texture_under = ExtResource("3_16uvc")
 texture_progress = ExtResource("4_mjtom")
 
-[node name="AmmoLabel" type="Label" parent="Ammo"]
+[node name="AmmoLabel" type="Label" parent="Grid/Left up corner/Ammo"]
 y_sort_enabled = true
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
@@ -55,11 +77,11 @@ text = "200/200"
 label_settings = SubResource("LabelSettings_5leu6")
 vertical_alignment = 1
 
-[node name="Fuel" type="HBoxContainer" parent="."]
+[node name="Fuel" type="HBoxContainer" parent="Grid/Left up corner"]
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
 
-[node name="FuelBar" type="TextureProgressBar" parent="Fuel"]
+[node name="FuelBar" type="TextureProgressBar" parent="Grid/Left up corner/Fuel"]
 layout_mode = 2
 value = 100.0
 allow_greater = true
@@ -67,7 +89,7 @@ texture_under = ExtResource("6_orq0l")
 texture_over = ExtResource("7_8nmol")
 texture_progress = ExtResource("8_otyxi")
 
-[node name="FuelLabel" type="Label" parent="Fuel"]
+[node name="FuelLabel" type="Label" parent="Grid/Left up corner/Fuel"]
 y_sort_enabled = true
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
@@ -75,3 +97,36 @@ size_flags_horizontal = 3
 text = "200/200"
 label_settings = SubResource("LabelSettings_n6sjw")
 vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Grid"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="Clock" type="Label" parent="Grid/VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 2
+text = "0:0"
+label_settings = SubResource("LabelSettings_xb7xo")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("9_2n084")
+
+[node name="Timer" type="Timer" parent="Grid/VBoxContainer/Clock"]
+autostart = true
+
+[node name="Exp bar" type="ProgressBar" parent="Grid/VBoxContainer"]
+custom_minimum_size = Vector2(250, 20)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 8
+theme = SubResource("Theme_vaenm")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Grid"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 2
+
+[connection signal="timeout" from="Grid/VBoxContainer/Clock/Timer" to="Grid/VBoxContainer/Clock" method="_on_timer_timeout"]

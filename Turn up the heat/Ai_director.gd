@@ -2,8 +2,7 @@ extends Node
 
 var quarters_passed: int = 0
 var minutes_passed: int = 0
-var points:int=70
-var modifier:int=0 
+var points:int=30
 
 var small_enemy = preload("res://Enemys/Small_enemy/small_enemy.tscn")
 var small_enemy_cost = 3
@@ -93,21 +92,23 @@ func _on_points_timer_timeout():
 func calculate_number_of_enemies():
 	var points_for_big
 	var points_for_range
-	if priority == "melee":
-		points_for_big = points * 0.35
-		points_for_range = points * 0.15
-	elif priority == "range":
-		points_for_big = points * 0.15
-		points_for_range = points * 0.35
+	if minutes_passed>2:
+		if priority == "melee":
+			points_for_big = points * 0.35
+			points_for_range = points * 0.15
+		elif priority == "range":
+			points_for_big = points * 0.15
+			points_for_range = points * 0.35
+		else:
+			points_for_big = points * 0.25
+			points_for_range = points * 0.25
+		number_of_small_enemy = points/2/small_enemy_cost
+		number_of_big_enemy = points_for_big/big_enemy_cost
+		number_of_range_enemy = points_for_range/range_enemy_cost
 	else:
-		points_for_big = points * 0.25
-		points_for_range = points * 0.25
-	number_of_small_enemy = points/2/small_enemy_cost
-	print(number_of_small_enemy)
-	number_of_big_enemy = points_for_big/big_enemy_cost
-	print(number_of_big_enemy)
-	number_of_range_enemy = points_for_range/range_enemy_cost
-	print(number_of_range_enemy)
+		number_of_small_enemy = points/small_enemy_cost
+		number_of_big_enemy = 0
+		number_of_range_enemy = 0
 	total_number_of_enemies = number_of_small_enemy+number_of_big_enemy+number_of_range_enemy
 	points = 0
 	$Spawn_timer.wait_time = 15/float(total_number_of_enemies)
@@ -116,7 +117,7 @@ func spawn_enemies():
 	var rng = RandomNumberGenerator.new()
 	if total_number_of_enemies>0:
 		var point = rng.randi_range(0,360)
-		var spawn_pos = player.global_position+Vector2(1500,0).rotated(deg_to_rad(point))
+		var spawn_pos = player.global_position+Vector2(2000,0).rotated(deg_to_rad(point))
 		var who_to_spawn = roll_for_enemy()
 		var enemy
 		if who_to_spawn == "small_enemy":

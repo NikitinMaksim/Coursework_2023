@@ -5,12 +5,6 @@ extends Area2D
 func _ready():
 	$AnimationPlayer.current_animation = "Drop"
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
-
-func _on_body_entered(body):
+func _on_body_entered(_body):
 	SignalBus.repair_armor.emit(1)
 	queue_free()

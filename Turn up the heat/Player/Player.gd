@@ -16,6 +16,11 @@ signal set_max_fuel_ui(max_fuel)
 @export var weapons: Array[GunData]
 @export var body: BodyData
 
+@export var current_ammo: int = 1
+@export var max_ammo: int = 1
+@export var current_fuel: float = 1
+@export var max_fuel: int = 150
+
 var direction : Vector2 = Vector2.ZERO
 var current_gun: int = 0
 var max_clip: int = 0
@@ -23,12 +28,11 @@ var clip: int = 0
 var second_weapon_clip: int = 0
 var is_melee: bool = false
 var current_armor: int = 1
-@export var current_ammo: int = 1
-@export var max_ammo: int = 1
-@export var current_fuel: float = 1
-@export var max_fuel: int = 150
 var fuel_attack_speed_modifier: float = 1
 var fuel_move_speed_modifier: float = 1
+
+var total_exp: int = 0
+var exp_till_next_lvl: int = 100
 
 func _ready():
 	anitree.active = true
@@ -43,13 +47,14 @@ func _ready():
 	max_fuel = body.max_fuel
 	set_max_fuel_ui.emit(max_fuel)
 	current_fuel = max_fuel
-	$"../CanvasLayer/UI/Health".setArmor(current_armor)
+	$"../CanvasLayer/UI/Grid/Left up corner/Health".setArmor(current_armor)
 	update_magazine_label()
 	
 	SignalBus.fill_ammo.connect(Callable(_fill_ammo.bind()))
 	SignalBus.fill_fuel.connect(Callable(_fill_fuel.bind()))
 	SignalBus.repair_armor.connect(Callable(_repair_armor.bind()))
 	SignalBus.player_hurt.connect(Callable(hurt.bind()))
+	SignalBus.add_exp.connect(Callable(get_exp.bind()))
 
 func _process(_delta):
 	update_animation_parameters()
@@ -202,7 +207,7 @@ func _fill_fuel(amount):
 
 func _repair_armor(amount):
 	current_armor+=amount
-	$"../CanvasLayer/UI/Health".setArmor(current_armor)
+	$"../CanvasLayer/UI/Grid/Left up corner/Health".setArmor(current_armor)
 
 func hurt(damage):
 	var enemys = $Area2D.get_overlapping_bodies()
@@ -211,7 +216,7 @@ func hurt(damage):
 	if $"I-Frames".is_stopped():
 		if current_armor>0:
 			current_armor -= damage
-			$"../CanvasLayer/UI/Health".setArmor(current_armor)
+			$"../CanvasLayer/UI/Grid/Left up corner/Health".setArmor(current_armor)
 		else:
 			print("Game over")
 		if current_armor == 0:
@@ -220,3 +225,5 @@ func hurt(damage):
 			SignalBus.add_points.emit(damage*-50)
 		$"I-Frames".start()
 
+func get_exp(amount):
+	pass

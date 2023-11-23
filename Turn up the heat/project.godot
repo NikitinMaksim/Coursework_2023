@@ -18,6 +18,11 @@ config/features=PackedStringArray("4.0", "GL Compatibility")
 
 SignalBus="*res://Signal_bus.gd"
 
+[debug]
+
+gdscript/warnings/narrowing_conversion=0
+gdscript/warnings/integer_division=0
+
 [input]
 
 move_left={

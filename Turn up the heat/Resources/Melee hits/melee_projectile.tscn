@@ -6,6 +6,8 @@
 [node name="Melee_projectile" type="Node2D"]
 scale = Vector2(4, 4)
 script = ExtResource("1_wx7ak")
+max_distance = 1000
+speed = 500
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_fr2i5")
