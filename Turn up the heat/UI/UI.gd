@@ -28,3 +28,11 @@ func _on_player_set_max_fuel_ui(max_fuel):
 	max_fuel_internal = max_fuel
 	$"Grid/Left up corner/Fuel/FuelBar".max_value = max_fuel_internal
 	_on_player_set_fuel_ui(max_fuel_internal)
+
+
+func _on_player_set_exp_ui(xp):
+	$"Grid/VBoxContainer/Exp bar".value = xp
+
+
+func _on_player_set_max_exp_ui(max_exp):
+	$"Grid/VBoxContainer/Exp bar".max_value = max_exp

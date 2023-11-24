@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cempmouod714f"]
+[gd_scene load_steps=16 format=3 uid="uid://cempmouod714f"]
 
 [ext_resource type="Script" path="res://UI/UI.gd" id="1_3nnyk"]
 [ext_resource type="Script" path="res://UI/Health.gd" id="1_ae6d6"]
@@ -9,19 +9,21 @@
 [ext_resource type="Texture2D" uid="uid://cu2xbem1ag7xt" path="res://UI/ProgressBarsTextures/FuelProgressBarOver.png" id="7_8nmol"]
 [ext_resource type="Texture2D" uid="uid://vum47vsb0dtf" path="res://UI/ProgressBarsTextures/FuelProgressBarProgress.png" id="8_otyxi"]
 [ext_resource type="Script" path="res://Clock.gd" id="9_2n084"]
+[ext_resource type="Texture2D" uid="uid://ctyju1wvuubl5" path="res://UI/ProgressBarsTextures/ExpProgressBarUnder.png" id="10_4nx3p"]
+[ext_resource type="Texture2D" uid="uid://duelw23bkn2rq" path="res://UI/ProgressBarsTextures/ExpProgressBarProgress.png" id="11_0l8ph"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_5leu6"]
 line_spacing = 0.0
 font = ExtResource("5_rmt8w")
-font_size = 9
+font_size = 18
 
 [sub_resource type="LabelSettings" id="LabelSettings_n6sjw"]
 font = ExtResource("5_rmt8w")
-font_size = 9
+font_size = 18
 
 [sub_resource type="LabelSettings" id="LabelSettings_xb7xo"]
 font = ExtResource("5_rmt8w")
-font_size = 9
+font_size = 18
 
 [sub_resource type="Theme" id="Theme_vaenm"]
 default_font = ExtResource("5_rmt8w")
@@ -49,10 +51,8 @@ size_flags_horizontal = 3
 size_flags_vertical = 0
 
 [node name="Health" type="HBoxContainer" parent="Grid/Left up corner"]
-custom_minimum_size = Vector2(30, 20)
-layout_direction = 2
+custom_minimum_size = Vector2(60, 40)
 layout_mode = 2
-size_flags_horizontal = 2
 size_flags_vertical = 6
 script = ExtResource("1_ae6d6")
 
@@ -117,12 +117,15 @@ script = ExtResource("9_2n084")
 [node name="Timer" type="Timer" parent="Grid/VBoxContainer/Clock"]
 autostart = true
 
-[node name="Exp bar" type="ProgressBar" parent="Grid/VBoxContainer"]
+[node name="Exp bar" type="TextureProgressBar" parent="Grid/VBoxContainer"]
 custom_minimum_size = Vector2(250, 20)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 8
 theme = SubResource("Theme_vaenm")
+max_value = 20.0
+texture_under = ExtResource("10_4nx3p")
+texture_progress = ExtResource("11_0l8ph")
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="Grid"]
 layout_mode = 2

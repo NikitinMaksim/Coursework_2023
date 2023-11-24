@@ -12,6 +12,9 @@ signal set_ammo_ui(ammo)
 signal set_max_ammo_ui(max_ammo)
 signal set_fuel_ui(fuel)
 signal set_max_fuel_ui(max_fuel)
+signal level_up()
+signal set_exp_ui(exp)
+signal set_max_exp_ui(max_exp)
 
 @export var weapons: Array[GunData]
 @export var body: BodyData
@@ -31,8 +34,9 @@ var current_armor: int = 1
 var fuel_attack_speed_modifier: float = 1
 var fuel_move_speed_modifier: float = 1
 
+var level: int = 1
 var total_exp: int = 0
-var exp_till_next_lvl: int = 100
+var exp_till_next_lvl: int = 20
 
 func _ready():
 	anitree.active = true
@@ -71,10 +75,11 @@ func _physics_process(_delta):
 				shoot()
 			else: 
 				reload()
-	if (Input.is_action_just_pressed("swap_weapon")):
+	elif (Input.is_action_just_pressed("swap_weapon")):
 		swap_weapon()
-	if (Input.is_action_just_pressed("reload") and clip<max_clip):
+	elif (Input.is_action_just_pressed("reload") and clip<max_clip):
 		reload()
+
 
 func update_animation_parameters():
 	if (direction == Vector2.ZERO):
@@ -220,10 +225,16 @@ func hurt(damage):
 		else:
 			print("Game over")
 		if current_armor == 0:
-			SignalBus.add_points.emit(50)
+			SignalBus.add_points.emit(10)
 		else:
-			SignalBus.add_points.emit(damage*-50)
+			SignalBus.add_points.emit(damage*-10)
 		$"I-Frames".start()
 
 func get_exp(amount):
-	pass
+	total_exp+=amount
+	if total_exp>=exp_till_next_lvl:
+		exp_till_next_lvl = 20+pow(level,1.5)
+		set_max_exp_ui.emit(exp_till_next_lvl)
+		level_up.emit()
+		total_exp -= exp_till_next_lvl
+	set_exp_ui.emit(total_exp)
