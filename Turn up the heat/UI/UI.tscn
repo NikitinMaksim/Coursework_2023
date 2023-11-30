@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cempmouod714f"]
+[gd_scene load_steps=17 format=3 uid="uid://cempmouod714f"]
 
 [ext_resource type="Script" path="res://UI/UI.gd" id="1_3nnyk"]
 [ext_resource type="Script" path="res://UI/Health.gd" id="1_ae6d6"]
@@ -22,6 +22,10 @@ font = ExtResource("5_rmt8w")
 font_size = 18
 
 [sub_resource type="LabelSettings" id="LabelSettings_xb7xo"]
+font = ExtResource("5_rmt8w")
+font_size = 18
+
+[sub_resource type="LabelSettings" id="LabelSettings_l38ex"]
 font = ExtResource("5_rmt8w")
 font_size = 18
 
@@ -116,6 +120,14 @@ script = ExtResource("9_2n084")
 
 [node name="Timer" type="Timer" parent="Grid/VBoxContainer/Clock"]
 autostart = true
+
+[node name="LvLUpNotif" type="Label" parent="Grid/VBoxContainer"]
+visible = false
+layout_mode = 2
+text = "Press space to level up"
+label_settings = SubResource("LabelSettings_l38ex")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Exp bar" type="TextureProgressBar" parent="Grid/VBoxContainer"]
 custom_minimum_size = Vector2(250, 20)
