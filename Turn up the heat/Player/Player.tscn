@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://cm1kk7fl1jtqd"]
+[gd_scene load_steps=36 format=3 uid="uid://cm1kk7fl1jtqd"]
 
 [ext_resource type="Script" path="res://Player/Player.gd" id="1_8kf3r"]
 [ext_resource type="Resource" uid="uid://cgg7wit8qtreu" path="res://Resources/Guns/Machine_gun.tres" id="2_6ecqg"]
@@ -218,8 +218,6 @@ states/Walk/node = SubResource("AnimationNodeBlendSpace2D_v1dll")
 states/Walk/position = Vector2(544, 100)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_4bise"), "Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_ixuti"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_dq404")]
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_x3q56"]
-
 [sub_resource type="LabelSettings" id="LabelSettings_7upxg"]
 line_spacing = 0.0
 font = ExtResource("8_tuy74")
@@ -251,9 +249,12 @@ libraries = {
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
+root_node = NodePath("../Sprite2D")
+libraries = {
+"": SubResource("AnimationLibrary_d261l")
+}
 tree_root = SubResource("AnimationNodeStateMachine_pctbh")
 anim_player = NodePath("../AnimationPlayer")
-parameters/playback = SubResource("AnimationNodeStateMachinePlayback_x3q56")
 parameters/conditions/is_idle = false
 parameters/conditions/is_walking = false
 parameters/Idle/blend_position = Vector2(-1.008, -0.0131004)
