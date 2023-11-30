@@ -38,6 +38,27 @@ var level: int = 1
 var total_exp: int = 0
 var exp_till_next_lvl: int = 20
 
+var modifiers = {
+	"damage":0,
+	"attack_speed":0,
+	"pierce":0,
+	"max_ammo":0,
+	"magazine_size":0,
+	"bounce":0,
+	"projectile":0,
+	"spread":0,
+	"max_fuel":0,
+	"speed":0,
+	"is_split_active":false,
+	"is_backwards_fire_active":false,
+	"is_rampup_active":false,
+	"is_armor_crafting_active":false,
+	"is_rage_active":false,
+	"is_armor_to_damage_active":false,
+	"is_ammo_crafting_active":false,
+	"is_fuel_drops_active":false
+}
+
 func _ready():
 	anitree.active = true
 	$Sprite2D.texture=body.sprite_sheet
@@ -51,7 +72,7 @@ func _ready():
 	max_fuel = body.max_fuel
 	set_max_fuel_ui.emit(max_fuel)
 	current_fuel = max_fuel
-	$"../CanvasLayer/UI/Grid/Left up corner/Health".setArmor(current_armor)
+	$"../CanvasLayer/Action_UI/Grid/Left up corner/Health".setArmor(current_armor)
 	update_magazine_label()
 	
 	SignalBus.fill_ammo.connect(Callable(_fill_ammo.bind()))
@@ -79,7 +100,6 @@ func _physics_process(_delta):
 		swap_weapon()
 	elif (Input.is_action_just_pressed("reload") and clip<max_clip):
 		reload()
-
 
 func update_animation_parameters():
 	if (direction == Vector2.ZERO):
@@ -212,7 +232,7 @@ func _fill_fuel(amount):
 
 func _repair_armor(amount):
 	current_armor+=amount
-	$"../CanvasLayer/UI/Grid/Left up corner/Health".setArmor(current_armor)
+	$"../CanvasLayer/Action_UI/Grid/Left up corner/Health".setArmor(current_armor)
 
 func hurt(damage):
 	var enemys = $Area2D.get_overlapping_bodies()
@@ -221,7 +241,7 @@ func hurt(damage):
 	if $"I-Frames".is_stopped():
 		if current_armor>0:
 			current_armor -= damage
-			$"../CanvasLayer/UI/Grid/Left up corner/Health".setArmor(current_armor)
+			$"../CanvasLayer/Action_UI/Grid/Left up corner/Health".setArmor(current_armor)
 		else:
 			print("Game over")
 		if current_armor == 0:

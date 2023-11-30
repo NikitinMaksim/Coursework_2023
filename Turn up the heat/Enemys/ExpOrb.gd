@@ -8,7 +8,7 @@ func _physics_process(delta):
 	if is_moving:
 		move_and_collide(global_position.direction_to($"../Player".global_position).normalized()*speed*delta)
 
-func _on_area_2d_body_entered(_body):
+func _on_area_2d_body_entered():
 	is_moving = true
 	$GPUParticles2D.emitting = true
 
@@ -16,3 +16,8 @@ func _on_area_2d_body_entered(_body):
 func _on_area_2d_2_body_entered(_body):
 	SignalBus.add_exp.emit(exp_drop)
 	queue_free()
+
+
+func _on_delete_timer_timeout():
+	_on_area_2d_body_entered()
+	speed = 900
