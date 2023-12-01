@@ -12,7 +12,7 @@ config_version=5
 
 config/name="Turn up the heat"
 run/main_scene="res://Main_scene.tscn"
-config/features=PackedStringArray("4.2", "GL Compatibility")
+config/features=PackedStringArray("4.1", "GL Compatibility")
 run/max_fps=60
 
 [autoload]
@@ -27,6 +27,10 @@ gdscript/warnings/narrowing_conversion=0
 [display]
 
 window/size/mode=2
+
+[dotnet]
+
+project/assembly_name="Turn up the heat"
 
 [input]
 
