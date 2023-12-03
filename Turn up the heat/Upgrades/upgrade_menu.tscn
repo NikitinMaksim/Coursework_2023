@@ -1,4 +1,11 @@
-[gd_scene format=3 uid="uid://cw4qhjpu3l22j"]
+[gd_scene load_steps=7 format=3 uid="uid://cw4qhjpu3l22j"]
+
+[ext_resource type="PackedScene" uid="uid://cgauaexlu37lh" path="res://Upgrades/SingleUpgrade.tscn" id="1_3k6vd"]
+[ext_resource type="Texture2D" uid="uid://cnnacn2wp6cfw" path="res://Upgrades/Sprites/Up_right_arrow.png" id="1_36mcv"]
+[ext_resource type="Texture2D" uid="uid://ryi8slhtf2pb" path="res://Upgrades/Sprites/Empty_upgrade.png" id="1_kjlnq"]
+[ext_resource type="Texture2D" uid="uid://bd1rl4mnky1jx" path="res://Upgrades/Sprites/Up_left_arrow.png" id="3_uetcr"]
+[ext_resource type="Texture2D" uid="uid://bwqkj2q4voult" path="res://Upgrades/Sprites/Left_up_arrow.png" id="4_s0lv1"]
+[ext_resource type="Texture2D" uid="uid://drcvvc7un6r4n" path="res://Upgrades/Sprites/Right_up_arrow.png" id="5_wxx3n"]
 
 [node name="UpgradeMenu" type="Control"]
 layout_mode = 3
@@ -7,3 +14,79 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Columns" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Upgrades" type="HBoxContainer" parent="Columns"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+alignment = 1
+
+[node name="Upgrade" parent="Columns/Upgrades" instance=ExtResource("1_3k6vd")]
+layout_mode = 2
+
+[node name="Upgrade2" parent="Columns/Upgrades" instance=ExtResource("1_3k6vd")]
+layout_mode = 2
+
+[node name="Upgrade3" parent="Columns/Upgrades" instance=ExtResource("1_3k6vd")]
+layout_mode = 2
+
+[node name="Upgrade4" parent="Columns/Upgrades" instance=ExtResource("1_3k6vd")]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="Columns"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+columns = 3
+
+[node name="UpRigthArrow" type="TextureRect" parent="Columns/GridContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("1_36mcv")
+
+[node name="T3Upgrade" type="TextureRect" parent="Columns/GridContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("1_kjlnq")
+
+[node name="UpLeftArrow" type="TextureRect" parent="Columns/GridContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("3_uetcr")
+
+[node name="T2LUpgrade" type="TextureRect" parent="Columns/GridContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("1_kjlnq")
+
+[node name="EmptyCenter" type="TextureRect" parent="Columns/GridContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+
+[node name="T2RUpgrade" type="TextureRect" parent="Columns/GridContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("1_kjlnq")
+
+[node name="LeftUpArrow" type="TextureRect" parent="Columns/GridContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("4_s0lv1")
+
+[node name="T1Upgrade" type="TextureRect" parent="Columns/GridContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("1_kjlnq")
+
+[node name="RigthUpArrow" type="TextureRect" parent="Columns/GridContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("5_wxx3n")

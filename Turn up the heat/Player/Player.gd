@@ -80,6 +80,7 @@ func _ready():
 	SignalBus.repair_armor.connect(Callable(_repair_armor.bind()))
 	SignalBus.player_hurt.connect(Callable(hurt.bind()))
 	SignalBus.add_exp.connect(Callable(get_exp.bind()))
+	SignalBus.modify_player_stats.connect(Callable(change_stats.bind()))
 
 func _process(_delta):
 	update_animation_parameters()
@@ -258,3 +259,9 @@ func get_exp(amount):
 		level_up.emit()
 		total_exp -= exp_till_next_lvl
 	set_exp_ui.emit(total_exp)
+
+func change_stats(stat,value):
+	if typeof(value)==TYPE_INT:
+		modifiers[stat]+=value
+	else:
+		modifiers[stat]=value

@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://cgauaexlu37lh"]
+
+[ext_resource type="Texture2D" uid="uid://ryi8slhtf2pb" path="res://Upgrades/Sprites/Empty_upgrade.png" id="1_avj30"]
+[ext_resource type="FontFile" uid="uid://bfqjdaot25jm4" path="res://UI/PixeloidSans-mLxMm.ttf" id="2_gq1gm"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ii7d6"]
+font = ExtResource("2_gq1gm")
+font_size = 9
+
+[node name="Upgrade" type="VBoxContainer"]
+size_flags_vertical = 0
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("1_avj30")
+expand_mode = 5
+
+[node name="UpgradeName" type="Label" parent="."]
+layout_mode = 2
+text = "UpgradeName"
+label_settings = SubResource("LabelSettings_ii7d6")
+
+[node name="UpgradeDescription" type="Label" parent="."]
+layout_mode = 2

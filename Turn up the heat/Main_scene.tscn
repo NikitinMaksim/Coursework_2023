@@ -5,8 +5,8 @@
 [ext_resource type="Resource" uid="uid://ndvyfpcxgqp6" path="res://Resources/Bodys/Standart_body.tres" id="2_tntu8"]
 [ext_resource type="PackedScene" uid="uid://bxcoi4elsladh" path="res://Upgrades/upgrade_system.tscn" id="3_x44yi"]
 [ext_resource type="PackedScene" uid="uid://cempmouod714f" path="res://UI/UI.tscn" id="5_ggsaw"]
+[ext_resource type="PackedScene" uid="uid://cw4qhjpu3l22j" path="res://Upgrades/upgrade_menu.tscn" id="6_ftkms"]
 [ext_resource type="Script" path="res://PauseHandler.gd" id="6_mo24r"]
-[ext_resource type="PackedScene" uid="uid://ddal54pitmr57" path="res://Upgrades/upgrade_ui.tscn" id="6_quytk"]
 [ext_resource type="PackedScene" uid="uid://gofj5cok8h7p" path="res://PauseUI.tscn" id="6_rkr2n"]
 [ext_resource type="Script" path="res://Ai_director.gd" id="8_mgqav"]
 
@@ -245,8 +245,12 @@ anchors_preset = -1
 anchor_right = 0.5
 anchor_bottom = 0.5
 
-[node name="UpgradeUI" parent="CanvasLayer" instance=ExtResource("6_quytk")]
-visible = false
+[node name="UpgradeUI" parent="CanvasLayer" instance=ExtResource("6_ftkms")]
+process_mode = 2
+anchors_preset = -1
+anchor_right = 0.5
+anchor_bottom = 0.498
+offset_bottom = 0.29599
 
 [node name="PauseHandler" type="Node" parent="CanvasLayer"]
 process_mode = 3
