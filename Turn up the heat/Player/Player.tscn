@@ -240,7 +240,7 @@ shape = SubResource("CapsuleShape2D_0714n")
 texture = ExtResource("2_ngyrq")
 hframes = 4
 vframes = 4
-frame = 4
+frame = 14
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../Sprite2D")

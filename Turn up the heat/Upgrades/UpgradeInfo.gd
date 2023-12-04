@@ -3,6 +3,8 @@ class_name UpgradeInfo
 
 @export var image: Texture2D
 @export var name: String
+@export var tree: String
+@export var tier: int
 @export_multiline var description: String
 @export var stats = {
 	"damage":0,

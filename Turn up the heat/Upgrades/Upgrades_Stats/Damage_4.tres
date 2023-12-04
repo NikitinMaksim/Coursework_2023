@@ -4,7 +4,9 @@
 
 [resource]
 script = ExtResource("1_rjvon")
-name = ""
+name = "4"
+tree = "Damage"
+tier = 4
 description = ""
 stats = {
 "attack_speed": 0,

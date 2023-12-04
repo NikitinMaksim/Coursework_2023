@@ -4,7 +4,9 @@
 
 [resource]
 script = ExtResource("1_vptb6")
-name = ""
+name = "Bigger Bullets"
+tree = "Damage"
+tier = 2
 description = ""
 stats = {
 "attack_speed": 0,

@@ -28,6 +28,10 @@ gdscript/warnings/narrowing_conversion=0
 
 window/size/mode=2
 
+[editor]
+
+export/convert_text_resources_to_binary=false
+
 [input]
 
 move_left={

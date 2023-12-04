@@ -1,11 +1,11 @@
-[gd_resource type="Resource" script_class="UpgradeInfo" load_steps=2 format=3 uid="uid://8tkt1j6aag0k"]
+[gd_resource type="Resource" script_class="UpgradeInfo" load_steps=2 format=3 uid="uid://dtf6r40bbw16p"]
 
-[ext_resource type="Script" path="res://Upgrades/UpgradeInfo.gd" id="1_o1mku"]
+[ext_resource type="Script" path="res://Upgrades/UpgradeInfo.gd" id="1_03k0k"]
 
 [resource]
-script = ExtResource("1_o1mku")
-name = "Big bullets"
-tree = "Damage"
+script = ExtResource("1_03k0k")
+name = "Armor Up"
+tree = ""
 tier = 1
 description = ""
 stats = {

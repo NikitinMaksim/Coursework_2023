@@ -1,34 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://bxcoi4elsladh"]
+[gd_scene load_steps=2 format=3 uid="uid://bxcoi4elsladh"]
 
 [ext_resource type="Script" path="res://Upgrades/UpgradeSystem.gd" id="1_n52ki"]
-[ext_resource type="Script" path="res://Upgrades/Upgrade.gd" id="2_2pjpm"]
-[ext_resource type="Resource" uid="uid://8tkt1j6aag0k" path="res://Upgrades/Upgrades_Stats/Damage_1.tres" id="3_7be80"]
-[ext_resource type="Resource" uid="uid://dr5lkiy201136" path="res://Upgrades/Upgrades_Stats/Damage_2.tres" id="4_63ldo"]
-[ext_resource type="Resource" uid="uid://cp1sgmhp0jvym" path="res://Upgrades/Upgrades_Stats/Damage_3.tres" id="5_ia5gl"]
-[ext_resource type="Resource" uid="uid://dguulp8qrrlwh" path="res://Upgrades/Upgrades_Stats/Damage_4.tres" id="6_mo2s7"]
 
 [node name="UpgradeSystem" type="Node"]
 script = ExtResource("1_n52ki")
 
-[node name="Damage_1" type="Node" parent="." node_paths=PackedStringArray("ChildUpgrades")]
-script = ExtResource("2_2pjpm")
-Info = ExtResource("3_7be80")
-ChildUpgrades = [NodePath("../StashedUpgrades/Damage_2"), NodePath("../StashedUpgrades/Damage_3")]
-
 [node name="StashedUpgrades" type="Node" parent="."]
-
-[node name="Damage_2" type="Node" parent="StashedUpgrades" node_paths=PackedStringArray("ChildUpgrades")]
-script = ExtResource("2_2pjpm")
-Info = ExtResource("4_63ldo")
-ChildUpgrades = [NodePath("../Damage_4")]
-
-[node name="Damage_3" type="Node" parent="StashedUpgrades" node_paths=PackedStringArray("ChildUpgrades")]
-script = ExtResource("2_2pjpm")
-Info = ExtResource("5_ia5gl")
-ChildUpgrades = [NodePath("../Damage_4")]
-
-[node name="Damage_4" type="Node" parent="StashedUpgrades"]
-script = ExtResource("2_2pjpm")
-Info = ExtResource("6_mo2s7")
 
 [node name="TakenUpgrades" type="Node" parent="."]
