@@ -11,7 +11,7 @@ func _ready():
 
 func _process(delta):
 	position += transform.x * speed * delta
-	remaining_distance -= speed
+	remaining_distance -= speed*delta
 	if (remaining_distance<0): 
 		queue_free()
 
