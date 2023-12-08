@@ -1,17 +1,17 @@
-[gd_resource type="Resource" script_class="UpgradeInfo" load_steps=2 format=3 uid="uid://8tkt1j6aag0k"]
+[gd_resource type="Resource" script_class="UpgradeInfo" load_steps=2 format=3 uid="uid://cqgxw4qm3i6bs"]
 
-[ext_resource type="Script" path="res://Upgrades/UpgradeInfo.gd" id="1_o1mku"]
+[ext_resource type="Script" path="res://Upgrades/UpgradeInfo.gd" id="1_3djpi"]
 
 [resource]
-script = ExtResource("1_o1mku")
-name = "Big bullets"
-tree = "Damage"
+script = ExtResource("1_3djpi")
+name = "One more slug"
+tree = "AOE"
 tier = 1
-description = "+20% Damage"
+description = "You cram one more slug into your gun"
 stats = {
 "attack_speed": 0,
 "bounce": 0,
-"damage": 20,
+"damage": 0,
 "is_ammo_crafting_active": false,
 "is_armor_crafting_active": false,
 "is_armor_to_damage_active": false,
@@ -24,7 +24,7 @@ stats = {
 "max_ammo": 0,
 "max_fuel": 0,
 "pierce": 0,
-"projectile": 0,
+"projectile": 1,
 "speed": 0,
 "spread": 0
 }

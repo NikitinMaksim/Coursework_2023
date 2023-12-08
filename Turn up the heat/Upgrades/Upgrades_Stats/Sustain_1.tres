@@ -1,19 +1,19 @@
-[gd_resource type="Resource" script_class="UpgradeInfo" load_steps=2 format=3 uid="uid://biytgt06piaom"]
+[gd_resource type="Resource" script_class="UpgradeInfo" load_steps=2 format=3 uid="uid://cs2vj8q72q1l7"]
 
-[ext_resource type="Script" path="res://Upgrades/UpgradeInfo.gd" id="1_03k0k"]
+[ext_resource type="Script" path="res://Upgrades/UpgradeInfo.gd" id="1_caqom"]
 
 [resource]
-script = ExtResource("1_03k0k")
-name = "Armor Up"
-tree = "Armor"
-tier = 2
-description = "You scrap one piece of armor"
+script = ExtResource("1_caqom")
+name = "Ammo Crafting"
+tree = "Sustain"
+tier = 1
+description = "You manage to set up a small ammo factory inside the suit"
 stats = {
-"armor": 1,
+"armor": 0,
 "attack_speed": 0,
 "bounce": 0,
 "damage": 0,
-"is_ammo_crafting_active": false,
+"is_ammo_crafting_active": true,
 "is_armor_crafting_active": false,
 "is_armor_to_damage_active": false,
 "is_backwards_fire_active": false,

@@ -89,7 +89,7 @@ func _process(_delta):
 func _physics_process(_delta):
 	direction = Input.get_vector("move_left","move_right","move_up","move_down").normalized()
 	if direction:
-		velocity = direction * (body.speed*fuel_move_speed_modifier)
+		velocity = direction * (body.speed*fuel_move_speed_modifier*(1+modifiers["speed"]/100))
 	else:
 		velocity = Vector2.ZERO
 	move_and_slide()
@@ -266,10 +266,12 @@ func change_stats(stat,value):
 		modifiers[stat]+=value
 	else:
 		modifiers[stat]=value
+	if stat == "armor":
+		_repair_armor(value)
 	timer_between_shots.wait_time = 1/(weapons[current_gun].bullets_per_second*(1+float(modifiers["attack_speed"])/100)*fuel_attack_speed_modifier)
-	max_ammo = body.max_ammo+modifiers["max_ammo"]
+	max_ammo = body.max_ammo*(1+modifiers["max_ammo"]/100)
 	set_max_ammo_ui.emit(max_ammo)
-	max_clip = body.max_ammo+modifiers["magazine_size"]
+	max_clip = body.max_ammo*(1+modifiers["magazine_size"]/100)
 	update_magazine_label()
-	max_fuel = body.max_fuel+modifiers["max_fuel"]
+	max_fuel = body.max_fuel*(1+modifiers["max_fuel"]/100)
 	set_max_fuel_ui.emit(max_fuel)

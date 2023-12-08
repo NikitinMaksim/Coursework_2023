@@ -1,17 +1,17 @@
-[gd_resource type="Resource" script_class="UpgradeInfo" load_steps=2 format=3 uid="uid://8tkt1j6aag0k"]
+[gd_resource type="Resource" script_class="UpgradeInfo" load_steps=2 format=3 uid="uid://ddfboi1gdsuhn"]
 
-[ext_resource type="Script" path="res://Upgrades/UpgradeInfo.gd" id="1_o1mku"]
+[ext_resource type="Script" path="res://Upgrades/UpgradeInfo.gd" id="1_7wkhw"]
 
 [resource]
-script = ExtResource("1_o1mku")
-name = "Big bullets"
-tree = "Damage"
-tier = 1
-description = "+20% Damage"
+script = ExtResource("1_7wkhw")
+name = "Bigger magazine"
+tree = "AttackSpeed"
+tier = 3
+description = "You can load more bullets into your gun"
 stats = {
 "attack_speed": 0,
 "bounce": 0,
-"damage": 20,
+"damage": 0,
 "is_ammo_crafting_active": false,
 "is_armor_crafting_active": false,
 "is_armor_to_damage_active": false,
@@ -20,7 +20,7 @@ stats = {
 "is_rage_active": false,
 "is_rampup_active": false,
 "is_split_active": false,
-"magazine_size": 0,
+"magazine_size": 50,
 "max_ammo": 0,
 "max_fuel": 0,
 "pierce": 0,

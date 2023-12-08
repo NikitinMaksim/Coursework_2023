@@ -1,14 +1,15 @@
-[gd_resource type="Resource" script_class="UpgradeInfo" load_steps=2 format=3 uid="uid://dguulp8qrrlwh"]
+[gd_resource type="Resource" script_class="UpgradeInfo" load_steps=2 format=3 uid="uid://s54rshdvnfm2"]
 
-[ext_resource type="Script" path="res://Upgrades/UpgradeInfo.gd" id="1_rjvon"]
+[ext_resource type="Script" path="res://Upgrades/UpgradeInfo.gd" id="1_t8fgw"]
 
 [resource]
-script = ExtResource("1_rjvon")
-name = "Pierce"
-tree = "Damage"
+script = ExtResource("1_t8fgw")
+name = "Biomass refinery"
+tree = "Sustain"
 tier = 4
-description = "Your bullets will pierce one enemy"
+description = "You learn how to extract fuel from fallen foes"
 stats = {
+"armor": 0,
 "attack_speed": 0,
 "bounce": 0,
 "damage": 0,
@@ -16,14 +17,14 @@ stats = {
 "is_armor_crafting_active": false,
 "is_armor_to_damage_active": false,
 "is_backwards_fire_active": false,
-"is_fuel_drops_active": false,
+"is_fuel_drops_active": true,
 "is_rage_active": false,
 "is_rampup_active": false,
 "is_split_active": false,
 "magazine_size": 0,
 "max_ammo": 0,
 "max_fuel": 0,
-"pierce": 1,
+"pierce": 0,
 "projectile": 0,
 "speed": 0,
 "spread": 0

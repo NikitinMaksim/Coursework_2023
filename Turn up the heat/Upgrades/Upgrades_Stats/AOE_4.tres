@@ -1,24 +1,24 @@
-[gd_resource type="Resource" script_class="UpgradeInfo" load_steps=2 format=3 uid="uid://8tkt1j6aag0k"]
+[gd_resource type="Resource" script_class="UpgradeInfo" load_steps=2 format=3 uid="uid://duwwoiody44fn"]
 
-[ext_resource type="Script" path="res://Upgrades/UpgradeInfo.gd" id="1_o1mku"]
+[ext_resource type="Script" path="res://Upgrades/UpgradeInfo.gd" id="1_2bq30"]
 
 [resource]
-script = ExtResource("1_o1mku")
-name = "Big bullets"
-tree = "Damage"
-tier = 1
-description = "+20% Damage"
+script = ExtResource("1_2bq30")
+name = "RampUp Rounds"
+tree = "AOE"
+tier = 4
+description = "You bullets will ramp up damage after each bounce or pierce"
 stats = {
 "attack_speed": 0,
 "bounce": 0,
-"damage": 20,
+"damage": 0,
 "is_ammo_crafting_active": false,
 "is_armor_crafting_active": false,
 "is_armor_to_damage_active": false,
 "is_backwards_fire_active": false,
 "is_fuel_drops_active": false,
 "is_rage_active": false,
-"is_rampup_active": false,
+"is_rampup_active": true,
 "is_split_active": false,
 "magazine_size": 0,
 "max_ammo": 0,

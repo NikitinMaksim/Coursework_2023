@@ -4,10 +4,10 @@
 
 [resource]
 script = ExtResource("1_w6xrv")
-name = "3"
+name = "SplitShot"
 tree = "Damage"
 tier = 3
-description = ""
+description = "Your bullet will split into 6 with 10% damage each on the last impact"
 stats = {
 "attack_speed": 0,
 "bounce": 0,
@@ -19,7 +19,7 @@ stats = {
 "is_fuel_drops_active": false,
 "is_rage_active": false,
 "is_rampup_active": false,
-"is_split_active": false,
+"is_split_active": true,
 "magazine_size": 0,
 "max_ammo": 0,
 "max_fuel": 0,

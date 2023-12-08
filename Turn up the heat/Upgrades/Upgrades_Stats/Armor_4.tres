@@ -1,20 +1,21 @@
-[gd_resource type="Resource" script_class="UpgradeInfo" load_steps=2 format=3 uid="uid://dguulp8qrrlwh"]
+[gd_resource type="Resource" script_class="UpgradeInfo" load_steps=2 format=3 uid="uid://bbceljyn1wdlg"]
 
-[ext_resource type="Script" path="res://Upgrades/UpgradeInfo.gd" id="1_rjvon"]
+[ext_resource type="Script" path="res://Upgrades/UpgradeInfo.gd" id="1_jawb4"]
 
 [resource]
-script = ExtResource("1_rjvon")
-name = "Pierce"
-tree = "Damage"
+script = ExtResource("1_jawb4")
+name = "Fortress"
+tree = "Armor"
 tier = 4
-description = "Your bullets will pierce one enemy"
+description = "Deal more damage the more armor you have"
 stats = {
+"armor": 1,
 "attack_speed": 0,
 "bounce": 0,
 "damage": 0,
 "is_ammo_crafting_active": false,
 "is_armor_crafting_active": false,
-"is_armor_to_damage_active": false,
+"is_armor_to_damage_active": true,
 "is_backwards_fire_active": false,
 "is_fuel_drops_active": false,
 "is_rage_active": false,
@@ -23,7 +24,7 @@ stats = {
 "magazine_size": 0,
 "max_ammo": 0,
 "max_fuel": 0,
-"pierce": 1,
+"pierce": 0,
 "projectile": 0,
 "speed": 0,
 "spread": 0

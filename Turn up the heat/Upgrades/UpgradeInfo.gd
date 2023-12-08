@@ -17,6 +17,7 @@ class_name UpgradeInfo
 	"spread":0,
 	"max_fuel":0,
 	"speed":0,
+	"armor":0,
 	"is_split_active":false,
 	"is_backwards_fire_active":false,
 	"is_rampup_active":false,

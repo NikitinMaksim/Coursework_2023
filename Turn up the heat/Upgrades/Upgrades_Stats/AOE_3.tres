@@ -1,21 +1,21 @@
-[gd_resource type="Resource" script_class="UpgradeInfo" load_steps=2 format=3 uid="uid://8tkt1j6aag0k"]
+[gd_resource type="Resource" script_class="UpgradeInfo" load_steps=2 format=3 uid="uid://d134jyotl1otd"]
 
-[ext_resource type="Script" path="res://Upgrades/UpgradeInfo.gd" id="1_o1mku"]
+[ext_resource type="Script" path="res://Upgrades/UpgradeInfo.gd" id="1_sapxu"]
 
 [resource]
-script = ExtResource("1_o1mku")
-name = "Big bullets"
-tree = "Damage"
-tier = 1
-description = "+20% Damage"
+script = ExtResource("1_sapxu")
+name = "BackFire"
+tree = "AOE"
+tier = 3
+description = "You use some tape to put another barrel on your back"
 stats = {
 "attack_speed": 0,
 "bounce": 0,
-"damage": 20,
+"damage": 0,
 "is_ammo_crafting_active": false,
 "is_armor_crafting_active": false,
 "is_armor_to_damage_active": false,
-"is_backwards_fire_active": false,
+"is_backwards_fire_active": true,
 "is_fuel_drops_active": false,
 "is_rage_active": false,
 "is_rampup_active": false,

@@ -7,11 +7,12 @@ script = ExtResource("1_vptb6")
 name = "Bigger Bullets"
 tree = "Damage"
 tier = 2
-description = ""
+description = "+30% Damage
+-10% Attack speed"
 stats = {
-"attack_speed": 0,
+"attack_speed": -10,
 "bounce": 0,
-"damage": 0,
+"damage": 30,
 "is_ammo_crafting_active": false,
 "is_armor_crafting_active": false,
 "is_armor_to_damage_active": false,

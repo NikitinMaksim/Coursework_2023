@@ -1,17 +1,17 @@
-[gd_resource type="Resource" script_class="UpgradeInfo" load_steps=2 format=3 uid="uid://8tkt1j6aag0k"]
+[gd_resource type="Resource" script_class="UpgradeInfo" load_steps=2 format=3 uid="uid://b1laqo2u64b8b"]
 
-[ext_resource type="Script" path="res://Upgrades/UpgradeInfo.gd" id="1_o1mku"]
+[ext_resource type="Script" path="res://Upgrades/UpgradeInfo.gd" id="1_m3ggs"]
 
 [resource]
-script = ExtResource("1_o1mku")
-name = "Big bullets"
-tree = "Damage"
-tier = 1
-description = "+20% Damage"
+script = ExtResource("1_m3ggs")
+name = "Rubber bullets"
+tree = "AttackSpeed"
+tier = 4
+description = "Your bullets bounce off enemies"
 stats = {
 "attack_speed": 0,
-"bounce": 0,
-"damage": 20,
+"bounce": 1,
+"damage": 0,
 "is_ammo_crafting_active": false,
 "is_armor_crafting_active": false,
 "is_armor_to_damage_active": false,
