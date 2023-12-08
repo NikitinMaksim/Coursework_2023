@@ -5,8 +5,14 @@ class_name Upgrade
 
 func OnTake():
 	for Child in $"../StashedUpgrades".get_children():
-		if Child.Info.tree == Info.tree and Child.Info.tier>Info.tier:
-			Child.reparent(get_parent())
+		if Child.Info.tree == Info.tree:
+			if Info.tier == 1:
+				if Child.Info.tier==2 or Child.Info.tier==3:
+					Child.reparent(get_parent())
+			if Info.tier == 2 or Info.tier==3:
+				if Child.Info.tier==4:
+					Child.reparent(get_parent())
+
 	for stat in Info.stats:
 		if typeof(Info.stats[stat])==TYPE_INT:
 			if Info.stats[stat]!=0:

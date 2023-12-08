@@ -7,10 +7,11 @@ var trees: Dictionary = {}
 const upgradescript = preload("res://Upgrades/Upgrade.gd")
 
 signal hide_lvlup_notif()
-signal add_upgrade_tree(array)
+signal send_trees(trees)
 
 func _process(_delta):
-	if Input.is_action_just_pressed("LevelUp") and upgrades_to_spend>0:
+	#if Input.is_action_just_pressed("LevelUp") and upgrades_to_spend>0:
+	if Input.is_action_just_pressed("LevelUp"):
 		level_up()
 
 func _ready():
@@ -57,11 +58,25 @@ func CompileTrees():
 		else:
 			trees[upgrade.tree] = Array()
 			trees[upgrade.tree].append(upgrade)
-			
+	send_trees.emit(trees)
 
 func level_up():
 	hide_lvlup_notif.emit()
 	#TODO
+	var rng = RandomNumberGenerator.new()
+	var first_upgrade = rng.randi_range(0,upgrades_available.size()-1)
+	var second_upgrade = rng.randi_range(0,upgrades_available.size()-1)
+	var third_upgrade = rng.randi_range(0,upgrades_available.size()-1)
+	if upgrades_available.size>1:
+		while first_upgrade==second_upgrade:
+			second_upgrade = rng.randi_range(0,upgrades_available.size()-1)
+	if upgrades_available.size>2:
+		while third_upgrade==first_upgrade or third_upgrade==second_upgrade:
+			third_upgrade = rng.randi_range(0,upgrades_available.size()-1)
+	print(upgrades_available.values()[first_upgrade])
+	print(upgrades_available.values[second_upgrade])
+	print(upgrades_available.values[third_upgrade])
+	#Запомнить получившиеся числа, рандомить пока не выпадет другое
 	#Выбрать 2(Или 3) апгрейда случайным образом, передать их в UpgradeUI
 	#В UpgradeUI выставить три апгрейда и вернуть выбранный
 

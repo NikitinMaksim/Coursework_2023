@@ -291,5 +291,6 @@ layer_0/tile_data = PackedInt32Array(458759, 0, 3, 393223, 131072, 1, 327687, 0,
 [connection signal="set_max_exp_ui" from="Player" to="CanvasLayer/Action_UI" method="_on_player_set_max_exp_ui"]
 [connection signal="set_max_fuel_ui" from="Player" to="CanvasLayer/Action_UI" method="_on_player_set_max_fuel_ui"]
 [connection signal="hide_lvlup_notif" from="Player/UpgradeSystem" to="CanvasLayer/Action_UI" method="_on_upgrade_system_hide_lvlup_notif"]
+[connection signal="send_trees" from="Player/UpgradeSystem" to="CanvasLayer/UpgradeUI" method="_on_upgrade_system_send_trees"]
 [connection signal="timeout" from="Ai_director/Points_timer" to="Ai_director" method="_on_points_timer_timeout"]
 [connection signal="timeout" from="Ai_director/Spawn_timer" to="Ai_director" method="spawn_enemies"]
