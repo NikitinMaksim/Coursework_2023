@@ -1,9 +1,11 @@
-[gd_resource type="Resource" script_class="UpgradeInfo" load_steps=2 format=3 uid="uid://dtf6r40bbw16p"]
+[gd_resource type="Resource" script_class="UpgradeInfo" load_steps=3 format=3 uid="uid://dtf6r40bbw16p"]
 
 [ext_resource type="Script" path="res://Upgrades/UpgradeInfo.gd" id="1_e4rx7"]
+[ext_resource type="Texture2D" uid="uid://c7frd8kawljp8" path="res://Upgrades/Sprites/Armor_2.png" id="1_vlbbf"]
 
 [resource]
 script = ExtResource("1_e4rx7")
+image = ExtResource("1_vlbbf")
 name = "Crafty Hands"
 tree = "Armor"
 tier = 2

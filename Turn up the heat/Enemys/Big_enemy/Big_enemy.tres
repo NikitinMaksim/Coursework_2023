@@ -4,6 +4,8 @@
 
 [resource]
 script = ExtResource("1_okqws")
-health = 100
+health = 150
 speed = 75
 damage = 1
+name = ""
+exp_drop = 3

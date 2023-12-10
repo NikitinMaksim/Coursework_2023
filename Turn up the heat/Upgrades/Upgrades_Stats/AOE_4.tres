@@ -1,9 +1,11 @@
-[gd_resource type="Resource" script_class="UpgradeInfo" load_steps=2 format=3 uid="uid://duwwoiody44fn"]
+[gd_resource type="Resource" script_class="UpgradeInfo" load_steps=3 format=3 uid="uid://duwwoiody44fn"]
 
 [ext_resource type="Script" path="res://Upgrades/UpgradeInfo.gd" id="1_2bq30"]
+[ext_resource type="Texture2D" uid="uid://crccvue6267e1" path="res://Upgrades/Sprites/AOE_4.png" id="1_x4cy7"]
 
 [resource]
 script = ExtResource("1_2bq30")
+image = ExtResource("1_x4cy7")
 name = "RampUp Rounds"
 tree = "AOE"
 tier = 4

@@ -1,9 +1,11 @@
-[gd_resource type="Resource" script_class="UpgradeInfo" load_steps=2 format=3 uid="uid://8tkt1j6aag0k"]
+[gd_resource type="Resource" script_class="UpgradeInfo" load_steps=3 format=3 uid="uid://8tkt1j6aag0k"]
 
+[ext_resource type="Texture2D" uid="uid://cln5x1j72hfxc" path="res://Upgrades/Sprites/Damage_1.png" id="1_33tax"]
 [ext_resource type="Script" path="res://Upgrades/UpgradeInfo.gd" id="1_o1mku"]
 
 [resource]
 script = ExtResource("1_o1mku")
+image = ExtResource("1_33tax")
 name = "Big bullets"
 tree = "Damage"
 tier = 1

@@ -1,9 +1,11 @@
-[gd_resource type="Resource" script_class="UpgradeInfo" load_steps=2 format=3 uid="uid://bgouvtwpocvvt"]
+[gd_resource type="Resource" script_class="UpgradeInfo" load_steps=3 format=3 uid="uid://bgouvtwpocvvt"]
 
 [ext_resource type="Script" path="res://Upgrades/UpgradeInfo.gd" id="1_dypcr"]
+[ext_resource type="Texture2D" uid="uid://bwxuim6brcs8x" path="res://Upgrades/Sprites/Sustain_2.png" id="1_rx1nf"]
 
 [resource]
 script = ExtResource("1_dypcr")
+image = ExtResource("1_rx1nf")
 name = "Bigger Tanks"
 tree = "Sustain"
 tier = 2

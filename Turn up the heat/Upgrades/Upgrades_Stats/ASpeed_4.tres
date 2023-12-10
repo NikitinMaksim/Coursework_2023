@@ -1,9 +1,11 @@
-[gd_resource type="Resource" script_class="UpgradeInfo" load_steps=2 format=3 uid="uid://b1laqo2u64b8b"]
+[gd_resource type="Resource" script_class="UpgradeInfo" load_steps=3 format=3 uid="uid://b1laqo2u64b8b"]
 
+[ext_resource type="Texture2D" uid="uid://cb6fn1xw2dapb" path="res://Upgrades/Sprites/ASpeed4.png" id="1_af12o"]
 [ext_resource type="Script" path="res://Upgrades/UpgradeInfo.gd" id="1_m3ggs"]
 
 [resource]
 script = ExtResource("1_m3ggs")
+image = ExtResource("1_af12o")
 name = "Rubber bullets"
 tree = "AttackSpeed"
 tier = 4

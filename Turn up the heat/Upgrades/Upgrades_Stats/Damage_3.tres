@@ -1,9 +1,11 @@
-[gd_resource type="Resource" script_class="UpgradeInfo" load_steps=2 format=3 uid="uid://cp1sgmhp0jvym"]
+[gd_resource type="Resource" script_class="UpgradeInfo" load_steps=3 format=3 uid="uid://cp1sgmhp0jvym"]
 
+[ext_resource type="Texture2D" uid="uid://tan0dvaio70w" path="res://Upgrades/Sprites/Damage_3.png" id="1_3er0m"]
 [ext_resource type="Script" path="res://Upgrades/UpgradeInfo.gd" id="1_w6xrv"]
 
 [resource]
 script = ExtResource("1_w6xrv")
+image = ExtResource("1_3er0m")
 name = "SplitShot"
 tree = "Damage"
 tier = 3

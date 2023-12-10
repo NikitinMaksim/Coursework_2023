@@ -2,14 +2,14 @@ extends Node
 
 var quarters_passed: int = 0
 var minutes_passed: int = 0
-var points:int=30
+var points:int=60
 
 var small_enemy = preload("res://Enemys/Small_enemy/small_enemy.tscn")
-var small_enemy_cost = 3
+var small_enemy_cost = 2
 var big_enemy = preload("res://Enemys/Big_enemy/Big_enemy.tscn")
-var big_enemy_cost = 5
+var big_enemy_cost = 4
 var range_enemy = preload("res://Enemys/Range_enemy/range_enemy.tscn")
-var range_enemy_cost = 7
+var range_enemy_cost = 5
 
 var number_of_small_enemy: int
 var number_of_big_enemy: int
@@ -49,7 +49,7 @@ func _on_points_timer_timeout():
 		quarters_passed = 0
 		minutes_passed += 1
 		on_minute_passed()
-	add_points((minutes_passed+1)*30)
+	add_points((minutes_passed+1)*15)
 	if amount_of_enemies_killed_last_minute>0 and amount_of_enemies_spawned_last_minute>0:
 		if amount_of_enemies_spawned_last_minute/amount_of_enemies_killed_last_minute>1.2:
 			modifier += 0.15
@@ -129,7 +129,7 @@ func spawn_enemies():
 		if enemy:
 			amount_of_enemies_spawned_last_minute+=1
 			enemy.position = spawn_pos
-			owner.add_child.call_deferred(enemy)
+			get_owner().add_child.call_deferred(enemy)
 		
 func roll_for_enemy():
 	var rng = RandomNumberGenerator.new()
@@ -161,9 +161,9 @@ func add_melee_damage(amount):
 func add_range_damage(amount):
 	range_damage_in_minute+=amount
 
-func enemy_killed(Where:Vector2, exp_amount):
+func enemy_killed(Where:Vector2, stats):
 	amount_of_enemies_killed_last_minute+=1
 	var expOrb = preload("res://Enemys/ExpOrb.tscn").instantiate()
 	expOrb.position = Where
-	expOrb.exp_drop = exp_amount
+	expOrb.exp_drop = stats.exp_drop
 	owner.add_child.call_deferred(expOrb)

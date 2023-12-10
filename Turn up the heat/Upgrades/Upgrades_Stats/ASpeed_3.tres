@@ -1,9 +1,11 @@
-[gd_resource type="Resource" script_class="UpgradeInfo" load_steps=2 format=3 uid="uid://ddfboi1gdsuhn"]
+[gd_resource type="Resource" script_class="UpgradeInfo" load_steps=3 format=3 uid="uid://ddfboi1gdsuhn"]
 
 [ext_resource type="Script" path="res://Upgrades/UpgradeInfo.gd" id="1_7wkhw"]
+[ext_resource type="Texture2D" uid="uid://2u0opxvb0jxm" path="res://Upgrades/Sprites/ASpeed3.png" id="1_l1lpp"]
 
 [resource]
 script = ExtResource("1_7wkhw")
+image = ExtResource("1_l1lpp")
 name = "Bigger magazine"
 tree = "AttackSpeed"
 tier = 3

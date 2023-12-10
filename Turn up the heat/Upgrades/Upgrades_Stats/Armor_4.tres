@@ -1,9 +1,11 @@
-[gd_resource type="Resource" script_class="UpgradeInfo" load_steps=2 format=3 uid="uid://bbceljyn1wdlg"]
+[gd_resource type="Resource" script_class="UpgradeInfo" load_steps=3 format=3 uid="uid://bbceljyn1wdlg"]
 
 [ext_resource type="Script" path="res://Upgrades/UpgradeInfo.gd" id="1_jawb4"]
+[ext_resource type="Texture2D" uid="uid://cdx4gk63ii8x8" path="res://Upgrades/Sprites/Armor_4.png" id="1_jhf3l"]
 
 [resource]
 script = ExtResource("1_jawb4")
+image = ExtResource("1_jhf3l")
 name = "Fortress"
 tree = "Armor"
 tier = 4

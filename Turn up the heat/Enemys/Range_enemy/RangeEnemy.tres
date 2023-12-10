@@ -4,6 +4,8 @@
 
 [resource]
 script = ExtResource("1_q3gfg")
-health = 15
+health = 70
 speed = 100
 damage = 2
+name = ""
+exp_drop = 3

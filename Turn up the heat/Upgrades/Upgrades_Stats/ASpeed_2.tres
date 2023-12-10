@@ -1,9 +1,11 @@
-[gd_resource type="Resource" script_class="UpgradeInfo" load_steps=2 format=3 uid="uid://bd1qil1vu6wdn"]
+[gd_resource type="Resource" script_class="UpgradeInfo" load_steps=3 format=3 uid="uid://bd1qil1vu6wdn"]
 
 [ext_resource type="Script" path="res://Upgrades/UpgradeInfo.gd" id="1_jg0c2"]
+[ext_resource type="Texture2D" uid="uid://bjei6oh5nce0u" path="res://Upgrades/Sprites/ASpeed2.png" id="1_wb1ex"]
 
 [resource]
 script = ExtResource("1_jg0c2")
+image = ExtResource("1_wb1ex")
 name = "Big pouch"
 tree = "AttackSpeed"
 tier = 2

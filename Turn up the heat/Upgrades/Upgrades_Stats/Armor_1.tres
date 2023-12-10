@@ -1,12 +1,14 @@
-[gd_resource type="Resource" script_class="UpgradeInfo" load_steps=2 format=3 uid="uid://biytgt06piaom"]
+[gd_resource type="Resource" script_class="UpgradeInfo" load_steps=3 format=3 uid="uid://biytgt06piaom"]
 
 [ext_resource type="Script" path="res://Upgrades/UpgradeInfo.gd" id="1_03k0k"]
+[ext_resource type="Texture2D" uid="uid://cw4n6tduqxink" path="res://Upgrades/Sprites/Armor_1.png" id="1_234ij"]
 
 [resource]
 script = ExtResource("1_03k0k")
+image = ExtResource("1_234ij")
 name = "Armor Up"
 tree = "Armor"
-tier = 2
+tier = 1
 description = "You scrap one piece of armor"
 stats = {
 "armor": 1,

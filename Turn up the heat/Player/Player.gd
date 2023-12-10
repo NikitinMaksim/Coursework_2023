@@ -33,6 +33,7 @@ var is_melee: bool = false
 var current_armor: int = 1
 var fuel_attack_speed_modifier: float = 1
 var fuel_move_speed_modifier: float = 1
+var can_shoot: bool = true
 
 var level: int = 1
 var total_exp: int = 0
@@ -75,6 +76,7 @@ func _ready():
 	current_fuel = max_fuel
 	$"../CanvasLayer/Action_UI/Grid/Left up corner/Health".setArmor(current_armor)
 	update_magazine_label()
+	exp_till_next_lvl = 1+pow(level,2)
 	
 	SignalBus.fill_ammo.connect(Callable(_fill_ammo.bind()))
 	SignalBus.fill_fuel.connect(Callable(_fill_fuel.bind()))
@@ -82,6 +84,7 @@ func _ready():
 	SignalBus.player_hurt.connect(Callable(hurt.bind()))
 	SignalBus.add_exp.connect(Callable(get_exp.bind()))
 	SignalBus.modify_player_stats.connect(Callable(change_stats.bind()))
+	SignalBus.swap_can_shoot.connect(_on_swap_can_shoot)
 
 func _process(_delta):
 	update_animation_parameters()
@@ -89,11 +92,11 @@ func _process(_delta):
 func _physics_process(_delta):
 	direction = Input.get_vector("move_left","move_right","move_up","move_down").normalized()
 	if direction:
-		velocity = direction * (body.speed*fuel_move_speed_modifier*(1+modifiers["speed"]/100))
+		velocity = direction * (body.speed*fuel_move_speed_modifier*(1+float(modifiers["speed"])/100))
 	else:
 		velocity = Vector2.ZERO
 	move_and_slide()
-	if (Input.is_action_pressed("shoot") and timer_between_shots.is_stopped() and timer_reload.is_stopped()):
+	if (Input.is_action_pressed("shoot") and timer_between_shots.is_stopped() and timer_reload.is_stopped() and can_shoot==true):
 			if clip>0:
 				shoot()
 			else: 
@@ -117,7 +120,8 @@ func shoot():
 	var weapon = weapons[current_gun]
 	SignalBus.add_points.emit(round(((weapon.damage*(1+float(modifiers["damage"])/100))+weapon.bullets_per_second)/10))
 	clip -= weapon.fire_cost
-	for x in weapon.projectiles_fired+modifiers["projectile"]:
+	var projectiles_count = weapon.projectiles_fired+modifiers["projectile"]
+	for x in projectiles_count:
 		var projectile = weapons[current_gun].projectile.instantiate()
 		var spread = weapon.spread+modifiers["spread"]
 		if (is_melee):
@@ -129,10 +133,10 @@ func shoot():
 		projectile.max_distance = weapon.bullet_max_distance
 		projectile.attack = weapon.damage*(1+float(modifiers["damage"])/100)
 		projectile.global_position = $Gun/Marker2D.global_position
-		if weapon.projectiles_fired+modifiers["projectile"] == 1:
+		if projectiles_count == 1:
 			projectile.rotation = $Gun.rotation
 		else:
-			projectile.rotation = ($Gun.rotation - deg_to_rad(spread/2) + deg_to_rad(spread/(weapon.projectiles_fired-1)*x))
+			projectile.rotation = ($Gun.rotation - deg_to_rad(spread/2) + deg_to_rad(spread/(projectiles_count-1)*x))
 		owner.add_child(projectile)
 	timer_between_shots.start()
 	update_magazine_label()
@@ -144,7 +148,7 @@ func change_gun(choosen_gun: int):
 	var store: int
 	is_melee = choosen_gun
 	gun.texture = weapon.texture
-	max_clip = weapon.clip+modifiers["magazine_size"]
+	max_clip = weapon.clip*(1+float(modifiers["magazine_size"])/100)
 	store = clip
 	change_offset.emit(weapon.x_offset)
 	clip = second_weapon_clip
@@ -255,23 +259,35 @@ func hurt(damage):
 func get_exp(amount):
 	total_exp+=amount
 	if total_exp>=exp_till_next_lvl:
-		exp_till_next_lvl = 20+pow(level,1.5)
-		set_max_exp_ui.emit(exp_till_next_lvl)
-		level_up.emit()
 		total_exp -= exp_till_next_lvl
+		exp_till_next_lvl = 1+pow(level,2)
+		set_max_exp_ui.emit(exp_till_next_lvl)
+		level+=1
+		level_up.emit()
 	set_exp_ui.emit(total_exp)
 
 func change_stats(stat,value):
 	if typeof(value)==TYPE_INT:
-		modifiers[stat]+=value
+		if stat == "armor":
+			_repair_armor(value)
+		else:
+			modifiers[stat]+=value
 	else:
 		modifiers[stat]=value
-	if stat == "armor":
-		_repair_armor(value)
-	timer_between_shots.wait_time = 1/(weapons[current_gun].bullets_per_second*(1+float(modifiers["attack_speed"])/100)*fuel_attack_speed_modifier)
-	max_ammo = body.max_ammo*(1+modifiers["max_ammo"]/100)
-	set_max_ammo_ui.emit(max_ammo)
-	max_clip = body.max_ammo*(1+modifiers["magazine_size"]/100)
-	update_magazine_label()
-	max_fuel = body.max_fuel*(1+modifiers["max_fuel"]/100)
-	set_max_fuel_ui.emit(max_fuel)
+	if stat == "attack_speed":
+		timer_between_shots.wait_time = 1/(weapons[current_gun].bullets_per_second*(1+float(modifiers["attack_speed"])/100)*fuel_attack_speed_modifier)
+	if stat == "max_ammo":
+		max_ammo = body.max_ammo*(1+float(modifiers["max_ammo"])/100)
+		print(max_ammo)
+		set_max_ammo_ui.emit(max_ammo)
+	if stat == "magazine_size":
+		max_clip = weapons[0].clip*(1+float(modifiers["magazine_size"])/100)
+		second_weapon_clip = weapons[1].clip*(1+float(modifiers["magazine_size"])/100)
+		update_magazine_label()
+	if stat == "max_fuel":
+		max_fuel = body.max_fuel*(1+float(modifiers["max_fuel"])/100)
+		print(max_fuel)
+		set_max_fuel_ui.emit(max_fuel)
+
+func _on_swap_can_shoot():
+	can_shoot = !can_shoot

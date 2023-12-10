@@ -1,9 +1,11 @@
-[gd_resource type="Resource" script_class="UpgradeInfo" load_steps=2 format=3 uid="uid://b5ixy6txoa2it"]
+[gd_resource type="Resource" script_class="UpgradeInfo" load_steps=3 format=3 uid="uid://b5ixy6txoa2it"]
 
 [ext_resource type="Script" path="res://Upgrades/UpgradeInfo.gd" id="1_0gou2"]
+[ext_resource type="Texture2D" uid="uid://6do3yiveerr" path="res://Upgrades/Sprites/Sustain_3.png" id="1_sbugd"]
 
 [resource]
 script = ExtResource("1_0gou2")
+image = ExtResource("1_sbugd")
 name = "Speed Up"
 tree = "Sustain"
 tier = 3

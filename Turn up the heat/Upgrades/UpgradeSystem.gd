@@ -8,16 +8,15 @@ const upgradescript = preload("res://Upgrades/Upgrade.gd")
 
 signal hide_lvlup_notif()
 signal send_trees(trees)
+signal send_upgrades(upgrades)
+signal show_lvlup_notif()
 
 func _process(_delta):
-	#if Input.is_action_just_pressed("LevelUp") and upgrades_to_spend>0:
-	if Input.is_action_just_pressed("LevelUp"):
+	if Input.is_action_just_pressed("LevelUp") and upgrades_to_spend>0:
 		level_up()
 
 func _ready():
-	#TODO
-	#Перед запуском 
-	#Cкомпилировать все деревья апгрейдов и отправить в UpgradeUI для ускорения отрисовки во время игры
+	SignalBus.take_upgrade.connect(Callable(take_upgrade))
 	var dir = DirAccess.open("res://Upgrades/Upgrades_Stats/")
 	if dir:
 		dir.list_dir_begin()
@@ -61,30 +60,34 @@ func CompileTrees():
 	send_trees.emit(trees)
 
 func level_up():
-	hide_lvlup_notif.emit()
-	#TODO
 	var rng = RandomNumberGenerator.new()
 	var first_upgrade = rng.randi_range(0,upgrades_available.size()-1)
 	var second_upgrade = rng.randi_range(0,upgrades_available.size()-1)
 	var third_upgrade = rng.randi_range(0,upgrades_available.size()-1)
-	if upgrades_available.size>1:
+	if upgrades_available.size()>1:
 		while first_upgrade==second_upgrade:
 			second_upgrade = rng.randi_range(0,upgrades_available.size()-1)
-	if upgrades_available.size>2:
-		while third_upgrade==first_upgrade or third_upgrade==second_upgrade:
-			third_upgrade = rng.randi_range(0,upgrades_available.size()-1)
-	print(upgrades_available.values()[first_upgrade])
-	print(upgrades_available.values[second_upgrade])
-	print(upgrades_available.values[third_upgrade])
-	#Запомнить получившиеся числа, рандомить пока не выпадет другое
-	#Выбрать 2(Или 3) апгрейда случайным образом, передать их в UpgradeUI
-	#В UpgradeUI выставить три апгрейда и вернуть выбранный
+		if upgrades_available.size()>2:
+			while third_upgrade==first_upgrade or third_upgrade==second_upgrade:
+				third_upgrade = rng.randi_range(0,upgrades_available.size()-1)
+	var upgrades: Array = []
+	if upgrades_available.size()>0:
+		upgrades.append(upgrades_available.values()[first_upgrade].Info)
+	if upgrades_available.size()>1:
+		upgrades.append(upgrades_available.values()[second_upgrade].Info)
+		if upgrades_available.size()>2:
+			upgrades.append(upgrades_available.values()[third_upgrade].Info)
+	send_upgrades.emit(upgrades)
 
 func take_upgrade(upgrade_name):
 	upgrades_to_spend -= 1
+	if upgrades_to_spend<1:
+		hide_lvlup_notif.emit()
 	upgrades_available[upgrade_name].OnTake()
 	upgrades_available[upgrade_name].reparent($TakenUpgrades)
 	ListAvailableUpgrades()
 
 func _on_player_level_up():
 	upgrades_to_spend += 1
+	if upgrades_available.size()>0:
+		show_lvlup_notif.emit()

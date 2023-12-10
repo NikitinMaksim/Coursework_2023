@@ -1,9 +1,11 @@
-[gd_resource type="Resource" script_class="UpgradeInfo" load_steps=2 format=3 uid="uid://d134jyotl1otd"]
+[gd_resource type="Resource" script_class="UpgradeInfo" load_steps=3 format=3 uid="uid://d134jyotl1otd"]
 
+[ext_resource type="Texture2D" uid="uid://bl2w3u3kirhmn" path="res://Upgrades/Sprites/AOE_3.png" id="1_gcmgv"]
 [ext_resource type="Script" path="res://Upgrades/UpgradeInfo.gd" id="1_sapxu"]
 
 [resource]
 script = ExtResource("1_sapxu")
+image = ExtResource("1_gcmgv")
 name = "BackFire"
 tree = "AOE"
 tier = 3

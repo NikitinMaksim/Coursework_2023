@@ -1,9 +1,11 @@
-[gd_resource type="Resource" script_class="UpgradeInfo" load_steps=2 format=3 uid="uid://dguulp8qrrlwh"]
+[gd_resource type="Resource" script_class="UpgradeInfo" load_steps=3 format=3 uid="uid://dguulp8qrrlwh"]
 
 [ext_resource type="Script" path="res://Upgrades/UpgradeInfo.gd" id="1_rjvon"]
+[ext_resource type="Texture2D" uid="uid://dbu4rupxo8msj" path="res://Upgrades/Sprites/Damage_4.png" id="1_v4nug"]
 
 [resource]
 script = ExtResource("1_rjvon")
+image = ExtResource("1_v4nug")
 name = "Pierce"
 tree = "Damage"
 tier = 4

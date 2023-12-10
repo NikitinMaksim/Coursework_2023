@@ -1,9 +1,11 @@
-[gd_resource type="Resource" script_class="UpgradeInfo" load_steps=2 format=3 uid="uid://qksxnt8qgoo2"]
+[gd_resource type="Resource" script_class="UpgradeInfo" load_steps=3 format=3 uid="uid://qksxnt8qgoo2"]
 
 [ext_resource type="Script" path="res://Upgrades/UpgradeInfo.gd" id="1_2lv18"]
+[ext_resource type="Texture2D" uid="uid://btgmmopirwkre" path="res://Upgrades/Sprites/Armor_3.png" id="1_j1vbk"]
 
 [resource]
 script = ExtResource("1_2lv18")
+image = ExtResource("1_j1vbk")
 name = "Rage"
 tree = "Armor"
 tier = 3

@@ -63,4 +63,4 @@ func _on_knock_back_timeout():
 
 
 func _on_tree_exiting():
-	SignalBus.enemy_died.emit(global_position,stats.exp_drop)
+	SignalBus.enemy_died.emit(global_position,stats)

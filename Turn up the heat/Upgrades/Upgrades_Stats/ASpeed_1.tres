@@ -1,13 +1,15 @@
-[gd_resource type="Resource" script_class="UpgradeInfo" load_steps=2 format=3 uid="uid://bxfscnffr8aei"]
+[gd_resource type="Resource" script_class="UpgradeInfo" load_steps=3 format=3 uid="uid://bxfscnffr8aei"]
 
 [ext_resource type="Script" path="res://Upgrades/UpgradeInfo.gd" id="1_bbq28"]
+[ext_resource type="Texture2D" uid="uid://caiw0b2np6g3i" path="res://Upgrades/Sprites/ASpeed1.png" id="1_gh382"]
 
 [resource]
 script = ExtResource("1_bbq28")
+image = ExtResource("1_gh382")
 name = "Quick fire"
 tree = "AttackSpeed"
 tier = 1
-description = "Lets you fire faster"
+description = "This modification will let you fire faster"
 stats = {
 "attack_speed": 50,
 "bounce": 0,

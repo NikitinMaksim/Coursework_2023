@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cm76hx66vx6w5"]
+[gd_scene load_steps=10 format=3 uid="uid://cm76hx66vx6w5"]
 
 [ext_resource type="Script" path="res://Enemys/Range_enemy/Range_enemy.gd" id="1_wwb7l"]
 [ext_resource type="Resource" uid="uid://g25pb0vb08sa" path="res://Enemys/Range_enemy/RangeEnemy.tres" id="2_1whsc"]
@@ -7,8 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://bgx54257k05ql" path="res://Component/hitbox_component.tscn" id="5_rv3vw"]
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_vkpup"]
-
-[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_o2mli"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mip06"]
 radius = 15.6
@@ -34,7 +32,6 @@ texture = ExtResource("3_8fkjw")
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeStateMachine_vkpup")
 anim_player = NodePath("../AnimationPlayer")
-parameters/playback = SubResource("AnimationNodeStateMachinePlayback_o2mli")
 
 [node name="TooClose" type="Area2D" parent="."]
 collision_layer = 0

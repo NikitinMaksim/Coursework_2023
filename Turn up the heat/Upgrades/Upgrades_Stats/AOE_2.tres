@@ -1,9 +1,11 @@
-[gd_resource type="Resource" script_class="UpgradeInfo" load_steps=2 format=3 uid="uid://gxnx62yhcm7r"]
+[gd_resource type="Resource" script_class="UpgradeInfo" load_steps=3 format=3 uid="uid://gxnx62yhcm7r"]
 
 [ext_resource type="Script" path="res://Upgrades/UpgradeInfo.gd" id="1_4g8d1"]
+[ext_resource type="Texture2D" uid="uid://t1mk7kjau35u" path="res://Upgrades/Sprites/AOE_2.png" id="1_det7l"]
 
 [resource]
 script = ExtResource("1_4g8d1")
+image = ExtResource("1_det7l")
 name = "Shotgun mode"
 tree = "AOE"
 tier = 2

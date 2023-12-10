@@ -1,15 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://cgauaexlu37lh"]
+[gd_scene load_steps=5 format=3 uid="uid://cgauaexlu37lh"]
 
 [ext_resource type="Texture2D" uid="uid://ryi8slhtf2pb" path="res://Upgrades/Sprites/Empty_upgrade.png" id="1_avj30"]
+[ext_resource type="Script" path="res://Upgrades/SingleUpgrade.gd" id="1_ivufe"]
 [ext_resource type="FontFile" uid="uid://bfqjdaot25jm4" path="res://UI/PixeloidSans-mLxMm.ttf" id="2_gq1gm"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_ii7d6"]
-font = ExtResource("2_gq1gm")
-font_size = 9
+[sub_resource type="Theme" id="Theme_y2be5"]
+default_font = ExtResource("2_gq1gm")
+default_font_size = 9
 
 [node name="Upgrade" type="VBoxContainer"]
 size_flags_vertical = 0
+theme = SubResource("Theme_y2be5")
 alignment = 1
+script = ExtResource("1_ivufe")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 custom_minimum_size = Vector2(64, 64)
@@ -20,7 +23,14 @@ expand_mode = 5
 [node name="UpgradeName" type="Label" parent="."]
 layout_mode = 2
 text = "UpgradeName"
-label_settings = SubResource("LabelSettings_ii7d6")
+horizontal_alignment = 1
 
 [node name="UpgradeDescription" type="Label" parent="."]
+custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
