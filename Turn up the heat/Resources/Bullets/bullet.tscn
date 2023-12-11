@@ -34,4 +34,8 @@ monitorable = false
 scale = Vector2(6, 6)
 shape = SubResource("CircleShape2D_mu8hr")
 
+[node name="InvisTimer" type="Timer" parent="."]
+wait_time = 0.05
+one_shot = true
+
 [connection signal="body_entered" from="Sprite2D/Area2D" to="." method="_on_area_2d_body_entered"]

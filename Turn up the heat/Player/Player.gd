@@ -6,6 +6,9 @@ extends CharacterBody2D
 @onready var timer_reload = $Timer_reload
 @onready var label = $Control/Label
 @onready var marker_2d = $Gun/Marker2D
+@onready var timer_rage = $Timer_Rage
+
+const LITTLE_FUEL_DROP = preload("res://Drops/LittleFuelDrop.tscn")
 
 signal change_offset(x)
 signal set_ammo_ui(ammo)
@@ -39,6 +42,11 @@ var level: int = 1
 var total_exp: int = 0
 var exp_till_next_lvl: int = 1
 
+var exp_for_ammo_counter: int = 0
+var exp_for_armor_counter: int = 0
+var rage_damage_modifier: float = 0
+var armor_damage_modifier: float = 0
+
 var modifiers = {
 	"damage":0,
 	"attack_speed":0,
@@ -59,8 +67,7 @@ var modifiers = {
 	"is_ammo_crafting_active":false,
 	"is_fuel_drops_active":false
 }
-#TODO
-#Доделать все булевые функции апгрейдов
+
 func _ready():
 	anitree.active = true
 	$Sprite2D.texture=body.sprite_sheet
@@ -85,6 +92,7 @@ func _ready():
 	SignalBus.add_exp.connect(Callable(get_exp.bind()))
 	SignalBus.modify_player_stats.connect(Callable(change_stats.bind()))
 	SignalBus.swap_can_shoot.connect(_on_swap_can_shoot)
+	SignalBus.enemy_died.connect(Callable(_on_enemy_kill.bind()))
 
 func _process(_delta):
 	update_animation_parameters()
@@ -118,7 +126,9 @@ func update_animation_parameters():
 
 func shoot():
 	var weapon = weapons[current_gun]
-	SignalBus.add_points.emit(round(((weapon.damage*(1+float(modifiers["damage"])/100))+weapon.bullets_per_second)/10))
+	var damage = weapon.damage*(1+(float(modifiers["damage"])/100)+rage_damage_modifier+armor_damage_modifier)
+	var aspeed = (weapon.bullets_per_second*(1+float(modifiers["attack_speed"])/100)*fuel_attack_speed_modifier)
+	SignalBus.add_points.emit(round((damage+aspeed)/10))
 	clip -= weapon.fire_cost
 	var projectiles_count = weapon.projectiles_fired+modifiers["projectile"]
 	for x in projectiles_count:
@@ -127,16 +137,31 @@ func shoot():
 		if (is_melee):
 			pass
 		else:
+			projectile.is_ramp_up_active = modifiers["is_rampup_active"]
+			projectile.is_split_active = modifiers["is_split_active"]
 			projectile.max_pierce = weapon.pierce+modifiers["pierce"]
 			projectile.max_bounces = weapon.bounce+modifiers["bounce"]
 		projectile.speed = weapon.bullet_speed
 		projectile.max_distance = weapon.bullet_max_distance
-		projectile.attack = weapon.damage*(1+float(modifiers["damage"])/100)
+		projectile.attack = weapon.damage*(1+(float(modifiers["damage"])/100)+rage_damage_modifier+armor_damage_modifier)
 		projectile.global_position = $Gun/Marker2D.global_position
 		if projectiles_count == 1:
 			projectile.rotation = $Gun.rotation
 		else:
 			projectile.rotation = ($Gun.rotation - deg_to_rad(spread/2) + deg_to_rad(spread/(projectiles_count-1)*x))
+		owner.add_child(projectile)
+	if modifiers["is_backwards_fire_active"]:
+		var projectile = weapons[current_gun].projectile.instantiate()
+		if (is_melee):
+			pass
+		else:
+			projectile.max_pierce = weapon.pierce+modifiers["pierce"]
+			projectile.max_bounces = weapon.bounce+modifiers["bounce"]
+		projectile.speed = weapon.bullet_speed
+		projectile.max_distance = weapon.bullet_max_distance
+		projectile.attack = weapon.damage*(1+(float(modifiers["damage"])/100)+rage_damage_modifier+armor_damage_modifier)
+		projectile.global_position = $Gun/Marker2D.global_position
+		projectile.rotation = $Gun.rotation+deg_to_rad(180)
 		owner.add_child(projectile)
 	timer_between_shots.start()
 	update_magazine_label()
@@ -239,6 +264,8 @@ func _fill_fuel(amount):
 func _repair_armor(amount):
 	current_armor+=amount
 	$"../CanvasLayer/Action_UI/Grid/Left up corner/Health".setArmor(current_armor)
+	if modifiers["is_armor_to_damage_active"]:
+		armor_damage_modifier=0.05*current_armor
 
 func hurt(damage):
 	var enemys = $Area2D.get_overlapping_bodies()
@@ -248,6 +275,11 @@ func hurt(damage):
 		if current_armor>0:
 			current_armor -= damage
 			$"../CanvasLayer/Action_UI/Grid/Left up corner/Health".setArmor(current_armor)
+			if modifiers["is_rage_active"]:
+				$Timer_Rage.start()
+				rage_damage_modifier=0.30
+			if modifiers["is_armor_to_damage_active"]:
+				armor_damage_modifier=0.05*current_armor
 		else:
 			print("Game over")
 		if current_armor == 0:
@@ -264,6 +296,16 @@ func get_exp(amount):
 		set_max_exp_ui.emit(exp_till_next_lvl)
 		level+=1
 		level_up.emit()
+	if modifiers["is_armor_crafting_active"]:
+		exp_for_armor_counter+=amount
+		if exp_for_armor_counter>500:
+			exp_for_armor_counter-=500
+			_repair_armor(1)
+	if modifiers["is_ammo_crafting_active"]:
+		exp_for_ammo_counter+=amount
+		if exp_for_ammo_counter>5:
+			exp_for_ammo_counter-=5
+			_fill_ammo(1)
 	set_exp_ui.emit(total_exp)
 
 func change_stats(stat,value):
@@ -291,3 +333,12 @@ func change_stats(stat,value):
 
 func _on_swap_can_shoot():
 	can_shoot = !can_shoot
+
+func _on_enemy_kill(place, stats):
+	if modifiers["is_fuel_drops_active"]:
+		var drop = LITTLE_FUEL_DROP.instantiate()
+		drop.global_position = place
+		get_parent().add_child.call_deferred(drop)
+
+func _on_timer_rage_timeout():
+	rage_damage_modifier = 0
