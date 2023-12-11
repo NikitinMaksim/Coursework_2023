@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cwx2wyryfpits"
+path="res://.godot/imported/Music.mp3-d8da477adb21ec707a8129ebfb7c44c6.mp3str"
+
+[deps]
+
+source_file="res://Music and sounds/Music.mp3"
+dest_files=["res://.godot/imported/Music.mp3-d8da477adb21ec707a8129ebfb7c44c6.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

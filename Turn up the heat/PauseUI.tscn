@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://gofj5cok8h7p"]
+[gd_scene load_steps=5 format=3 uid="uid://gofj5cok8h7p"]
 
 [ext_resource type="FontFile" uid="uid://bfqjdaot25jm4" path="res://UI/PixeloidSans-mLxMm.ttf" id="1_0avbv"]
 [ext_resource type="Script" path="res://PauseUI.gd" id="2_q5vfg"]
+[ext_resource type="PackedScene" uid="uid://cbjn5vbxbykpb" path="res://Menus/SettingsUI.tscn" id="3_uytae"]
 
 [sub_resource type="Theme" id="Theme_n3uc0"]
 default_font = ExtResource("1_0avbv")
@@ -47,5 +48,18 @@ text = "Main Menu"
 layout_mode = 2
 text = "Exit to desktop"
 
+[node name="SettingsUI" parent="." instance=ExtResource("3_uytae")]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+scale = Vector2(0.5, 0.5)
+
 [connection signal="pressed" from="Menu/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="Menu/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="Menu/MainMenu" to="." method="_on_main_menu_pressed"]
 [connection signal="pressed" from="Menu/Exit" to="." method="_on_exit_pressed"]
+[connection signal="visibility_changed" from="SettingsUI" to="." method="_on_settings_ui_visibility_changed"]

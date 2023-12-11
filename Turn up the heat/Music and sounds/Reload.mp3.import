@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://5ri7jwi701pa"
+path="res://.godot/imported/Reload.mp3-42bc19afbda8c62e7400f416f8e0d9dd.mp3str"
+
+[deps]
+
+source_file="res://Music and sounds/Reload.mp3"
+dest_files=["res://.godot/imported/Reload.mp3-42bc19afbda8c62e7400f416f8e0d9dd.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

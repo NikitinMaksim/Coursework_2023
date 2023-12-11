@@ -11,13 +11,14 @@ config_version=5
 [application]
 
 config/name="Turn up the heat"
-run/main_scene="res://Main_scene.tscn"
+run/main_scene="res://Menus/MainMenu.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 run/max_fps=60
 
 [autoload]
 
 SignalBus="*res://Signal_bus.gd"
+SoundBus="*res://Music and sounds/SoundBus.tscn"
 
 [debug]
 

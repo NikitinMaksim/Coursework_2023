@@ -164,6 +164,7 @@ func shoot():
 		projectile.rotation = $Gun.rotation+deg_to_rad(180)
 		owner.add_child(projectile)
 	timer_between_shots.start()
+	SignalBus.play_fire_sound.emit()
 	update_magazine_label()
 	if clip<=0:
 		reload()
@@ -211,6 +212,7 @@ func _on_timer_reload_timeout():
 		clip = max_clip
 		set_fuel_ui.emit(current_fuel)
 	update_magazine_label()
+	SignalBus.play_reload_sound.emit()
 
 func update_magazine_label():
 	label.text = str(clip)+"/"+str(max_clip)
@@ -339,6 +341,7 @@ func _on_enemy_kill(place, stats):
 		var drop = LITTLE_FUEL_DROP.instantiate()
 		drop.global_position = place
 		get_parent().add_child.call_deferred(drop)
+	SignalBus.play_die_sound.emit()
 
 func _on_timer_rage_timeout():
 	rage_damage_modifier = 0

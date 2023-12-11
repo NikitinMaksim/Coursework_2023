@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://l1mal0fdrabs"]
+
+[ext_resource type="Script" path="res://Music and sounds/SoundBus.gd" id="1_15q2i"]
+[ext_resource type="AudioStream" uid="uid://cwx2wyryfpits" path="res://Music and sounds/Music.mp3" id="1_v212l"]
+[ext_resource type="AudioStream" uid="uid://4iimg70lcrqk" path="res://Music and sounds/GunFire.mp3" id="2_ikuh1"]
+[ext_resource type="AudioStream" uid="uid://dbl3fmbthm2w8" path="res://Music and sounds/Die.mp3" id="3_b148q"]
+[ext_resource type="AudioStream" uid="uid://5ri7jwi701pa" path="res://Music and sounds/Reload.mp3" id="4_7bn5g"]
+
+[node name="SoundBus" type="Node"]
+script = ExtResource("1_15q2i")
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_v212l")
+autoplay = true
+bus = &"Music"
+
+[node name="ShootSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_ikuh1")
+max_polyphony = 2
+bus = &"Effects"
+
+[node name="EnemyDeathSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_b148q")
+bus = &"Effects"
+
+[node name="ReloadSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_7bn5g")
+volume_db = 5.0
+bus = &"Effects"
