@@ -50,6 +50,10 @@ func _physics_process(delta):
 			$KnockBack.start()
 		direction =  global_position.direction_to(player.global_position).normalized() * -6
 	if !stop:
+		if direction.x > 0:
+			$Sprite2D.flip_h = false
+		else:
+			$Sprite2D.flip_h = true
 		move_and_collide(direction*stats.speed*delta)
 
 func collision(body):

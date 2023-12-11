@@ -23,7 +23,7 @@ func _physics_process(delta):
 	var close = too_close.get_overlapping_bodies()
 	close.erase($HitboxComponent)
 	close.erase(get_node("../Player"))
-	var direction
+	var direction: Vector2
 	if (close):
 		var vectorAway: Vector2 = global_position.direction_to(player.global_position)
 		for friend in close:
@@ -48,6 +48,10 @@ func _physics_process(delta):
 		if $KnockBack.is_stopped():
 			$KnockBack.start()
 		direction =  global_position.direction_to(player.global_position).normalized() * -6
+	if direction.x > 0:
+		$Sprite2D.flip_h = false
+	else:
+		$Sprite2D.flip_h = true
 	move_and_collide(direction*stats.speed*delta)
 
 func collision(body):
