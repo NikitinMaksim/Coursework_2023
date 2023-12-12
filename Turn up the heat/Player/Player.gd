@@ -326,16 +326,16 @@ func change_stats(stat,value):
 		timer_between_shots.wait_time = 1/(weapons[current_gun].bullets_per_second*(1+float(modifiers["attack_speed"])/100)*fuel_attack_speed_modifier)
 	if stat == "max_ammo":
 		max_ammo = body.max_ammo*(1+float(modifiers["max_ammo"])/100)
-		set_ammo_ui.emit(current_ammo)
 		set_max_ammo_ui.emit(max_ammo)
+		set_ammo_ui.emit(current_ammo)
 	if stat == "magazine_size":
 		max_clip = weapons[0].clip*(1+float(modifiers["magazine_size"])/100)
 		second_weapon_clip = weapons[1].clip*(1+float(modifiers["magazine_size"])/100)
 		update_magazine_label()
 	if stat == "max_fuel":
 		max_fuel = body.max_fuel*(1+float(modifiers["max_fuel"])/100)
-		set_fuel_ui.emit(current_fuel)
 		set_max_fuel_ui.emit(max_fuel)
+		set_fuel_ui.emit(current_fuel)
 
 func _on_swap_can_shoot():
 	can_shoot = !can_shoot
