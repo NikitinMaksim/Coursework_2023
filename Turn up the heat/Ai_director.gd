@@ -69,7 +69,7 @@ func _on_points_timer_timeout():
 			ammo_priority = 2
 	var roll = rng.randi_range(1,armor_priority+ammo_priority+fuel_priority+nothing)
 	var point = rng.randi_range(0,360)
-	var spawn_pos = player.global_position+Vector2(500,0).rotated(deg_to_rad(point))
+	var spawn_pos = player.global_position+Vector2(300,0).rotated(deg_to_rad(point))
 	if roll>armor_priority+ammo_priority+fuel_priority:
 		pass
 	elif roll>armor_priority+ammo_priority:
@@ -92,7 +92,11 @@ func _on_points_timer_timeout():
 func calculate_number_of_enemies():
 	var points_for_big
 	var points_for_range
-	if minutes_passed>2:
+	if minutes_passed>1:
+		points_for_big = points * 0.25
+		number_of_big_enemy = points_for_big/big_enemy_cost
+		number_of_small_enemy = points/4*3/small_enemy_cost
+	elif minutes_passed>3:
 		if priority == "melee":
 			points_for_big = points * 0.35
 			points_for_range = points * 0.15
@@ -144,7 +148,7 @@ func roll_for_enemy():
 		roll_for_enemy()
 		
 func on_minute_passed():
-	if minutes_passed==10:
+	if minutes_passed==5:
 		$"../CanvasLayer/Loss_win_menu".visible = true
 		SignalBus.win.emit()
 		SignalBus.pause_game.emit()

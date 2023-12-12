@@ -18,3 +18,6 @@ func _on_play_shoot_sound():
 
 func _on_play_reload_sound():
 	reload_sound.play()
+
+func _on_music_finished():
+	music.play()

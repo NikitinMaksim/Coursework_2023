@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var speed: int = 300
+var speed: int = 450
 var is_moving = false
 @export var exp_drop: int = 1
 

@@ -12,7 +12,7 @@ signal send_upgrades(upgrades)
 signal show_lvlup_notif()
 
 func _process(_delta):
-	if Input.is_action_just_pressed("LevelUp") and upgrades_to_spend>0:
+	if Input.is_action_just_pressed("LevelUp") and upgrades_to_spend>0 and upgrades_available.size()>0:
 		level_up()
 
 func _ready():

@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 var is_moving: bool = false
-var speed: int = 300
+var speed: int = 450
 
 func _physics_process(delta):
 	if is_moving:

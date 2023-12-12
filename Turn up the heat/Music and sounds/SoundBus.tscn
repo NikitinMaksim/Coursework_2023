@@ -31,3 +31,5 @@ bus = &"Effects"
 stream = ExtResource("4_7bn5g")
 volume_db = -10.0
 bus = &"Effects"
+
+[connection signal="finished" from="Music" to="." method="_on_music_finished"]
