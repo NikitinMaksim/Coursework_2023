@@ -1,22 +1,43 @@
-[gd_scene load_steps=4 format=3 uid="uid://kypkfbdt84p2"]
+[gd_scene load_steps=6 format=3 uid="uid://kypkfbdt84p2"]
 
 [ext_resource type="Texture2D" uid="uid://cap1ngo6jl1ti" path="res://Drops/Little_fuel_drop.png" id="1_gxgjc"]
 [ext_resource type="Script" path="res://Drops/LittleFuelDrop.gd" id="1_v38va"]
+[ext_resource type="Script" path="res://Drops/MagnetTimer.gd" id="3_bafnw"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_a6jg6"]
 radius = 9.75
 
-[node name="Node2D" type="Node2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_5lr4l"]
+radius = 73.5017
+
+[node name="LittleFuelDrop" type="CharacterBody2D"]
 scale = Vector2(4, 4)
 script = ExtResource("1_v38va")
 
-[node name="LittleFuelDrop" type="Sprite2D" parent="."]
+[node name="LittleFuelDropSprite" type="Sprite2D" parent="."]
 texture = ExtResource("1_gxgjc")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="PickUp" type="Area2D" parent="."]
 collision_layer = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickUp"]
 shape = SubResource("CircleShape2D_a6jg6")
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[node name="Magnet" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Magnet"]
+shape = SubResource("CircleShape2D_5lr4l")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="MagnetTimer" type="Timer" parent="."]
+wait_time = 15.0
+one_shot = true
+script = ExtResource("3_bafnw")
+
+[connection signal="body_entered" from="PickUp" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Magnet" to="." method="_on_magnet_body_entered"]
+[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="MagnetTimer" method="_on_visible_on_screen_notifier_2d_screen_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="MagnetTimer" method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="timeout" from="MagnetTimer" to="." method="_on_magnet_timer_timeout"]

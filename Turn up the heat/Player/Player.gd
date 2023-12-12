@@ -283,7 +283,9 @@ func hurt(damage):
 			if modifiers["is_armor_to_damage_active"]:
 				armor_damage_modifier=0.05*current_armor
 		else:
-			get_tree().change_scene_to_file("res://Main_scene.tscn")
+			$"../CanvasLayer/Loss_win_menu".visible = true
+			SignalBus.loss.emit()
+			SignalBus.pause_game.emit()
 		if current_armor == 0:
 			SignalBus.add_points.emit(10)
 		else:

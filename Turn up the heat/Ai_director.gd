@@ -9,7 +9,7 @@ var small_enemy_cost = 2
 var big_enemy = preload("res://Enemys/Big_enemy/Big_enemy.tscn")
 var big_enemy_cost = 4
 var range_enemy = preload("res://Enemys/Range_enemy/range_enemy.tscn")
-var range_enemy_cost = 5
+var range_enemy_cost = 20
 
 var number_of_small_enemy: int
 var number_of_big_enemy: int
@@ -144,6 +144,10 @@ func roll_for_enemy():
 		roll_for_enemy()
 		
 func on_minute_passed():
+	if minutes_passed==6:
+		$"../CanvasLayer/Loss_win_menu".visible = true
+		SignalBus.win.emit()
+		SignalBus.pause_game.emit()
 	if (range_damage_in_minute/melee_damage_in_minute>1.2):
 		priority = "melee"
 	elif (melee_damage_in_minute/range_damage_in_minute>1.2):

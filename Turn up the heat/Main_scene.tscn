@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://c6gvx3h1wsmxr"]
+[gd_scene load_steps=13 format=3 uid="uid://c6gvx3h1wsmxr"]
 
 [ext_resource type="PackedScene" uid="uid://cm1kk7fl1jtqd" path="res://Player/Player.tscn" id="1_4lbih"]
 [ext_resource type="Texture2D" uid="uid://byat7of71781d" path="res://Temp_images/Temp_tilemap.png" id="2_e342k"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cw4qhjpu3l22j" path="res://Upgrades/upgrade_menu.tscn" id="6_ftkms"]
 [ext_resource type="Script" path="res://PauseHandler.gd" id="6_mo24r"]
 [ext_resource type="PackedScene" uid="uid://gofj5cok8h7p" path="res://PauseUI.tscn" id="6_rkr2n"]
+[ext_resource type="PackedScene" uid="uid://qusgup62nlgv" path="res://Menus/loss_win_menu.tscn" id="7_0630e"]
 [ext_resource type="Script" path="res://Ai_director.gd" id="8_mgqav"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kc1pk"]
@@ -236,7 +237,6 @@ anchors_preset = -1
 anchor_right = 0.5
 anchor_bottom = 0.498
 offset_bottom = 0.29599
-metadata/_edit_use_anchors_ = true
 
 [node name="PauseUI" parent="CanvasLayer" instance=ExtResource("6_rkr2n")]
 process_mode = 2
@@ -252,6 +252,14 @@ anchors_preset = -1
 anchor_right = 0.5
 anchor_bottom = 0.498
 offset_bottom = 0.29599
+
+[node name="Loss_win_menu" parent="CanvasLayer" instance=ExtResource("7_0630e")]
+process_mode = 2
+visible = false
+anchors_preset = -1
+anchor_right = 0.5
+anchor_bottom = 0.498457
+metadata/_edit_use_anchors_ = true
 
 [node name="PauseHandler" type="Node" parent="CanvasLayer"]
 process_mode = 3
