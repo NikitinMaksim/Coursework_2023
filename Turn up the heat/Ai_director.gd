@@ -7,7 +7,7 @@ var points:int=60
 var small_enemy = preload("res://Enemys/Small_enemy/small_enemy.tscn")
 var small_enemy_cost = 2
 var big_enemy = preload("res://Enemys/Big_enemy/Big_enemy.tscn")
-var big_enemy_cost = 4
+var big_enemy_cost = 20
 var range_enemy = preload("res://Enemys/Range_enemy/range_enemy.tscn")
 var range_enemy_cost = 20
 
@@ -144,7 +144,7 @@ func roll_for_enemy():
 		roll_for_enemy()
 		
 func on_minute_passed():
-	if minutes_passed==6:
+	if minutes_passed==10:
 		$"../CanvasLayer/Loss_win_menu".visible = true
 		SignalBus.win.emit()
 		SignalBus.pause_game.emit()

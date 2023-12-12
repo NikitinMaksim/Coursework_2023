@@ -11,7 +11,7 @@ func _on_area_2d_body_entered(_body):
 	SignalBus.fill_fuel.emit(1)
 	queue_free()
 
-func _on_magnet_body_entered(body):
+func _on_magnet_body_entered(_body):
 	is_moving = true
 
 func _on_magnet_timer_timeout():

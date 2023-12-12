@@ -128,7 +128,7 @@ func shoot():
 	var weapon = weapons[current_gun]
 	var damage = weapon.damage*(1+(float(modifiers["damage"])/100)+rage_damage_modifier+armor_damage_modifier)
 	var aspeed = (weapon.bullets_per_second*(1+float(modifiers["attack_speed"])/100)*fuel_attack_speed_modifier)
-	#SignalBus.add_points.emit(round((damage+aspeed)/10))
+	SignalBus.add_points.emit(round((damage+aspeed)/20))
 	clip -= weapon.fire_cost
 	var projectiles_count = weapon.projectiles_fired+modifiers["projectile"]
 	for x in projectiles_count:
@@ -320,6 +320,8 @@ func change_stats(stat,value):
 			modifiers[stat]+=value
 	else:
 		modifiers[stat]=value
+	if modifiers["is_armor_to_damage_active"]:
+		armor_damage_modifier=0.05*current_armor
 	if stat == "attack_speed":
 		timer_between_shots.wait_time = 1/(weapons[current_gun].bullets_per_second*(1+float(modifiers["attack_speed"])/100)*fuel_attack_speed_modifier)
 	if stat == "max_ammo":
@@ -332,7 +334,6 @@ func change_stats(stat,value):
 		update_magazine_label()
 	if stat == "max_fuel":
 		max_fuel = body.max_fuel*(1+float(modifiers["max_fuel"])/100)
-		print(max_fuel)
 		set_max_fuel_ui.emit(max_fuel)
 
 func _on_swap_can_shoot():
