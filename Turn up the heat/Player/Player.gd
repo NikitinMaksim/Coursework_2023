@@ -128,7 +128,7 @@ func shoot():
 	var weapon = weapons[current_gun]
 	var damage = weapon.damage*(1+(float(modifiers["damage"])/100)+rage_damage_modifier+armor_damage_modifier)
 	var aspeed = (weapon.bullets_per_second*(1+float(modifiers["attack_speed"])/100)*fuel_attack_speed_modifier)
-	SignalBus.add_points.emit(round((damage+aspeed)/10))
+	#SignalBus.add_points.emit(round((damage+aspeed)/10))
 	clip -= weapon.fire_cost
 	var projectiles_count = weapon.projectiles_fired+modifiers["projectile"]
 	for x in projectiles_count:
