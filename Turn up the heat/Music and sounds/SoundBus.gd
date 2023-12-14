@@ -13,6 +13,3 @@ func play_shoot_sound():
 
 func play_reload_sound():
 	reload_sound.play()
-
-func _on_music_finished():
-	music.play()
