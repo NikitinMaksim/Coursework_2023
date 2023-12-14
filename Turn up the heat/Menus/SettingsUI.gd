@@ -19,4 +19,4 @@ func _on_visibility_changed():
 	$Panel/TabContainer/Audio/Effects/EffectsSlider.value = db_to_linear(AudioServer.get_bus_volume_db(2))
 
 func _on_effects_slider_drag_ended(_value_changed):
-	SignalBus.play_fire_sound.emit()
+	SoundBus.play_shoot_sound()

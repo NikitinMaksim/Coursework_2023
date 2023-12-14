@@ -49,7 +49,7 @@ func _on_points_timer_timeout():
 		quarters_passed = 0
 		minutes_passed += 1
 		on_minute_passed()
-	add_points((minutes_passed+1)*15)
+	add_points((minutes_passed+2)*15)
 	if amount_of_enemies_killed_last_minute>0 and amount_of_enemies_spawned_last_minute>0:
 		if amount_of_enemies_spawned_last_minute/amount_of_enemies_killed_last_minute>1.2:
 			modifier += 0.15
@@ -71,21 +71,23 @@ func _on_points_timer_timeout():
 	var point = rng.randi_range(0,360)
 	var spawn_pos = player.global_position+Vector2(300,0).rotated(deg_to_rad(point))
 	if roll>armor_priority+ammo_priority+fuel_priority:
-		pass
+		if nothing>0:
+			nothing-=1
 	elif roll>armor_priority+ammo_priority:
 		var drop = preload("res://Drops/Fuel_drop.tscn").instantiate()
 		drop.position = spawn_pos
 		owner.add_child(drop)
+		nothing+=1
 	elif roll>armor_priority:
-		#drop ammo
 		var drop = preload("res://Drops/Ammo_drop.tscn").instantiate()
 		drop.position = spawn_pos
 		owner.add_child(drop)
+		nothing+=1
 	else:
-		#drop armor
 		var drop = preload("res://Drops/Armor_drop.tscn").instantiate()
 		drop.position = spawn_pos
 		owner.add_child(drop)
+		nothing+=1
 	points = points*(1+modifier)
 	calculate_number_of_enemies()
 	
