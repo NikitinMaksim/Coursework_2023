@@ -11,7 +11,7 @@ tree = "AOE"
 tier = 2
 description = "Some modification make your gun begave more like a shotgun"
 stats = {
-"attack_speed": 0,
+"attack_speed": -15,
 "bounce": 0,
 "damage": 0,
 "is_ammo_crafting_active": false,
