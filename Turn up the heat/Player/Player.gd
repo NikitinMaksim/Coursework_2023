@@ -302,13 +302,13 @@ func get_exp(amount):
 		level_up.emit()
 	if modifiers["is_armor_crafting_active"]:
 		exp_for_armor_counter+=amount
-		if exp_for_armor_counter>500:
-			exp_for_armor_counter-=500
+		if exp_for_armor_counter>300:
+			exp_for_armor_counter-=300
 			_repair_armor(1)
 	if modifiers["is_ammo_crafting_active"]:
 		exp_for_ammo_counter+=amount
-		if exp_for_ammo_counter>5:
-			exp_for_ammo_counter-=5
+		if exp_for_ammo_counter>3:
+			exp_for_ammo_counter-=3
 			_fill_ammo(1)
 	set_exp_ui.emit(total_exp)
 
