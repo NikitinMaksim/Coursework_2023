@@ -9,7 +9,7 @@ image = ExtResource("1_det7l")
 name = "Shotgun mode"
 tree = "AOE"
 tier = 2
-description = "Some modification make your gun begave more like a shotgun"
+description = "Some modification make your gun behave more like a shotgun"
 stats = {
 "attack_speed": -15,
 "bounce": 0,
