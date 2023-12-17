@@ -17,7 +17,7 @@ func _on_exit_pressed():
 
 func _on_menu_pressed():
 	SignalBus.unpause_game.emit()
-	get_tree().change_scene_to_file("res://Main_scene.tscn")
+	get_tree().change_scene_to_file("res://Menus/MainMenu.tscn")
 
 func _on_try_again_pressed():
 	SignalBus.unpause_game.emit()
