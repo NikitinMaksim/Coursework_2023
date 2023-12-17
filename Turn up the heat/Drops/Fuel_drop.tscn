@@ -13,7 +13,7 @@ length = 5.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D/Sprite2D2:visible")
+tracks/0/path = NodePath("Box/Parachute:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -37,7 +37,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D:position")
+tracks/2/path = NodePath("Box:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -64,8 +64,7 @@ _data = {
 "Drop": SubResource("Animation_1eptu")
 }
 
-[node name="Node2D" type="Area2D"]
-visible = false
+[node name="Fuel_drop" type="Area2D"]
 position = Vector2(0, -500)
 scale = Vector2(5, 5)
 collision_layer = 0
@@ -76,11 +75,11 @@ position = Vector2(0.0999995, 0.100001)
 shape = SubResource("RectangleShape2D_jfkpy")
 disabled = true
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Box" type="Sprite2D" parent="."]
 position = Vector2(0, -250)
 texture = ExtResource("1_gru5k")
 
-[node name="Sprite2D2" type="Sprite2D" parent="Sprite2D"]
+[node name="Parachute" type="Sprite2D" parent="Box"]
 position = Vector2(0, -16)
 texture = ExtResource("2_nq653")
 
