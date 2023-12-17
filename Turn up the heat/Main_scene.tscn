@@ -246,6 +246,7 @@ offset_bottom = 0.29599
 
 [node name="PauseUI" parent="CanvasLayer" instance=ExtResource("6_rkr2n")]
 process_mode = 2
+visible = false
 anchors_preset = -1
 anchor_right = 0.5
 anchor_bottom = 0.5
