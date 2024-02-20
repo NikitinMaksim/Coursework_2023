@@ -92,6 +92,10 @@ LevelUp={
 2d_physics/layer_3="Utility"
 2d_physics/layer_4="Small_enemy"
 
+[physics]
+
+2d/physics_engine="GodotPhysics2D"
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0

@@ -1,9 +1,9 @@
 extends CharacterBody2D
 
-@onready var friend_finder = $FriendFinder
-@onready var too_close = $TooClose
-@onready var player = get_node("../Player")
-@onready var shoot_cooldown = $ShootCooldown
+@onready var friend_finder: Node = $FriendFinder
+@onready var too_close: Node = $TooClose
+@onready var player: Node = get_node("../Player")
+@onready var shoot_cooldown: Node = $ShootCooldown
 
 var projectile = preload("res://Enemys/Range_enemy/Ball.tscn")
 

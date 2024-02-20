@@ -1,9 +1,9 @@
 extends CharacterBody2D
 
-@onready var friend_zone = $FriendZone
-@onready var friend_finder = $FriendFinder
-@onready var too_close = $TooClose
-@onready var player = get_node("../Player")
+@onready var friend_zone: Node = $FriendZone
+@onready var friend_finder: Node = $FriendFinder
+@onready var too_close: Node = $TooClose
+@onready var player: Node = get_node("../Player")
 
 @export var stats: EnemyData
 @export var is_knocked_back: bool = false

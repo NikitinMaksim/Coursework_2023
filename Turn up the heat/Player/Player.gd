@@ -1,12 +1,12 @@
 extends CharacterBody2D
 
 @onready var anitree : AnimationTree = $AnimationTree
-@onready var gun = $Gun
-@onready var timer_between_shots = $Timer_between_shots
-@onready var timer_reload = $Timer_reload
-@onready var label = $Control/Label
-@onready var marker_2d = $Gun/Marker2D
-@onready var timer_rage = $Timer_Rage
+@onready var gun: Node = $Gun
+@onready var timer_between_shots: Node = $Timer_between_shots
+@onready var timer_reload: Node = $Timer_reload
+@onready var label: Node = $Control/Label
+@onready var marker_2d: Node = $Gun/Marker2D
+@onready var timer_rage: Node = $Timer_Rage
 
 const LITTLE_FUEL_DROP = preload("res://Drops/LittleFuelDrop.tscn")
 
@@ -125,9 +125,9 @@ func update_animation_parameters():
 		anitree["parameters/Walk/blend_position"] = direction
 
 func shoot():
-	var weapon = weapons[current_gun]
-	var damage = weapon.damage*(1+(float(modifiers["damage"])/100)+rage_damage_modifier+armor_damage_modifier)
-	var aspeed = (weapon.bullets_per_second*(1+float(modifiers["attack_speed"])/100)*fuel_attack_speed_modifier)
+	var weapon: GunData = weapons[current_gun]
+	var damage: float = weapon.damage*(1+(float(modifiers["damage"])/100)+rage_damage_modifier+armor_damage_modifier)
+	var aspeed: float = (weapon.bullets_per_second*(1+float(modifiers["attack_speed"])/100)*fuel_attack_speed_modifier)
 	SignalBus.add_points.emit(round((damage+aspeed)/20))
 	clip -= weapon.fire_cost
 	var projectiles_count = weapon.projectiles_fired+modifiers["projectile"]
@@ -143,7 +143,7 @@ func shoot():
 			projectile.max_bounces = weapon.bounce+modifiers["bounce"]
 		projectile.speed = weapon.bullet_speed
 		projectile.max_distance = weapon.bullet_max_distance
-		projectile.attack = weapon.damage*(1+(float(modifiers["damage"])/100)+rage_damage_modifier+armor_damage_modifier)
+		projectile.attack = damage
 		projectile.global_position = $Gun/Marker2D.global_position
 		if projectiles_count == 1:
 			projectile.rotation = $Gun.rotation
