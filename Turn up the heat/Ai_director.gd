@@ -5,11 +5,11 @@ var minutes_passed: int = 0
 var points:int=60
 
 var small_enemy = preload("res://Enemys/Small_enemy/small_enemy.tscn")
-var small_enemy_cost = 2
+var small_enemy_cost: int = 2
 var big_enemy = preload("res://Enemys/Big_enemy/Big_enemy.tscn")
-var big_enemy_cost = 20
+var big_enemy_cost: int = 20
 var range_enemy = preload("res://Enemys/Range_enemy/range_enemy.tscn")
-var range_enemy_cost = 20
+var range_enemy_cost: int = 20
 
 var number_of_small_enemy: int
 var number_of_big_enemy: int
@@ -23,7 +23,7 @@ var priority: String = "equal"
 var amount_of_enemies_spawned_last_minute: int = 0
 var amount_of_enemies_killed_last_minute: int = 0
 
-@onready var player = $"../Player"
+@onready var player: Node = $"../Player"
 
 func _ready():
 	$Points_timer.start()
@@ -92,8 +92,8 @@ func _on_points_timer_timeout():
 	calculate_number_of_enemies()
 	
 func calculate_number_of_enemies():
-	var points_for_big
-	var points_for_range
+	var points_for_big: float
+	var points_for_range: float
 	if minutes_passed>1:
 		points_for_big = points * 0.25
 		number_of_big_enemy = points_for_big/big_enemy_cost
@@ -122,10 +122,10 @@ func calculate_number_of_enemies():
 func spawn_enemies():
 	var rng = RandomNumberGenerator.new()
 	if total_number_of_enemies>0:
-		var point = rng.randi_range(0,360)
-		var spawn_pos = player.global_position+Vector2(2000,0).rotated(deg_to_rad(point))
+		var point: int = rng.randi_range(0,360)
+		var spawn_pos: Vector2 = player.global_position+Vector2(2000,0).rotated(deg_to_rad(point))
 		var who_to_spawn = roll_for_enemy()
-		var enemy
+		var enemy: CharacterBody2D
 		if who_to_spawn == "small_enemy":
 			enemy = small_enemy.instantiate()
 		elif who_to_spawn == "big_enemy":
@@ -139,13 +139,15 @@ func spawn_enemies():
 		
 func roll_for_enemy():
 	var rng = RandomNumberGenerator.new()
-	var random_spawn = rng.randi_range(1,3)
+	var random_spawn: int = rng.randi_range(1,3)
 	if random_spawn==1 and number_of_small_enemy>0:
 		return "small_enemy"
 	elif random_spawn==2 and number_of_big_enemy>0:
 		return "big_enemy"
 	elif random_spawn==3 and number_of_range_enemy>0:
 		return "range_enemy"
+	elif total_number_of_enemies==0:
+		return "none"
 	else:
 		roll_for_enemy()
 		
