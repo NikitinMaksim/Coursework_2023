@@ -327,4 +327,3 @@ one_shot = true
 [connection signal="change_offset" from="." to="Gun/Marker2D" method="_on_player_change_offset"]
 [connection signal="timeout" from="Timer_reload" to="." method="_on_timer_reload_timeout"]
 [connection signal="timeout" from="Timer_fuel" to="." method="_on_timer_fuel_timeout"]
-[connection signal="timeout" from="Timer_Rage" to="." method="_on_timer_rage_timeout"]

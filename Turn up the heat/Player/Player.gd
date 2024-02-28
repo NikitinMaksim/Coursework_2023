@@ -44,8 +44,6 @@ var exp_till_next_lvl: int = 1
 
 var exp_for_ammo_counter: int = 0
 var exp_for_armor_counter: int = 0
-var rage_damage_modifier: float = 0
-var armor_damage_modifier: float = 0
 
 var modifiers = {
 	"damage":0,
@@ -126,6 +124,12 @@ func update_animation_parameters():
 
 func shoot():
 	var weapon: GunData = weapons[current_gun]
+	var armor_damage_modifier: float = 0
+	if modifiers["is_armor_to_damage_active"]:
+		armor_damage_modifier=0.05*current_armor
+	var rage_damage_modifier: float = 0
+	if !timer_rage.is_stopped():
+		rage_damage_modifier = 0.30
 	var damage: float = weapon.damage*(1+(float(modifiers["damage"])/100)+rage_damage_modifier+armor_damage_modifier)
 	var aspeed: float = (weapon.bullets_per_second*(1+float(modifiers["attack_speed"])/100)*fuel_attack_speed_modifier)
 	SignalBus.add_points.emit(round((damage+aspeed)/20))
@@ -266,8 +270,6 @@ func _fill_fuel(amount):
 func _repair_armor(amount):
 	current_armor+=amount
 	$"../CanvasLayer/Action_UI/Grid/Left up corner/Health".setArmor(current_armor)
-	if modifiers["is_armor_to_damage_active"]:
-		armor_damage_modifier=0.05*current_armor
 
 func hurt(damage):
 	var enemys = $Area2D.get_overlapping_bodies()
@@ -279,9 +281,6 @@ func hurt(damage):
 			$"../CanvasLayer/Action_UI/Grid/Left up corner/Health".setArmor(current_armor)
 			if modifiers["is_rage_active"]:
 				$Timer_Rage.start()
-				rage_damage_modifier=0.30
-			if modifiers["is_armor_to_damage_active"]:
-				armor_damage_modifier=0.05*current_armor
 		else:
 			$"../CanvasLayer/Loss_win_menu".visible = true
 			SignalBus.loss.emit()
@@ -320,8 +319,6 @@ func change_stats(stat,value):
 			modifiers[stat]+=value
 	else:
 		modifiers[stat]=value
-	if modifiers["is_armor_to_damage_active"]:
-		armor_damage_modifier=0.05*current_armor
 	if stat == "attack_speed":
 		timer_between_shots.wait_time = 1/(weapons[current_gun].bullets_per_second*(1+float(modifiers["attack_speed"])/100)*fuel_attack_speed_modifier)
 	if stat == "max_ammo":
@@ -340,12 +337,10 @@ func change_stats(stat,value):
 func _on_swap_can_shoot():
 	can_shoot = !can_shoot
 
+@warning_ignore("unused_parameter")
 func _on_enemy_kill(place, stats):
 	if modifiers["is_fuel_drops_active"]:
 		var drop = LITTLE_FUEL_DROP.instantiate()
 		drop.global_position = place
 		get_parent().add_child.call_deferred(drop)
 	SoundBus.play_die_sound()
-
-func _on_timer_rage_timeout():
-	rage_damage_modifier = 0
