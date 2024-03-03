@@ -1,6 +1,5 @@
 extends Area2D
 
-
 func _ready():
 	$AnimationPlayer.current_animation = "Drop"
 
