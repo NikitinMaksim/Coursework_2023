@@ -15,7 +15,6 @@ func _ready():
 	$HealthComponent.health = stats.health
 
 func _physics_process(delta):
-	
 	var friends = friend_zone.get_overlapping_bodies()
 	friends.erase($HitboxComponent)
 	var friends_nearby = friend_finder.get_overlapping_bodies()
