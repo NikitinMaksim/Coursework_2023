@@ -153,48 +153,48 @@ _data = {
 "Stand_up": SubResource("Animation_fw20l")
 }
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_vi0cg"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_d147b"]
 animation = &"Stand_left"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ufi0b"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_o116m"]
 animation = &"Stand_right"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_flhdg"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8liyh"]
 animation = &"Stand_up"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_n18ly"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7c0c6"]
 animation = &"Stand_down"
 
 [sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_muika"]
-blend_point_0/node = SubResource("AnimationNodeAnimation_vi0cg")
+blend_point_0/node = SubResource("AnimationNodeAnimation_d147b")
 blend_point_0/pos = Vector2(-1, 0)
-blend_point_1/node = SubResource("AnimationNodeAnimation_ufi0b")
+blend_point_1/node = SubResource("AnimationNodeAnimation_o116m")
 blend_point_1/pos = Vector2(0.8, 0)
-blend_point_2/node = SubResource("AnimationNodeAnimation_flhdg")
+blend_point_2/node = SubResource("AnimationNodeAnimation_8liyh")
 blend_point_2/pos = Vector2(0, -1)
-blend_point_3/node = SubResource("AnimationNodeAnimation_n18ly")
+blend_point_3/node = SubResource("AnimationNodeAnimation_7c0c6")
 blend_point_3/pos = Vector2(0, 1)
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_e32xr"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_iu5mr"]
 animation = &"Move_left"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_dnmab"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_pu1n2"]
 animation = &"Move_right"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5exig"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_l4nut"]
 animation = &"Move_up"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_a3rc1"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_h2i7p"]
 animation = &"Move_down"
 
 [sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_v1dll"]
-blend_point_0/node = SubResource("AnimationNodeAnimation_e32xr")
+blend_point_0/node = SubResource("AnimationNodeAnimation_iu5mr")
 blend_point_0/pos = Vector2(-0.9, 0)
-blend_point_1/node = SubResource("AnimationNodeAnimation_dnmab")
+blend_point_1/node = SubResource("AnimationNodeAnimation_pu1n2")
 blend_point_1/pos = Vector2(0.9, 0)
-blend_point_2/node = SubResource("AnimationNodeAnimation_5exig")
+blend_point_2/node = SubResource("AnimationNodeAnimation_l4nut")
 blend_point_2/pos = Vector2(0, -1)
-blend_point_3/node = SubResource("AnimationNodeAnimation_a3rc1")
+blend_point_3/node = SubResource("AnimationNodeAnimation_h2i7p")
 blend_point_3/pos = Vector2(0, 1)
 min_space = Vector2(-1, -1.1)
 max_space = Vector2(1, 1.1)
@@ -283,6 +283,10 @@ autostart = true
 wait_time = 30.0
 one_shot = true
 
+[node name="I-Frames" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 9
@@ -319,10 +323,6 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(0, 5.6)
 shape = SubResource("CircleShape2D_oqal6")
-
-[node name="I-Frames" type="Timer" parent="."]
-wait_time = 0.5
-one_shot = true
 
 [connection signal="change_offset" from="." to="Gun/Marker2D" method="_on_player_change_offset"]
 [connection signal="timeout" from="Timer_reload" to="." method="_on_timer_reload_timeout"]
