@@ -33,6 +33,12 @@ window/size/mode=2
 
 export/convert_text_resources_to_binary=false
 
+[file_customization]
+
+folder_colors={
+"res://Player_v2/": "orange"
+}
+
 [input]
 
 move_left={

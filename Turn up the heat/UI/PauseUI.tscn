@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://gofj5cok8h7p"]
 
 [ext_resource type="FontFile" uid="uid://bfqjdaot25jm4" path="res://UI/PixeloidSans-mLxMm.ttf" id="1_0avbv"]
-[ext_resource type="Script" path="res://PauseUI.gd" id="2_q5vfg"]
+[ext_resource type="Script" path="res://UI/PauseUI.gd" id="2_q5vfg"]
 [ext_resource type="PackedScene" uid="uid://cbjn5vbxbykpb" path="res://Menus/SettingsUI.tscn" id="3_uytae"]
 
 [sub_resource type="Theme" id="Theme_n3uc0"]
