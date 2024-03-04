@@ -1,11 +1,12 @@
 extends Controller_component
 
+var direction : Vector2 = Vector2.ZERO
+
 func process_input(event:InputEvent):
 	pass
 
 func process_physics(delta:float):
-	var direction: Vector2 = Vector2(0,0)
-	var velocity: Vector2 = Vector2(0,0)
+	var velocity: Vector2 = Vector2.ZERO
 	direction = Input.get_vector("move_left","move_right","move_up","move_down").normalized()
 	if direction:
 		parent.velocity = direction * (parent.body.speed)
@@ -14,4 +15,11 @@ func process_physics(delta:float):
 	parent.move_and_slide()
 
 func process_frame(delta:float):
-	pass
+	if (direction == Vector2.ZERO):
+		parent.animations["parameters/conditions/is_idle"] = true
+		parent.animations["parameters/conditions/is_walking"] = false
+	else:
+		parent.animations["parameters/conditions/is_idle"] = false
+		parent.animations["parameters/conditions/is_walking"] = true
+		parent.animations["parameters/Idle/blend_position"] = direction
+		parent.animations["parameters/Walk/blend_position"] = direction
