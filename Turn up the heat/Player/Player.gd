@@ -337,7 +337,6 @@ func change_stats(stat,value):
 func _on_swap_can_shoot():
 	can_shoot = !can_shoot
 
-@warning_ignore("unused_parameter")
 func _on_enemy_kill(place, stats):
 	if modifiers["is_fuel_drops_active"]:
 		var drop = LITTLE_FUEL_DROP.instantiate()
