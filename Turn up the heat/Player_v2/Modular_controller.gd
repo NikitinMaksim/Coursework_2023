@@ -3,6 +3,7 @@ extends Node
 func init(parent: CharacterBody2D) -> void:
 	for child in get_children():
 		child.parent = parent
+		child.on_ready()
 
 func process_input(event:InputEvent) -> void:
 	for child in get_children():

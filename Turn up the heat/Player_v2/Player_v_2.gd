@@ -17,3 +17,5 @@ func _physics_process(delta:float) -> void:
 
 func _process(delta:float) -> void:
 	controller.process_frame(delta)
+
+#TODO Перенести стрельбу в новый модуль

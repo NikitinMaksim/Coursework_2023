@@ -261,7 +261,7 @@ parameters/Idle/blend_position = Vector2(-1.008, -0.0131004)
 parameters/Walk/blend_position = Vector2(-0.64, -0.0658683)
 
 [node name="Gun" type="Sprite2D" parent="."]
-position = Vector2(3.55271e-15, 6.2)
+position = Vector2(0, 6)
 texture = ExtResource("5_lbhw0")
 script = ExtResource("4_koxme")
 

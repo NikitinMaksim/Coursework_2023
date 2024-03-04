@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://dihdc1lfocshc"]
+[gd_scene load_steps=35 format=3 uid="uid://dihdc1lfocshc"]
 
 [ext_resource type="Script" path="res://Player_v2/Player_v_2.gd" id="1_pad1w"]
 [ext_resource type="Script" path="res://Player_v2/Modular_controller.gd" id="2_mtsjf"]
@@ -7,6 +7,10 @@
 [ext_resource type="Script" path="res://Player_v2/Keyboard_move_component.gd" id="2_uipru"]
 [ext_resource type="Resource" uid="uid://7fhe6gupp5ys" path="res://Resources/Guns/Drill.tres" id="3_ts27m"]
 [ext_resource type="Resource" uid="uid://ndvyfpcxgqp6" path="res://Resources/Bodys/Standart_body.tres" id="4_awqg7"]
+[ext_resource type="Script" path="res://Player_v2/Shooting_component.gd" id="7_c6874"]
+[ext_resource type="Script" path="res://Player_v2/Weapon.gd" id="8_hk7lm"]
+[ext_resource type="Texture2D" uid="uid://v7iy0etlfafx" path="res://Temp_images/Gun.png" id="8_onc63"]
+[ext_resource type="Theme" uid="uid://b3khtaygu7abx" path="res://UI/Main_theme.tres" id="10_myjhm"]
 
 [sub_resource type="Animation" id="Animation_4r0j1"]
 resource_name = "Move_down"
@@ -224,6 +228,43 @@ script = ExtResource("2_mtsjf")
 
 [node name="Keyboard_move_component" type="Node" parent="Modular_controller"]
 script = ExtResource("2_uipru")
+
+[node name="Mouse_shooting_component" type="Node" parent="Modular_controller"]
+script = ExtResource("7_c6874")
+
+[node name="Visual" type="Node2D" parent="Modular_controller/Mouse_shooting_component"]
+
+[node name="Weapon" type="Sprite2D" parent="Modular_controller/Mouse_shooting_component/Visual"]
+position = Vector2(0, 30)
+scale = Vector2(5, 5)
+texture = ExtResource("8_onc63")
+script = ExtResource("8_hk7lm")
+
+[node name="Control" type="Control" parent="Modular_controller/Mouse_shooting_component/Visual"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="AmmoLabel" type="Label" parent="Modular_controller/Mouse_shooting_component/Visual"]
+offset_left = -44.0
+offset_top = -80.0
+offset_right = 46.0
+offset_bottom = -57.0
+theme = ExtResource("10_myjhm")
+text = "1/1"
+horizontal_alignment = 1
+
+[node name="ReloadProgressBar" type="ProgressBar" parent="Modular_controller/Mouse_shooting_component/Visual"]
+offset_left = -45.0
+offset_top = -58.0
+offset_right = 46.0
+offset_bottom = -31.0
+theme = ExtResource("10_myjhm")
+
+[node name="Timer_fire_delay" type="Timer" parent="Modular_controller/Mouse_shooting_component"]
+
+[node name="Timer_reload" type="Timer" parent="Modular_controller/Mouse_shooting_component"]
 
 [node name="Main_sprite" type="Sprite2D" parent="."]
 texture = ExtResource("2_trk05")

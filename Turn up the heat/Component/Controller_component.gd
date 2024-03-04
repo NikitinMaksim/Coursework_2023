@@ -11,3 +11,6 @@ func process_physics(delta:float) -> void:
 
 func process_frame(delta:float) -> void:
 	pass
+
+func on_ready() -> void:
+	pass
