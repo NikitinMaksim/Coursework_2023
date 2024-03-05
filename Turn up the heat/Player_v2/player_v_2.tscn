@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://dihdc1lfocshc"]
+[gd_scene load_steps=36 format=3 uid="uid://dihdc1lfocshc"]
 
 [ext_resource type="Script" path="res://Player_v2/Player_v_2.gd" id="1_pad1w"]
 [ext_resource type="Script" path="res://Player_v2/Modular_controller.gd" id="2_mtsjf"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" path="res://Player_v2/Weapon.gd" id="8_hk7lm"]
 [ext_resource type="Texture2D" uid="uid://v7iy0etlfafx" path="res://Temp_images/Gun.png" id="8_onc63"]
 [ext_resource type="Theme" uid="uid://b3khtaygu7abx" path="res://UI/Main_theme.tres" id="10_myjhm"]
+[ext_resource type="Script" path="res://Player_v2/Ammo_component.gd" id="11_l82ty"]
 
 [sub_resource type="Animation" id="Animation_4r0j1"]
 resource_name = "Move_down"
@@ -266,11 +267,14 @@ theme = ExtResource("10_myjhm")
 
 [node name="Timer_reload" type="Timer" parent="Modular_controller/Mouse_shooting_component"]
 
+[node name="Ammo_component" type="Node" parent="Modular_controller"]
+script = ExtResource("11_l82ty")
+
 [node name="Main_sprite" type="Sprite2D" parent="."]
 texture = ExtResource("2_trk05")
 hframes = 4
 vframes = 4
-frame = 4
+frame = 15
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../Main_sprite")

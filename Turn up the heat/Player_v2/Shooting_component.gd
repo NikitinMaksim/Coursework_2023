@@ -51,3 +51,5 @@ func swap_weapon():
 
 func update_magazine_label():
 	ammo_label.text = str(clip)+"/"+str(max_clip)
+	if get_parent().get_children().has($"../Ammo_component"):
+		print('Есть')
