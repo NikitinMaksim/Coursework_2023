@@ -12,6 +12,6 @@ class_name GunData
 @export var bounce: int = 0
 @export var texture: Texture2D
 @export var projectile: PackedScene
-@export var x_offset: int = 0
 @export var bullet_speed: int = 450
 @export var bullet_max_distance: int = 20000
+@export var is_melee: bool = false

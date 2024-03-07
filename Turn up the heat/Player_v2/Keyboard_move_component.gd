@@ -9,7 +9,7 @@ func process_physics(delta:float):
 	var velocity: Vector2 = Vector2.ZERO
 	direction = Input.get_vector("move_left","move_right","move_up","move_down").normalized()
 	if direction:
-		parent.velocity = direction * (parent.body.speed)
+		parent.velocity = direction * 300 * delta * parent.body.speed
 	else:
 		parent.velocity = Vector2.ZERO
 	parent.move_and_slide()

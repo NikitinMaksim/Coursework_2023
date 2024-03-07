@@ -17,6 +17,6 @@ pierce = 999
 bounce = 0
 texture = ExtResource("2_75aub")
 projectile = ExtResource("1_v0u33")
-x_offset = 15
 bullet_speed = 150
 bullet_max_distance = 35
+is_melee = true

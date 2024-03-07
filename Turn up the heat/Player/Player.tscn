@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://cm1kk7fl1jtqd"]
+[gd_scene load_steps=35 format=3 uid="uid://cm1kk7fl1jtqd"]
 
 [ext_resource type="Script" path="res://Player/Player.gd" id="1_8kf3r"]
 [ext_resource type="Resource" uid="uid://cgg7wit8qtreu" path="res://Resources/Guns/Machine_gun.tres" id="2_6ecqg"]
@@ -6,7 +6,6 @@
 [ext_resource type="Resource" uid="uid://7fhe6gupp5ys" path="res://Resources/Guns/Drill.tres" id="3_jyuny"]
 [ext_resource type="Script" path="res://Player/Gun.gd" id="4_koxme"]
 [ext_resource type="Texture2D" uid="uid://v7iy0etlfafx" path="res://Temp_images/Gun.png" id="5_lbhw0"]
-[ext_resource type="Script" path="res://Player/Muzzle.gd" id="7_6pfxh"]
 [ext_resource type="Script" path="res://Player/ReloadProgressBar.gd" id="7_45pkp"]
 [ext_resource type="FontFile" uid="uid://bfqjdaot25jm4" path="res://UI/PixeloidSans-mLxMm.ttf" id="8_tuy74"]
 
@@ -240,7 +239,7 @@ shape = SubResource("CapsuleShape2D_0714n")
 texture = ExtResource("2_ngyrq")
 hframes = 4
 vframes = 4
-frame = 14
+frame = 15
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../Sprite2D")
@@ -267,7 +266,6 @@ script = ExtResource("4_koxme")
 
 [node name="Marker2D" type="Marker2D" parent="Gun"]
 position = Vector2(15, 0)
-script = ExtResource("7_6pfxh")
 
 [node name="Timer_between_shots" type="Timer" parent="."]
 wait_time = 0.5
@@ -324,6 +322,5 @@ collision_mask = 2
 position = Vector2(0, 5.6)
 shape = SubResource("CircleShape2D_oqal6")
 
-[connection signal="change_offset" from="." to="Gun/Marker2D" method="_on_player_change_offset"]
 [connection signal="timeout" from="Timer_reload" to="." method="_on_timer_reload_timeout"]
 [connection signal="timeout" from="Timer_fuel" to="." method="_on_timer_fuel_timeout"]

@@ -10,7 +10,6 @@ extends CharacterBody2D
 
 const LITTLE_FUEL_DROP = preload("res://Drops/LittleFuelDrop.tscn")
 
-signal change_offset(x)
 signal set_ammo_ui(ammo)
 signal set_max_ammo_ui(max_ammo)
 signal set_fuel_ui(fuel)
@@ -95,10 +94,10 @@ func _ready():
 func _process(_delta):
 	update_animation_parameters()
 
-func _physics_process(_delta):
+func _physics_process(delta):
 	direction = Input.get_vector("move_left","move_right","move_up","move_down").normalized()
 	if direction:
-		velocity = direction * (body.speed*fuel_move_speed_modifier*(1+float(modifiers["speed"])/100))
+		velocity = direction * delta * 300 * (body.speed*fuel_move_speed_modifier*(1+float(modifiers["speed"])/100))
 	else:
 		velocity = Vector2.ZERO
 	move_and_slide()
@@ -180,7 +179,6 @@ func change_gun(choosen_gun: int):
 	gun.texture = weapon.texture
 	max_clip = weapon.clip*(1+float(modifiers["magazine_size"])/100)
 	store = clip
-	change_offset.emit(weapon.x_offset)
 	clip = second_weapon_clip
 	second_weapon_clip = store
 	timer_between_shots.wait_time = 1/(weapon.bullets_per_second*(1+float(modifiers["attack_speed"])/100)*fuel_attack_speed_modifier)

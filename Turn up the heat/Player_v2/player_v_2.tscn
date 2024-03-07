@@ -11,7 +11,7 @@
 [ext_resource type="Script" path="res://Player_v2/Weapon.gd" id="8_hk7lm"]
 [ext_resource type="Texture2D" uid="uid://v7iy0etlfafx" path="res://Temp_images/Gun.png" id="8_onc63"]
 [ext_resource type="Theme" uid="uid://b3khtaygu7abx" path="res://UI/Main_theme.tres" id="10_myjhm"]
-[ext_resource type="Script" path="res://Player_v2/Ammo_component.gd" id="11_l82ty"]
+[ext_resource type="Script" path="res://Player_v2/ReloadProgressBar.gd" id="11_ekfjs"]
 
 [sub_resource type="Animation" id="Animation_4r0j1"]
 resource_name = "Move_down"
@@ -241,34 +241,31 @@ scale = Vector2(5, 5)
 texture = ExtResource("8_onc63")
 script = ExtResource("8_hk7lm")
 
-[node name="Control" type="Control" parent="Modular_controller/Mouse_shooting_component/Visual"]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="Muzzle" type="Marker2D" parent="Modular_controller/Mouse_shooting_component/Visual/Weapon"]
+position = Vector2(13, 4.76837e-07)
 
 [node name="AmmoLabel" type="Label" parent="Modular_controller/Mouse_shooting_component/Visual"]
-offset_left = -44.0
-offset_top = -80.0
-offset_right = 46.0
-offset_bottom = -57.0
+offset_left = -45.0
+offset_top = -87.0
+offset_right = 45.0
+offset_bottom = -64.0
 theme = ExtResource("10_myjhm")
 text = "1/1"
 horizontal_alignment = 1
 
 [node name="ReloadProgressBar" type="ProgressBar" parent="Modular_controller/Mouse_shooting_component/Visual"]
-offset_left = -45.0
-offset_top = -58.0
+offset_left = -46.0
+offset_top = -64.0
 offset_right = 46.0
-offset_bottom = -31.0
+offset_bottom = -37.0
 theme = ExtResource("10_myjhm")
+script = ExtResource("11_ekfjs")
 
-[node name="Timer_fire_delay" type="Timer" parent="Modular_controller/Mouse_shooting_component"]
+[node name="Timer_attack_delay" type="Timer" parent="Modular_controller/Mouse_shooting_component"]
+one_shot = true
 
 [node name="Timer_reload" type="Timer" parent="Modular_controller/Mouse_shooting_component"]
-
-[node name="Ammo_component" type="Node" parent="Modular_controller"]
-script = ExtResource("11_l82ty")
+one_shot = true
 
 [node name="Main_sprite" type="Sprite2D" parent="."]
 texture = ExtResource("2_trk05")
@@ -293,3 +290,5 @@ parameters/conditions/is_idle = false
 parameters/conditions/is_walking = false
 parameters/Idle/blend_position = Vector2(-1.008, -0.0131004)
 parameters/Walk/blend_position = Vector2(-0.64, -0.0658683)
+
+[connection signal="timeout" from="Modular_controller/Mouse_shooting_component/Timer_reload" to="Modular_controller/Mouse_shooting_component" method="_on_timer_reload_timeout"]
