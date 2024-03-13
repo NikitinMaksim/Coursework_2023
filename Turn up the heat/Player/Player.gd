@@ -191,25 +191,14 @@ func swap_weapon():
 
 func _on_timer_reload_timeout():
 	if not is_melee:
-		if current_ammo>max_clip:
-			current_ammo -= max_clip-clip
-			clip = max_clip
-		elif current_ammo>0:
-			if current_ammo>(max_clip-clip):
-				current_ammo -= (max_clip-clip)
-				clip = max_clip
-			else:
-				clip += current_ammo
-				current_ammo = 0
+		current_ammo += clip
+		clip = clamp(current_ammo,0,max_clip)
+		current_ammo -= clip
 		set_ammo_ui.emit(current_ammo)
 	else:
-		if current_fuel>max_clip:
-			current_fuel -= max_clip-clip
-			clip = max_clip
-		elif current_fuel>0:
-			clip = current_fuel
-			current_fuel = 0
-		clip = max_clip
+		current_fuel += clip
+		clip = clamp(current_fuel,0,max_clip)
+		current_fuel -= clip
 		set_fuel_ui.emit(current_fuel)
 	update_magazine_label()
 	SoundBus.play_reload_sound()
