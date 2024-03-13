@@ -271,7 +271,7 @@ one_shot = true
 texture = ExtResource("2_trk05")
 hframes = 4
 vframes = 4
-frame = 15
+frame = 14
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../Main_sprite")
