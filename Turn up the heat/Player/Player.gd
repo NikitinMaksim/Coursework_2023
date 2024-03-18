@@ -8,6 +8,7 @@ extends CharacterBody2D
 @onready var marker_2d: Node = $Gun/Marker2D
 @onready var timer_rage: Node = $Timer_Rage
 
+const DROP_ARROW = preload("res://Drops/drop_arrow.tscn")
 const LITTLE_FUEL_DROP = preload("res://Drops/LittleFuelDrop.tscn")
 
 signal change_offset(x)
@@ -93,6 +94,7 @@ func _ready():
 	SignalBus.modify_player_stats.connect(Callable(change_stats.bind()))
 	SignalBus.swap_can_shoot.connect(_on_swap_can_shoot)
 	SignalBus.enemy_died.connect(Callable(_on_enemy_kill.bind()))
+	SignalBus.drop_spawned.connect(Callable(_on_drop_spawned.bind()))
 
 func _process(_delta):
 	update_animation_parameters()
@@ -338,3 +340,8 @@ func _on_enemy_kill(place, stats):
 
 func _on_timer_rage_timeout():
 	rage_damage_modifier = 0
+
+func _on_drop_spawned(target):
+	var arrow = DROP_ARROW.instantiate()
+	arrow.target = target
+	add_child(arrow)

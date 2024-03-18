@@ -65,8 +65,6 @@ _data = {
 }
 
 [node name="Node2D" type="Area2D"]
-visible = false
-position = Vector2(0, -500)
 scale = Vector2(5, 5)
 collision_layer = 0
 script = ExtResource("1_ipo7f")
@@ -74,13 +72,12 @@ script = ExtResource("1_ipo7f")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.0999995, 0.100001)
 shape = SubResource("RectangleShape2D_jfkpy")
-disabled = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -250)
 texture = ExtResource("1_wi2mx")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Sprite2D"]
+visible = false
 position = Vector2(0.4, -16.4)
 texture = ExtResource("2_c8vgj")
 

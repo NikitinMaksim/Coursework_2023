@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dmhd0aj44txuw"]
+
+[ext_resource type="Script" path="res://drop_arrow.gd" id="1_2u44g"]
+[ext_resource type="Texture2D" uid="uid://ctcqg4asldn44" path="res://Drops/Drop_arrow.png" id="1_pcucc"]
+
+[node name="Drop_arrow" type="Node2D"]
+script = ExtResource("1_2u44g")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_pcucc")
+offset = Vector2(10, 0)
