@@ -1,0 +1,14 @@
+Sprite2D
+TextureRect
+Marker2D
+Node
+Control
+ProgressBar
+Label
+Node2D
+Timer
+RemoteTransform2D
+Controller_component
+CharacterBody2D
+VisibleOnScreenNotifier2D
+VisibleOnScreenEnabler2D

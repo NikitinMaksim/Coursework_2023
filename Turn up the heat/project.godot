@@ -15,9 +15,13 @@ run/main_scene="res://Menus/MainMenu.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 run/max_fps=60
 
+[audio]
+
+buses/default_bus_layout="res://Music and sounds/default_bus_layout.tres"
+
 [autoload]
 
-SignalBus="*res://Signal_bus.gd"
+SignalBus="*res://Components/Signal_bus.gd"
 SoundBus="*res://Music and sounds/SoundBus.tscn"
 
 [debug]
@@ -32,6 +36,15 @@ window/size/mode=2
 [editor]
 
 export/convert_text_resources_to_binary=false
+
+[file_customization]
+
+folder_colors={
+"res://Components/": "teal",
+"res://Enemies/": "red",
+"res://Sprites/": "green",
+"res://Testing/": "gray"
+}
 
 [input]
 

@@ -1,6 +1,6 @@
 extends HBoxContainer
 
-var armor = preload("res://UI/Armor/armor_plate.tscn")
+var armor = preload("res://UI/armor_plate.tscn")
 
 func setArmor(max_armor:int):
 	for n in self.get_children():

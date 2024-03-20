@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://kypkfbdt84p2"]
 
-[ext_resource type="Texture2D" uid="uid://cap1ngo6jl1ti" path="res://Drops/Little_fuel_drop.png" id="1_gxgjc"]
+[ext_resource type="Texture2D" uid="uid://cap1ngo6jl1ti" path="res://Sprites/Drops/Little_fuel_drop.png" id="1_gxgjc"]
 [ext_resource type="Script" path="res://Drops/LittleFuelDrop.gd" id="1_v38va"]
 [ext_resource type="Script" path="res://Drops/MagnetTimer.gd" id="3_bafnw"]
 

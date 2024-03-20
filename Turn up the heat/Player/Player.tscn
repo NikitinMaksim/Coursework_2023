@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" path="res://Player/Player.gd" id="1_8kf3r"]
 [ext_resource type="Resource" uid="uid://cgg7wit8qtreu" path="res://Resources/Guns/Machine_gun.tres" id="2_6ecqg"]
-[ext_resource type="Texture2D" uid="uid://cs5fxbt0w15fb" path="res://Temp_images/Temp_character_spritesheet.png" id="2_ngyrq"]
+[ext_resource type="Texture2D" uid="uid://cs5fxbt0w15fb" path="res://Sprites/Player/Temp_character_spritesheet.png" id="2_ngyrq"]
 [ext_resource type="Resource" uid="uid://7fhe6gupp5ys" path="res://Resources/Guns/Drill.tres" id="3_jyuny"]
 [ext_resource type="Script" path="res://Player/Gun.gd" id="4_koxme"]
-[ext_resource type="Texture2D" uid="uid://v7iy0etlfafx" path="res://Temp_images/Gun.png" id="5_lbhw0"]
+[ext_resource type="Texture2D" uid="uid://v7iy0etlfafx" path="res://Sprites/Weapons/Gun.png" id="5_lbhw0"]
 [ext_resource type="Script" path="res://Player/Muzzle.gd" id="7_6pfxh"]
 [ext_resource type="Script" path="res://Player/ReloadProgressBar.gd" id="7_45pkp"]
 [ext_resource type="FontFile" uid="uid://bfqjdaot25jm4" path="res://UI/PixeloidSans-mLxMm.ttf" id="8_tuy74"]

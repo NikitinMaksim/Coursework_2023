@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="BodyData" load_steps=3 format=3 uid="uid://ndvyfpcxgqp6"]
 
 [ext_resource type="Script" path="res://Resources/Bodys/Body_Data.gd" id="1_gf0wl"]
-[ext_resource type="Texture2D" uid="uid://cs5fxbt0w15fb" path="res://Temp_images/Temp_character_spritesheet.png" id="2_2p6r7"]
+[ext_resource type="Texture2D" uid="uid://cs5fxbt0w15fb" path="res://Sprites/Player/Temp_character_spritesheet.png" id="2_2p6r7"]
 
 [resource]
 script = ExtResource("1_gf0wl")

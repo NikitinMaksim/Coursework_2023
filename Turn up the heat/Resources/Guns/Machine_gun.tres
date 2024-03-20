@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bsowby1rtlnue" path="res://Resources/Bullets/bullet.tscn" id="1_afq8r"]
 [ext_resource type="Script" path="res://Resources/Guns/Gun_data.gd" id="1_n8emd"]
-[ext_resource type="Texture2D" uid="uid://v7iy0etlfafx" path="res://Temp_images/Gun.png" id="2_menfp"]
+[ext_resource type="Texture2D" uid="uid://v7iy0etlfafx" path="res://Sprites/Weapons/Gun.png" id="2_menfp"]
 
 [resource]
 script = ExtResource("1_n8emd")

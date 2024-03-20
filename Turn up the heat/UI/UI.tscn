@@ -2,15 +2,15 @@
 
 [ext_resource type="Script" path="res://UI/UI.gd" id="1_3nnyk"]
 [ext_resource type="Script" path="res://UI/Health.gd" id="1_ae6d6"]
-[ext_resource type="Texture2D" uid="uid://bvwidpihshed4" path="res://UI/ProgressBarsTextures/AmmoProgressBarUnder.png" id="3_16uvc"]
-[ext_resource type="Texture2D" uid="uid://bcocys0pj5160" path="res://UI/ProgressBarsTextures/AmmoProgressBarProgress.png" id="4_mjtom"]
+[ext_resource type="Texture2D" uid="uid://bvwidpihshed4" path="res://Sprites/ProgressBarsTextures/AmmoProgressBarUnder.png" id="3_16uvc"]
+[ext_resource type="Texture2D" uid="uid://bcocys0pj5160" path="res://Sprites/ProgressBarsTextures/AmmoProgressBarProgress.png" id="4_mjtom"]
 [ext_resource type="FontFile" uid="uid://bfqjdaot25jm4" path="res://UI/PixeloidSans-mLxMm.ttf" id="5_rmt8w"]
-[ext_resource type="Texture2D" uid="uid://djgv2uxtsj848" path="res://UI/ProgressBarsTextures/FuelProgressBarUnder.png" id="6_orq0l"]
-[ext_resource type="Texture2D" uid="uid://cu2xbem1ag7xt" path="res://UI/ProgressBarsTextures/FuelProgressBarOver.png" id="7_8nmol"]
-[ext_resource type="Texture2D" uid="uid://vum47vsb0dtf" path="res://UI/ProgressBarsTextures/FuelProgressBarProgress.png" id="8_otyxi"]
-[ext_resource type="Script" path="res://Clock.gd" id="9_2n084"]
-[ext_resource type="Texture2D" uid="uid://ctyju1wvuubl5" path="res://UI/ProgressBarsTextures/ExpProgressBarUnder.png" id="10_4nx3p"]
-[ext_resource type="Texture2D" uid="uid://duelw23bkn2rq" path="res://UI/ProgressBarsTextures/ExpProgressBarProgress.png" id="11_0l8ph"]
+[ext_resource type="Texture2D" uid="uid://djgv2uxtsj848" path="res://Sprites/ProgressBarsTextures/FuelProgressBarUnder.png" id="6_orq0l"]
+[ext_resource type="Texture2D" uid="uid://cu2xbem1ag7xt" path="res://Sprites/ProgressBarsTextures/FuelProgressBarOver.png" id="7_8nmol"]
+[ext_resource type="Texture2D" uid="uid://vum47vsb0dtf" path="res://Sprites/ProgressBarsTextures/FuelProgressBarProgress.png" id="8_otyxi"]
+[ext_resource type="Script" path="res://UI/Clock.gd" id="9_2n084"]
+[ext_resource type="Texture2D" uid="uid://ctyju1wvuubl5" path="res://Sprites/ProgressBarsTextures/ExpProgressBarUnder.png" id="10_4nx3p"]
+[ext_resource type="Texture2D" uid="uid://duelw23bkn2rq" path="res://Sprites/ProgressBarsTextures/ExpProgressBarProgress.png" id="11_0l8ph"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_5leu6"]
 line_spacing = 0.0

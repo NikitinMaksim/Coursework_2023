@@ -1,0 +1,88 @@
+[gd_scene load_steps=11 format=3 uid="uid://yvjyxubd784a"]
+
+[ext_resource type="Script" path="res://Enemies/Small_enemy/SmallEnemy.gd" id="1_nffim"]
+[ext_resource type="Resource" uid="uid://bt767npbqh03" path="res://Enemies/Small_enemy/Small_enemy.tres" id="2_fwl85"]
+[ext_resource type="Texture2D" uid="uid://cylk0gf0n1nf8" path="res://Sprites/Enemies/Small_blob.png" id="3_i2j7r"]
+[ext_resource type="PackedScene" uid="uid://dup4aygtorqy0" path="res://Components/health_component.tscn" id="4_evoi5"]
+[ext_resource type="PackedScene" uid="uid://bgx54257k05ql" path="res://Components/hitbox_component.tscn" id="5_fxh8l"]
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_piw5p"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_blbxx"]
+radius = 6.6
+height = 18.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_c0mor"]
+radius = 37.4342
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_egiio"]
+radius = 116.801
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v167g"]
+size = Vector2(13, 10)
+
+[node name="SmallEnemy" type="CharacterBody2D" groups=["enemy", "small_enemy"]]
+scale = Vector2(5, 5)
+collision_layer = 10
+collision_mask = 11
+safe_margin = 0.15
+script = ExtResource("1_nffim")
+stats = ExtResource("2_fwl85")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-0.5, -1)
+texture = ExtResource("3_i2j7r")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_piw5p")
+anim_player = NodePath("../AnimationPlayer")
+
+[node name="TooClose" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 11
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TooClose"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_blbxx")
+
+[node name="FriendZone" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 10
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FriendZone"]
+shape = SubResource("CircleShape2D_c0mor")
+
+[node name="FriendFinder" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 10
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FriendFinder"]
+shape = SubResource("CircleShape2D_egiio")
+
+[node name="HealthComponent" parent="." instance=ExtResource("4_evoi5")]
+
+[node name="HitboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("5_fxh8l")]
+collision_layer = 10
+collision_mask = 10
+floor_stop_on_slope = false
+floor_block_on_wall = false
+platform_on_leave = 2
+platform_floor_layers = 4294967040
+safe_margin = 1.0
+health_component = NodePath("../HealthComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+shape = SubResource("RectangleShape2D_v167g")
+
+[node name="KnockBack" type="Timer" parent="."]
+wait_time = 0.25
+one_shot = true
+
+[connection signal="tree_exiting" from="." to="." method="_on_tree_exiting"]
+[connection signal="body_entered" from="TooClose" to="." method="collision"]
+[connection signal="timeout" from="KnockBack" to="." method="_on_knock_back_timeout"]

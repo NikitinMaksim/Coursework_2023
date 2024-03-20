@@ -1,0 +1,15 @@
+res://Enemies/Small_enemy/small_enemy.tscn
+res://Enemies/Big_enemy/Big_enemy.tscn
+res://Drops/Armor_drop.tscn
+res://Drops/Fuel_drop.tscn
+res://Drops/Ammo_drop.tscn
+res://Drops/drop_arrow.tscn
+res://Player/Player.tscn
+res://Main_scene.tscn
+res://Upgrades/upgrade_menu.tscn
+res://Upgrades/upgrade_system.tscn
+res://Music and sounds/SoundBus.tscn
+res://Menus/MainMenu.tscn
+res://Menus/SettingsUI.tscn
+res://Menus/loss_win_menu.tscn
+res://UI/PauseUI.tscn
