@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@onready var anitree : AnimationTree = $AnimationTree
+@onready var aniplayer : AnimationPlayer = $AnimationPlayer
 @onready var gun: Node = $Gun
 @onready var timer_between_shots: Node = $Timer_between_shots
 @onready var timer_reload: Node = $Timer_reload
@@ -70,7 +70,7 @@ var modifiers = {
 }
 
 func _ready():
-	anitree.active = true
+	aniplayer.active = true
 	$Sprite2D.texture=body.sprite_sheet
 	change_gun(current_gun)
 	clip = weapons[0].clip
@@ -118,13 +118,13 @@ func _physics_process(_delta):
 
 func update_animation_parameters():
 	if (direction == Vector2.ZERO):
-		anitree["parameters/conditions/is_idle"] = true
-		anitree["parameters/conditions/is_walking"] = false
+		aniplayer.play("Idle")
 	else:
-		anitree["parameters/conditions/is_idle"] = false
-		anitree["parameters/conditions/is_walking"] = true
-		anitree["parameters/Idle/blend_position"] = direction
-		anitree["parameters/Walk/blend_position"] = direction
+		aniplayer.play("Move")
+		if (direction.x > 0):
+			$Sprite2D.flip_h = false
+		else:
+			$Sprite2D.flip_h = true
 
 func shoot():
 	var weapon: GunData = weapons[current_gun]

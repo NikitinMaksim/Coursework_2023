@@ -1,1 +1,4 @@
+res://Player/Player.tscn
+res://Resources/Bodys/Standart_body.tres
 res://Main_scene.tscn
+res://Player/Player.gd

@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1710944661
+::res://::1711012514
 export_presets.cfg::TextFile::-1::1708487082::0::1::::<><>::
 Main_scene.tscn::PackedScene::6962399399476350527::1710944661::0::1::::<><>::uid://cm1kk7fl1jtqd::::res://Player/Player.tscn<>uid://byat7of71781d::::res://Sprites/Misc/Tilemap.png<>uid://ndvyfpcxgqp6::::res://Resources/Bodys/Standart_body.tres<>uid://bxcoi4elsladh::::res://Upgrades/upgrade_system.tscn<>uid://cempmouod714f::::res://UI/UI.tscn<>uid://cw4qhjpu3l22j::::res://Upgrades/upgrade_menu.tscn<>res://UI/PauseHandler.gd<>uid://gofj5cok8h7p::::res://UI/PauseUI.tscn<>uid://qusgup62nlgv::::res://Menus/loss_win_menu.tscn<>res://Components/Ai_director.gd<>uid://dvio1emahvfia::::res://Drops/Fuel_drop.tscn<>uid://bfqjdaot25jm4::::res://UI/PixeloidSans-mLxMm.ttf
 ::res://Components/::1710943353
@@ -89,8 +89,8 @@ RangeEnemy.png::CompressedTexture2D::72267153364016014::1710940131::1710942707::
 Small_blob.png::CompressedTexture2D::6480733908787341951::1710940131::1710942707::1::::<><>::
 ::res://Sprites/Misc/::1710942826
 Tilemap.png::CompressedTexture2D::4072164443814296923::1710940131::1710942826::1::::<><>::
-::res://Sprites/Player/::1710942812
-Standart_mech.png::CompressedTexture2D::2502217454473270047::1697474584::1710942812::1::::<><>::
+::res://Sprites/Player/::1711022974
+MainBody.png::CompressedTexture2D::7314639287112244744::1711022942::1711022979::1::::<><>::
 Temp_character_spritesheet.png::CompressedTexture2D::6098516626757199027::1710940131::1710942812::1::::<><>::
 ::res://Sprites/ProgressBarsTextures/::1710940778
 AmmoProgressBarProgress.png::CompressedTexture2D::2555864937300434751::1710940131::1710940778::1::::<><>::
@@ -107,7 +107,7 @@ Drill_projectie.png::CompressedTexture2D::4117998918946912241::1697474584::17109
 Ammo.png::CompressedTexture2D::6268747785602590895::1710940131::1710942750::1::::<><>::
 ArmorPlate.png::CompressedTexture2D::1663917089461833638::1710940131::1710942750::1::::<><>::
 Fuelcan.png::CompressedTexture2D::9144257846783407362::1710940131::1710942750::1::::<><>::
-::res://Sprites/Weapons/::1710944659
+::res://Sprites/Weapons/::1710944787
 Drill.png::CompressedTexture2D::8126512747207866665::1710944081::1710944116::1::::<><>::
 Gun.png::CompressedTexture2D::1540555719665582841::1710944724::1710944787::1::::<><>::
 ::res://Testing/::1710941739
