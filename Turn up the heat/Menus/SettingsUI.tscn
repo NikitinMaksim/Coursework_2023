@@ -1,11 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://cbjn5vbxbykpb"]
+[gd_scene load_steps=5 format=3 uid="uid://cbjn5vbxbykpb"]
 
-[ext_resource type="FontFile" uid="uid://bfqjdaot25jm4" path="res://UI/PixeloidSans-mLxMm.ttf" id="1_nrv70"]
+[ext_resource type="Theme" uid="uid://dk2rjklrh8tbo" path="res://UI/MainTheme.tres" id="1_b4vgn"]
 [ext_resource type="Script" path="res://Menus/SettingsUI.gd" id="2_7mxay"]
-
-[sub_resource type="Theme" id="Theme_7lstv"]
-default_font = ExtResource("1_nrv70")
-default_font_size = 36
 
 [sub_resource type="InputEventKey" id="InputEventKey_5tkmw"]
 keycode = 4194305
@@ -20,7 +16,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = SubResource("Theme_7lstv")
+theme = ExtResource("1_b4vgn")
 script = ExtResource("2_7mxay")
 metadata/_edit_use_anchors_ = true
 
@@ -118,6 +114,23 @@ max_value = 1.0
 step = 0.001
 value = 0.5
 
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/TabContainer/Audio"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
+
+[node name="ApplyButton" type="Button" parent="Panel/TabContainer/Audio/HBoxContainer"]
+layout_mode = 2
+text = "Apply"
+
+[node name="ResetButton" type="Button" parent="Panel/TabContainer/Audio/HBoxContainer"]
+layout_mode = 2
+text = "Reset"
+
+[node name="DefaultButton" type="Button" parent="Panel/TabContainer/Audio/HBoxContainer"]
+layout_mode = 2
+text = "Default"
+
 [node name="Exit" type="Button" parent="Panel"]
 z_index = 3
 layout_mode = 2
@@ -133,4 +146,7 @@ text = "X"
 [connection signal="value_changed" from="Panel/TabContainer/Audio/Music/MusicSlider" to="." method="_on_music_slider_value_changed"]
 [connection signal="drag_ended" from="Panel/TabContainer/Audio/Effects/EffectsSlider" to="." method="_on_effects_slider_drag_ended"]
 [connection signal="value_changed" from="Panel/TabContainer/Audio/Effects/EffectsSlider" to="." method="_on_effects_slider_value_changed"]
+[connection signal="pressed" from="Panel/TabContainer/Audio/HBoxContainer/ApplyButton" to="." method="_on_apply_button_pressed"]
+[connection signal="pressed" from="Panel/TabContainer/Audio/HBoxContainer/ResetButton" to="." method="_on_reset_button_pressed"]
+[connection signal="pressed" from="Panel/TabContainer/Audio/HBoxContainer/DefaultButton" to="." method="_on_default_button_pressed"]
 [connection signal="pressed" from="Panel/Exit" to="." method="_on_exit_pressed"]

@@ -1,3 +1,6 @@
+Container
+Button
+HBoxContainer
 Sprite2D
 TextureRect
 Marker2D
@@ -9,6 +12,3 @@ Node2D
 Timer
 RemoteTransform2D
 Controller_component
-CharacterBody2D
-VisibleOnScreenNotifier2D
-VisibleOnScreenEnabler2D

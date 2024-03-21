@@ -2,3 +2,10 @@ res://Player/Player.tscn
 res://Resources/Bodys/Standart_body.tres
 res://Main_scene.tscn
 res://Player/Player.gd
+res://Menus/SettingsUI.tscn
+res://UI/MainTheme.tres
+res://Menus/SettingsUI.gd
+res://UI/PauseUI.tscn
+res://Music and sounds/SoundBus.tscn
+res://Menus/MainMenu.tscn
+res://Music and sounds/default_bus_layout.tres

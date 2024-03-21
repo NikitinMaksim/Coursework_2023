@@ -1,3 +1,4 @@
+res://UI
 res://Sprites/UI
 res://Sprites
 res://Player
@@ -9,8 +10,4 @@ res://Menus
 res://Drops
 res://Upgrades/Upgrades_Stats
 res://Upgrades
-res://Enemys/Range_enemy
-res://Enemys/Big_enemy
-res://Enemys/Small_enemy
 res://Resources/Bodys
-res://Temp_images
