@@ -1,0 +1,60 @@
+[gd_scene load_steps=6 format=3 uid="uid://chaq0hxtg04rb"]
+
+[ext_resource type="Script" path="res://Summons/Standart_drone.gd" id="1_3fbse"]
+[ext_resource type="Texture2D" uid="uid://b64vgiq6dmfng" path="res://Sprites/Summons/Drone.png" id="1_87lu3"]
+
+[sub_resource type="Animation" id="Animation_7cuwh"]
+resource_name = "Idle"
+length = 1.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 12]
+}
+
+[sub_resource type="Animation" id="Animation_ma1uf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cxxgv"]
+_data = {
+"Idle": SubResource("Animation_7cuwh"),
+"RESET": SubResource("Animation_ma1uf")
+}
+
+[node name="Drone" type="Node2D"]
+scale = Vector2(5, 5)
+script = ExtResource("1_3fbse")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_87lu3")
+hframes = 4
+vframes = 4
+frame = 6
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+reset_on_save = false
+root_node = NodePath("../Sprite2D")
+libraries = {
+"": SubResource("AnimationLibrary_cxxgv")
+}
+speed_scale = 4.0

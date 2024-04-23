@@ -74,7 +74,7 @@ Machine_gun.tres::Resource/Resource::5208343378032791640::1710942799::0::1::::<>
 ::res://Resources/Melee hits/::1710942788
 Melee_projectile.gd::GDScript::-1::1701722828::0::1::::<>Node2D<>::
 melee_projectile.tscn::PackedScene::8874200034815044934::1710942788::0::1::::<><>::res://Resources/Melee hits/Melee_projectile.gd<>uid://byw13tw5nrarx::::res://Sprites/Projectiles/Drill_projectie.png
-::res://Sprites/::1710942825
+::res://Sprites/::1713880128
 ::res://Sprites/Drops/::1710942735
 Ammo_drop.png::CompressedTexture2D::5387199942920941730::1710940131::1710942726::1::::<><>::
 Armor_drop.png::CompressedTexture2D::5856317636048180722::1710940131::1710942726::1::::<><>::
@@ -103,6 +103,8 @@ FuelProgressBarUnder.png::CompressedTexture2D::7804672270514705671::1710940131::
 ::res://Sprites/Projectiles/::1710942788
 Bullet.png::CompressedTexture2D::7555463833938978126::1697474584::1710942788::1::::<><>::
 Drill_projectie.png::CompressedTexture2D::4117998918946912241::1697474584::1710942788::1::::<><>::
+::res://Sprites/Summons/::1713880138
+Drone.png::CompressedTexture2D::4623428009268020420::1713880169::1713880174::1::::<><>::
 ::res://Sprites/UI/::1710942770
 Ammo.png::CompressedTexture2D::6268747785602590895::1710940131::1710942750::1::::<><>::
 ArmorPlate.png::CompressedTexture2D::1663917089461833638::1710940131::1710942750::1::::<><>::
