@@ -1,7 +1,7 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1711012514
+::res://::1713870511
 export_presets.cfg::TextFile::-1::1708487082::0::1::::<><>::
-Main_scene.tscn::PackedScene::6962399399476350527::1710944661::0::1::::<><>::uid://cm1kk7fl1jtqd::::res://Player/Player.tscn<>uid://byat7of71781d::::res://Sprites/Misc/Tilemap.png<>uid://ndvyfpcxgqp6::::res://Resources/Bodys/Standart_body.tres<>uid://bxcoi4elsladh::::res://Upgrades/upgrade_system.tscn<>uid://cempmouod714f::::res://UI/UI.tscn<>uid://cw4qhjpu3l22j::::res://Upgrades/upgrade_menu.tscn<>res://UI/PauseHandler.gd<>uid://gofj5cok8h7p::::res://UI/PauseUI.tscn<>uid://qusgup62nlgv::::res://Menus/loss_win_menu.tscn<>res://Components/Ai_director.gd<>uid://dvio1emahvfia::::res://Drops/Fuel_drop.tscn<>uid://bfqjdaot25jm4::::res://UI/PixeloidSans-mLxMm.ttf
+Main_scene.tscn::PackedScene::6962399399476350527::1712149127::0::1::::<><>::uid://cm1kk7fl1jtqd::::res://Player/Player.tscn<>uid://byat7of71781d::::res://Sprites/Misc/Tilemap.png<>uid://ndvyfpcxgqp6::::res://Resources/Bodys/Standart_body.tres<>uid://bxcoi4elsladh::::res://Upgrades/upgrade_system.tscn<>uid://cempmouod714f::::res://UI/UI.tscn<>uid://cw4qhjpu3l22j::::res://Upgrades/upgrade_menu.tscn<>res://UI/PauseHandler.gd<>uid://gofj5cok8h7p::::res://UI/PauseUI.tscn<>uid://qusgup62nlgv::::res://Menus/loss_win_menu.tscn<>res://Components/Ai_director.gd<>uid://dvio1emahvfia::::res://Drops/Fuel_drop.tscn<>uid://bfqjdaot25jm4::::res://UI/PixeloidSans-mLxMm.ttf
 ::res://Components/::1710943353
 Ai_director.gd::GDScript::-1::1710942006::0::1::::<>Node<>::
 HealthComponent.gd::GDScript::-1::1710941970::0::1::::HealthComponent<>Node2D<>::
@@ -39,31 +39,31 @@ range_enemy.tscn::PackedScene::5683063563869090222::1710942706::0::1::::<><>::re
 SmallEnemy.gd::GDScript::-1::1710941971::0::1::::<>CharacterBody2D<>::
 Small_enemy.tres::Resource/Resource::111412025857914298::1710941797::0::1::::<><>::res://Enemies/Enemy_Data.gd
 small_enemy.tscn::PackedScene::1728474731120531118::1710943391::0::1::::<><>::res://Enemies/Small_enemy/SmallEnemy.gd<>uid://bt767npbqh03::::res://Enemies/Small_enemy/Small_enemy.tres<>uid://cylk0gf0n1nf8::::res://Sprites/Enemies/Small_blob.png<>uid://dup4aygtorqy0::::res://Components/health_component.tscn<>uid://bgx54257k05ql::::res://Components/hitbox_component.tscn
-::res://Menus/::1710943391
+::res://Menus/::1712149128
 loss_win_menu.gd::GDScript::-1::1710941970::0::1::::<>Control<>::
 loss_win_menu.tscn::PackedScene::1165413749007111621::1710943391::0::1::::<><>::uid://bfqjdaot25jm4::::res://UI/PixeloidSans-mLxMm.ttf<>res://Menus/loss_win_menu.gd
 MainMenu.gd::GDScript::-1::1710941970::0::1::::<>Control<>::
-MainMenu.tscn::PackedScene::3655276275487101643::1710943391::0::1::::<><>::uid://bfqjdaot25jm4::::res://UI/PixeloidSans-mLxMm.ttf<>res://Menus/MainMenu.gd<>uid://cbjn5vbxbykpb::::res://Menus/SettingsUI.tscn
-SettingsUI.gd::GDScript::-1::1710941970::0::1::::<>Control<>::
-SettingsUI.tscn::PackedScene::4862453611116347287::1710943391::0::1::::<><>::uid://bfqjdaot25jm4::::res://UI/PixeloidSans-mLxMm.ttf<>res://Menus/SettingsUI.gd
-::res://Music and sounds/::1710943391
-default_bus_layout.tres::AudioBusLayout::4316917719455129644::1709806270::0::1::::<><>::
+MainMenu.tscn::PackedScene::3655276275487101643::1712149128::0::1::::<><>::uid://bfqjdaot25jm4::::res://UI/PixeloidSans-mLxMm.ttf<>res://Menus/MainMenu.gd<>uid://cbjn5vbxbykpb::::res://Menus/SettingsUI.tscn
+SettingsUI.gd::GDScript::-1::1711035280::0::1::::<>Control<>::
+SettingsUI.tscn::PackedScene::4862453611116347287::1712149127::0::1::::<><>::uid://dk2rjklrh8tbo::::res://UI/MainTheme.tres<>res://Menus/SettingsUI.gd
+::res://Music and sounds/::1712149128
+default_bus_layout.tres::AudioBusLayout::4316917719455129644::1711035271::0::1::::<><>::
 Die.mp3::AudioStreamMP3::7253868687477115753::1708487082::1709547671::1::::<><>::
 GunFire.mp3::AudioStreamMP3::2052499018728934094::1708487082::1709547671::1::::<><>::
 Music.mp3::AudioStreamMP3::6366156549956701504::1708487082::1709547671::1::::<><>::
 Reload.mp3::AudioStreamMP3::2141303119410183854::1708487082::1709547671::1::::<><>::
 SoundBus.gd::GDScript::-1::1710941971::0::1::::<>Node<>::
-SoundBus.tscn::PackedScene::826480322145924300::1710943391::0::1::::<><>::res://Music and sounds/SoundBus.gd<>uid://cwx2wyryfpits::::res://Music and sounds/Music.mp3<>uid://4iimg70lcrqk::::res://Music and sounds/GunFire.mp3<>uid://dbl3fmbthm2w8::::res://Music and sounds/Die.mp3<>uid://5ri7jwi701pa::::res://Music and sounds/Reload.mp3
-::res://Player/::1710943390
+SoundBus.tscn::PackedScene::826480322145924300::1712149128::0::1::::<><>::res://Music and sounds/SoundBus.gd<>uid://cwx2wyryfpits::::res://Music and sounds/Music.mp3<>uid://4iimg70lcrqk::::res://Music and sounds/GunFire.mp3<>uid://dbl3fmbthm2w8::::res://Music and sounds/Die.mp3<>uid://5ri7jwi701pa::::res://Music and sounds/Reload.mp3
+::res://Player/::1712149127
 Gun.gd::GDScript::-1::1710941969::0::1::::<>Sprite2D<>::
 Muzzle.gd::GDScript::-1::1710941970::0::1::::<>Marker2D<>::
-Player.gd::GDScript::-1::1710941970::0::1::::<>CharacterBody2D<>::
-Player.tscn::PackedScene::5669408029520995831::1710943390::0::1::::<><>::res://Player/Player.gd<>uid://cgg7wit8qtreu::::res://Resources/Guns/Machine_gun.tres<>uid://cs5fxbt0w15fb::::res://Sprites/Player/Temp_character_spritesheet.png<>uid://7fhe6gupp5ys::::res://Resources/Guns/Drill.tres<>res://Player/Gun.gd<>uid://v7iy0etlfafx::::res://Sprites/Weapons/Gun.png<>res://Player/Muzzle.gd<>res://Player/ReloadProgressBar.gd<>uid://bfqjdaot25jm4::::res://UI/PixeloidSans-mLxMm.ttf
+Player.gd::GDScript::-1::1711023862::0::1::::<>CharacterBody2D<>::
+Player.tscn::PackedScene::5669408029520995831::1712149127::0::1::::<><>::res://Player/Player.gd<>uid://cgg7wit8qtreu::::res://Resources/Guns/Machine_gun.tres<>uid://7fhe6gupp5ys::::res://Resources/Guns/Drill.tres<>uid://dchjbmw7wk1k3::::res://Sprites/Player/MainBody.png<>res://Player/Gun.gd<>uid://v7iy0etlfafx::::res://Sprites/Weapons/Gun.png<>res://Player/Muzzle.gd<>res://Player/ReloadProgressBar.gd<>uid://bfqjdaot25jm4::::res://UI/PixeloidSans-mLxMm.ttf
 ReloadProgressBar.gd::GDScript::-1::1710941970::0::1::::<>ProgressBar<>::
 ::res://Resources/::1709548078
-::res://Resources/Bodys/::1710942812
+::res://Resources/Bodys/::1711023086
 Body_Data.gd::GDScript::-1::1710323013::0::1::::BodyData<>Resource<>::
-Standart_body.tres::Resource/Resource::919966302369091965::1710942812::0::1::::<><>::res://Resources/Bodys/Body_Data.gd<>uid://cs5fxbt0w15fb::::res://Sprites/Player/Temp_character_spritesheet.png
+Standart_body.tres::Resource/Resource::919966302369091965::1711023086::0::1::::<><>::res://Resources/Bodys/Body_Data.gd<>uid://dchjbmw7wk1k3::::res://Sprites/Player/MainBody.png
 ::res://Resources/Bullets/::1710942788
 bullet.gd::GDScript::-1::1710941969::0::1::::<>Node2D<>::
 bullet.tscn::PackedScene::3680060018892846856::1710942788::0::1::::<><>::res://Resources/Bullets/bullet.gd<>uid://dfv6ndu28s2vy::::res://Sprites/Projectiles/Bullet.png
@@ -89,7 +89,7 @@ RangeEnemy.png::CompressedTexture2D::72267153364016014::1710940131::1710942707::
 Small_blob.png::CompressedTexture2D::6480733908787341951::1710940131::1710942707::1::::<><>::
 ::res://Sprites/Misc/::1710942826
 Tilemap.png::CompressedTexture2D::4072164443814296923::1710940131::1710942826::1::::<><>::
-::res://Sprites/Player/::1711022974
+::res://Sprites/Player/::1711022979
 MainBody.png::CompressedTexture2D::7314639287112244744::1711022942::1711022979::1::::<><>::
 Temp_character_spritesheet.png::CompressedTexture2D::6098516626757199027::1710940131::1710942812::1::::<><>::
 ::res://Sprites/ProgressBarsTextures/::1710940778
@@ -116,16 +116,17 @@ Dispenser.gd::GDScript::-1::1699627487::0::1::::<>Node2D<>::
 dispenser.tscn::PackedScene::7283295868107153581::1710941739::0::1::::<><>::res://Testing/Dispenser.gd<>uid://blc0au3ur8v81::::res://Testing/AmmoAndFuelDispenser.png
 target_dummy.png::CompressedTexture2D::3027629153913451408::1710940131::1710941184::1::::<><>::
 target_dummy.tscn::PackedScene::1354560616285183638::1710941215::0::1::::<><>::uid://bjeuuy7qfpiqi::::res://Testing/target_dummy.png<>uid://dup4aygtorqy0::::res://Components/health_component.tscn<>uid://bgx54257k05ql::::res://Components/hitbox_component.tscn
-::res://UI/::1710943391
+::res://UI/::1712149127
 armor_plate.tscn::PackedScene::2620235212266627229::1710942750::0::1::::<><>::uid://xyaqa5ofg05g::::res://Sprites/UI/ArmorPlate.png
 Clock.gd::GDScript::-1::1710323013::0::1::::<>Label<>::
 Damage_popup.gd::GDScript::-1::1710940131::0::1::::<>Control<>::
 damage_popup.tscn::PackedScene::5646961170224568741::1710940131::0::1::::<><>::res://UI/Damage_popup.gd
 drop_arrow.gd::GDScript::-1::1710942091::0::1::::<>Node2D<>::
 Health.gd::GDScript::-1::1710941970::0::1::::<>HBoxContainer<>::
+MainTheme.tres::Theme::7917937490850840532::1712149127::0::1::::<><>::uid://bfqjdaot25jm4::::res://UI/PixeloidSans-mLxMm.ttf
 PauseHandler.gd::GDScript::-1::1710323013::0::1::::<>Node<>::
 PauseUI.gd::GDScript::-1::1710941970::0::1::::<>Control<>::
-PauseUI.tscn::PackedScene::450355586934886227::1710943391::0::1::::<><>::uid://bfqjdaot25jm4::::res://UI/PixeloidSans-mLxMm.ttf<>res://UI/PauseUI.gd<>uid://cbjn5vbxbykpb::::res://Menus/SettingsUI.tscn
+PauseUI.tscn::PackedScene::450355586934886227::1712149127::0::1::::<><>::uid://bfqjdaot25jm4::::res://UI/PixeloidSans-mLxMm.ttf<>res://UI/PauseUI.gd<>uid://cbjn5vbxbykpb::::res://Menus/SettingsUI.tscn
 PixeloidSans-mLxMm.ttf::FontFile::2770946778792638169::1710940131::1710940131::1::::<><>::
 UI.gd::GDScript::-1::1710940131::0::1::::<>BoxContainer<>::
 UI.tscn::PackedScene::5079302226269788727::1710940778::0::1::::<><>::res://UI/UI.gd<>res://UI/Health.gd<>uid://bvwidpihshed4::::res://Sprites/ProgressBarsTextures/AmmoProgressBarUnder.png<>uid://bcocys0pj5160::::res://Sprites/ProgressBarsTextures/AmmoProgressBarProgress.png<>uid://bfqjdaot25jm4::::res://UI/PixeloidSans-mLxMm.ttf<>uid://djgv2uxtsj848::::res://Sprites/ProgressBarsTextures/FuelProgressBarUnder.png<>uid://cu2xbem1ag7xt::::res://Sprites/ProgressBarsTextures/FuelProgressBarOver.png<>uid://vum47vsb0dtf::::res://Sprites/ProgressBarsTextures/FuelProgressBarProgress.png<>res://UI/Clock.gd<>uid://ctyju1wvuubl5::::res://Sprites/ProgressBarsTextures/ExpProgressBarUnder.png<>uid://duelw23bkn2rq::::res://Sprites/ProgressBarsTextures/ExpProgressBarProgress.png
