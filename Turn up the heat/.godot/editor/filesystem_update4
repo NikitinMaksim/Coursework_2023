@@ -1,10 +1,4 @@
+res://Drops/Ammo_drop.tscn
 res://UI/MainTheme.tres
-res://Summons/Standart_drone.tscn
-res://Summons/Standart_drone.gd
-res://Main_scene.tscn
-res://Player/Player.tscn
-res://UI/PauseUI.tscn
-res://Menus/SettingsUI.tscn
-res://Music and sounds/SoundBus.tscn
-res://Menus/MainMenu.tscn
-res://Resources/Guns/TinyGun.tres
+res://Drops/Armor_drop.tscn
+res://Drops/Fuel_drop.tscn

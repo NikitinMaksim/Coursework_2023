@@ -6,6 +6,7 @@
 
 [resource]
 script = ExtResource("1_2bd51")
+is_melee = true
 damage = 7.0
 clip = 30
 fire_cost = 1

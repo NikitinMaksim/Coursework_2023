@@ -33,7 +33,6 @@ var current_gun: int = 0
 var max_clip: int = 0
 var clip: int = 0
 var second_weapon_clip: int = 0
-var is_melee: bool = false
 var current_armor: int = 1
 var fuel_attack_speed_modifier: float = 1
 var fuel_move_speed_modifier: float = 1
@@ -136,7 +135,7 @@ func shoot():
 	for x in projectiles_count:
 		var projectile = weapons[current_gun].projectile.instantiate()
 		var spread = weapon.spread+modifiers["spread"]
-		if (is_melee):
+		if (weapon.is_melee):
 			pass
 		else:
 			projectile.is_ramp_up_active = modifiers["is_rampup_active"]
@@ -154,7 +153,7 @@ func shoot():
 		owner.add_child(projectile)
 	if modifiers["is_backwards_fire_active"]:
 		var projectile = weapons[current_gun].projectile.instantiate()
-		if (is_melee):
+		if (weapon.is_melee):
 			pass
 		else:
 			projectile.max_pierce = weapon.pierce+modifiers["pierce"]
@@ -174,7 +173,6 @@ func shoot():
 func change_gun(choosen_gun: int):
 	var weapon = weapons[choosen_gun]
 	var store: int
-	is_melee = choosen_gun
 	gun.texture = weapon.texture
 	max_clip = weapon.clip*(1+float(modifiers["magazine_size"])/100)
 	store = clip
@@ -192,7 +190,7 @@ func swap_weapon():
 	else: change_gun(1)
 
 func _on_timer_reload_timeout():
-	if not is_melee:
+	if not weapons[current_gun].is_melee:
 		current_ammo += clip
 		clip = clamp(current_ammo,0,max_clip)
 		current_ammo -= clip
@@ -210,7 +208,7 @@ func update_magazine_label():
 
 func reload():
 	if timer_reload.is_stopped():
-		if not is_melee:
+		if not weapons[current_gun].is_melee:
 			if current_ammo>0:
 				timer_reload.start()
 		else:

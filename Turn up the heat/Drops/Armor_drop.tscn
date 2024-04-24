@@ -65,6 +65,7 @@ _data = {
 }
 
 [node name="Node2D" type="Area2D"]
+visible = false
 scale = Vector2(5, 5)
 collision_layer = 0
 script = ExtResource("1_5jm1b")

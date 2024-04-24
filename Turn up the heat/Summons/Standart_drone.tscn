@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://chaq0hxtg04rb"]
+[gd_scene load_steps=9 format=3 uid="uid://chaq0hxtg04rb"]
 
 [ext_resource type="Script" path="res://Summons/Standart_drone.gd" id="1_3fbse"]
 [ext_resource type="Texture2D" uid="uid://b64vgiq6dmfng" path="res://Sprites/Summons/Drone.png" id="1_87lu3"]
@@ -43,12 +43,16 @@ _data = {
 "RESET": SubResource("Animation_ma1uf")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_dxc3p"]
+radius = 174.603
+
 [node name="Drone" type="Node2D"]
 scale = Vector2(5, 5)
 script = ExtResource("1_3fbse")
 weapon = ExtResource("2_okfks")
 
-[node name="Body" type="Sprite2D" parent="."]
+[node name="BodySprite" type="Sprite2D" parent="."]
+scale = Vector2(1, 1)
 texture = ExtResource("1_87lu3")
 hframes = 4
 vframes = 4
@@ -57,11 +61,28 @@ frame = 5
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 active = false
 reset_on_save = false
-root_node = NodePath("../Body")
+root_node = NodePath("../BodySprite")
 libraries = {
 "": SubResource("AnimationLibrary_cxxgv")
 }
 speed_scale = 4.0
 
-[node name="Gun" type="Sprite2D" parent="."]
+[node name="GunSprite" type="Sprite2D" parent="."]
+scale = Vector2(1, 1)
 texture = ExtResource("3_lnqvj")
+
+[node name="Shoot_timer" type="Timer" parent="."]
+
+[node name="Timer_reload" type="Timer" parent="."]
+
+[node name="EnemyFinder" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyFinder"]
+shape = SubResource("CircleShape2D_dxc3p")
+
+[connection signal="timeout" from="Shoot_timer" to="." method="_on_shoot_timer_timeout"]
+[connection signal="timeout" from="Timer_reload" to="." method="_on_timer_reload_timeout"]
+[connection signal="body_entered" from="EnemyFinder" to="." method="_on_enemy_finder_body_entered"]
+[connection signal="body_exited" from="EnemyFinder" to="." method="_on_enemy_finder_body_exited"]
