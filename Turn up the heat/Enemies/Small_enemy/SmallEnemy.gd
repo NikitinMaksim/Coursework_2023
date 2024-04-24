@@ -31,11 +31,11 @@ func _physics_process(delta):
 		direction =  vectorAway.normalized()
 	elif (friends_nearby) and (friends.size()==0):
 		var futhest_friend
-		var distance_to_furthest: float = 0
+		var distance_squared_to_furthest: float = 0
 		for friend in friends_nearby:
-			var distance = global_position.distance_to(friend.global_position)
-			if distance_to_furthest<distance:
-				distance_to_furthest = distance
+			var distance = global_position.distance_squared_to(friend.global_position)
+			if distance_squared_to_furthest<distance:
+				distance_squared_to_furthest = distance
 				futhest_friend = friend
 		direction = global_position.direction_to(futhest_friend.global_position).normalized()
 	else:

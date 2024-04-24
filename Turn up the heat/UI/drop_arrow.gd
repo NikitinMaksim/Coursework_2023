@@ -5,7 +5,7 @@ extends Node2D
 func _process(delta):
 	if target != null:
 		look_at(target.global_position)
-		var distance = global_position.distance_to(target.global_position)
+		var distance = global_position.distance_squared_to(target.global_position)
 		if distance>170:
 			visible = true
 			$Sprite2D.offset = Vector2(clamp(distance/10,20,30),0)

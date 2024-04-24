@@ -31,14 +31,14 @@ func _process(delta):
 func bounce_to_closest(area: CharacterBody2D):
 	if is_ramp_up_active:
 		ramp_up+=1
-	var distance_to_closest: float = 9999999999
+	var distance_squared_to_closest: float = 9999999999
 	var closest
 	var all_enemy = $Bounce_check.get_overlapping_bodies()
 	all_enemy.erase(area)
 	for enemy in all_enemy:
-		var distance = global_position.distance_to(enemy.global_position)
-		if distance_to_closest>distance: 
-			distance_to_closest = distance
+		var distance = global_position.distance_squared_to(enemy.global_position)
+		if distance_squared_to_closest>distance: 
+			distance_squared_to_closest = distance
 			closest = enemy
 	if all_enemy:
 		look_at(closest.get_parent().position)
