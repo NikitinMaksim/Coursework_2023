@@ -30,7 +30,7 @@ func _physics_process(delta):
 			vectorAway -= global_position.direction_to(friend.global_position)
 		direction =  vectorAway.normalized()
 		stop=false
-	elif (global_position.distance_squared_to(player.global_position)<900):
+	elif (global_position.distance_to(player.global_position)<900):
 		if shoot_cooldown.is_stopped():
 			shoot_cooldown.start()
 			var ball = projectile.instantiate()

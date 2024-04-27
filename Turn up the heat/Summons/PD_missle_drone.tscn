@@ -1,9 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://chaq0hxtg04rb"]
+[gd_scene load_steps=9 format=3 uid="uid://d2f5u7fnry5qq"]
 
-[ext_resource type="Script" path="res://Summons/Standart_drone.gd" id="1_3fbse"]
-[ext_resource type="Texture2D" uid="uid://b64vgiq6dmfng" path="res://Sprites/Summons/Drone.png" id="1_87lu3"]
-[ext_resource type="Resource" uid="uid://bdkcmnev0b3ra" path="res://Resources/Guns/TinyGun.tres" id="2_okfks"]
-[ext_resource type="Texture2D" uid="uid://b72flid5j1vsj" path="res://Sprites/Weapons/TinyGun.png" id="3_lnqvj"]
+[ext_resource type="Script" path="res://Summons/PD_missle_drone.gd" id="1_d30tj"]
+[ext_resource type="Texture2D" uid="uid://btwjy1iyvsexu" path="res://Sprites/Summons/PointDefenceDrone.png" id="1_n5v1u"]
+[ext_resource type="Texture2D" uid="uid://cv1wqtwmtxfwe" path="res://Sprites/Weapons/PDRocketsPod.png" id="2_4yopp"]
+[ext_resource type="Resource" uid="uid://pvpr3cnj0onl" path="res://Resources/Guns/PDRocketPod.tres" id="2_swjun"]
 
 [sub_resource type="Animation" id="Animation_7cuwh"]
 resource_name = "Idle"
@@ -43,22 +43,20 @@ _data = {
 "RESET": SubResource("Animation_ma1uf")
 }
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_dxc3p"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_r2om1"]
 radius = 174.603
 
-[node name="Drone" type="Node2D"]
+[node name="PDMissleDrone" type="Node2D"]
 scale = Vector2(5, 5)
-script = ExtResource("1_3fbse")
-weapon = ExtResource("2_okfks")
+script = ExtResource("1_d30tj")
+weapon = ExtResource("2_swjun")
 
 [node name="BodySprite" type="Sprite2D" parent="."]
-texture = ExtResource("1_87lu3")
+texture = ExtResource("1_n5v1u")
 hframes = 4
 vframes = 4
-frame = 5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-active = false
 reset_on_save = false
 root_node = NodePath("../BodySprite")
 libraries = {
@@ -67,7 +65,7 @@ libraries = {
 speed_scale = 4.0
 
 [node name="GunSprite" type="Sprite2D" parent="."]
-texture = ExtResource("3_lnqvj")
+texture = ExtResource("2_4yopp")
 
 [node name="Shoot_timer" type="Timer" parent="."]
 
@@ -75,12 +73,12 @@ texture = ExtResource("3_lnqvj")
 
 [node name="EnemyFinder" type="Area2D" parent="."]
 collision_layer = 0
-collision_mask = 2
+collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyFinder"]
-shape = SubResource("CircleShape2D_dxc3p")
+shape = SubResource("CircleShape2D_r2om1")
 
 [connection signal="timeout" from="Shoot_timer" to="." method="_on_shoot_timer_timeout"]
 [connection signal="timeout" from="Timer_reload" to="." method="_on_timer_reload_timeout"]
-[connection signal="body_entered" from="EnemyFinder" to="." method="_on_enemy_finder_body_entered"]
-[connection signal="body_exited" from="EnemyFinder" to="." method="_on_enemy_finder_body_exited"]
+[connection signal="area_entered" from="EnemyFinder" to="." method="_on_enemy_finder_body_entered"]
+[connection signal="area_exited" from="EnemyFinder" to="." method="_on_enemy_finder_body_exited"]

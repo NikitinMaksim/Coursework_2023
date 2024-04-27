@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://c6gvx3h1wsmxr"]
+[gd_scene load_steps=18 format=3 uid="uid://c6gvx3h1wsmxr"]
 
 [ext_resource type="PackedScene" uid="uid://cm1kk7fl1jtqd" path="res://Player/Player.tscn" id="1_4lbih"]
 [ext_resource type="Texture2D" uid="uid://byat7of71781d" path="res://Sprites/Misc/Tilemap.png" id="2_e342k"]
@@ -12,7 +12,8 @@
 [ext_resource type="Script" path="res://Components/Ai_director.gd" id="8_mgqav"]
 [ext_resource type="PackedScene" uid="uid://dvio1emahvfia" path="res://Drops/Fuel_drop.tscn" id="11_phmc5"]
 [ext_resource type="FontFile" uid="uid://bfqjdaot25jm4" path="res://UI/PixeloidSans-mLxMm.ttf" id="12_ae18p"]
-[ext_resource type="PackedScene" uid="uid://chaq0hxtg04rb" path="res://Summons/Standart_drone.tscn" id="13_wpxra"]
+[ext_resource type="PackedScene" uid="uid://d2f5u7fnry5qq" path="res://Summons/PD_missle_drone.tscn" id="13_ie1qp"]
+[ext_resource type="PackedScene" uid="uid://cm76hx66vx6w5" path="res://Enemies/Range_enemy/range_enemy.tscn" id="14_8a3ei"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kc1pk"]
 texture = ExtResource("2_e342k")
@@ -311,9 +312,11 @@ offset_bottom = 18.6
 text = "Use the fuel wisely"
 label_settings = SubResource("LabelSettings_jl2gm")
 
-[node name="Drone" parent="." node_paths=PackedStringArray("orbit_target") instance=ExtResource("13_wpxra")]
-position = Vector2(257, -26)
+[node name="PDMissleDrone" parent="." node_paths=PackedStringArray("orbit_target") instance=ExtResource("13_ie1qp")]
 orbit_target = NodePath("../Player")
+
+[node name="RangeEnemy" parent="." instance=ExtResource("14_8a3ei")]
+position = Vector2(1436, 99)
 
 [connection signal="level_up" from="Player" to="Player/UpgradeSystem" method="_on_player_level_up"]
 [connection signal="set_ammo_ui" from="Player" to="CanvasLayer/Action_UI" method="_on_player_set_ammo_ui"]

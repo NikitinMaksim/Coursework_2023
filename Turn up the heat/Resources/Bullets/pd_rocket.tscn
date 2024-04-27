@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://dqavkmkp3lja8"]
+
+[ext_resource type="Script" path="res://Resources/Bullets/pd_rocket.gd" id="1_is5oa"]
+[ext_resource type="Texture2D" uid="uid://cavuj57ynw2x4" path="res://Sprites/Projectiles/rocket.png" id="1_u55ad"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f0li4"]
+radius = 3.0
+height = 8.8
+
+[node name="PDRocket" type="Node2D"]
+scale = Vector2(5, 5)
+script = ExtResource("1_is5oa")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_u55ad")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_f0li4")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

@@ -40,10 +40,10 @@ func _process(delta):
 	if is_instance_valid(shooting_target):
 		gun.look_at(shooting_target.global_position)
 
-func _on_enemy_finder_body_entered(body):
-	enemies.append(body)
+func _on_enemy_finder_body_entered(area):
+	enemies.append(area)
 	if enemies.size()==1:
-		shooting_target = body
+		shooting_target = area
 	else: 
 		var closest = enemies[0]
 		for enemy in enemies:
@@ -53,8 +53,8 @@ func _on_enemy_finder_body_entered(body):
 	if shoot_timer.is_stopped():
 		shoot_timer.start()
 
-func _on_enemy_finder_body_exited(body):
-	enemies.erase(body)
+func _on_enemy_finder_body_exited(area):
+	enemies.erase(area)
 	if enemies.size()==0 and not is_instance_valid(shooting_target):
 		shoot_timer.stop()
 
@@ -79,7 +79,9 @@ func _on_shoot_timer_timeout():
 				projectile.rotation = gun.rotation
 			else:
 				projectile.rotation = (gun.rotation - deg_to_rad(spread/2) + deg_to_rad(spread/(projectiles_count-1)*x))
+			projectile.target = shooting_target
 			owner.add_child(projectile)
+		enemies.erase(shooting_target)
 		SoundBus.play_shoot_sound()
 		if clip<=0:
 			reload()

@@ -1,4 +1,18 @@
-res://Drops/Ammo_drop.tscn
+res://Enemies/Range_enemy/Ball.tscn
 res://UI/MainTheme.tres
-res://Drops/Armor_drop.tscn
-res://Drops/Fuel_drop.tscn
+res://Summons/PD_missle_drone.tscn
+res://Summons/PD_missle_drone.gd
+res://Resources/Guns/PDRocketPod.tres
+res://Resources/Bullets/pd_rocket.tscn
+res://Resources/Bullets/bullet.tscn
+res://Resources/Bullets/pd_rocket.gd
+res://Main_scene.tscn
+res://Player/Player.tscn
+res://UI/PauseUI.tscn
+res://Menus/SettingsUI.tscn
+res://Music and sounds/SoundBus.tscn
+res://Menus/MainMenu.tscn
+res://Summons/Standart_drone.tscn
+res://Enemies/Range_enemy/range_enemy.tscn
+res://Enemies/Range_enemy/Range_enemy.gd
+res://Summons/Standart_drone.gd
