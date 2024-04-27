@@ -67,7 +67,7 @@ _data = {
 [node name="Node2D" type="Area2D"]
 visible = false
 scale = Vector2(5, 5)
-collision_layer = 0
+collision_layer = 4
 script = ExtResource("1_ipo7f")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

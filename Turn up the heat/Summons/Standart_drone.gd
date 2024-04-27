@@ -35,7 +35,9 @@ func _ready():
 	clip = weapon.clip
 
 func _process(delta):
-	d+=delta
+	d += delta
+	if d>2*PI:
+		d = 0
 	position = (Vector2(sin(d*speed)*radius,cos(d*speed)*radius)+orbit_target.global_position)
 	if is_instance_valid(shooting_target):
 		gun.look_at(shooting_target.global_position)

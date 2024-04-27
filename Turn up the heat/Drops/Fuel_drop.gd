@@ -8,4 +8,5 @@ func _ready():
 
 func _on_body_entered(_body):
 	SignalBus.fill_fuel.emit(100)
+	SignalBus.drop_despawned.emit(self)
 	queue_free()

@@ -1,0 +1,74 @@
+[gd_scene load_steps=7 format=3 uid="uid://cbwvvjabfsfck"]
+
+[ext_resource type="Script" path="res://HaulerDrone.gd" id="1_00ucn"]
+[ext_resource type="Texture2D" uid="uid://dirafbdsfa7ff" path="res://Sprites/Summons/HaulderDrone.png" id="2_wtklm"]
+
+[sub_resource type="Animation" id="Animation_7cuwh"]
+resource_name = "Idle"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_ma1uf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cxxgv"]
+_data = {
+"Idle": SubResource("Animation_7cuwh"),
+"RESET": SubResource("Animation_ma1uf")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6rvh8"]
+size = Vector2(32.2, 26)
+
+[node name="HaulerDrone" type="Node2D"]
+scale = Vector2(5, 5)
+script = ExtResource("1_00ucn")
+
+[node name="BodySprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_wtklm")
+hframes = 2
+vframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+active = false
+reset_on_save = false
+root_node = NodePath("../BodySprite")
+libraries = {
+"": SubResource("AnimationLibrary_cxxgv")
+}
+speed_scale = 1.5
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0.0999986, -0.999999)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_6rvh8")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

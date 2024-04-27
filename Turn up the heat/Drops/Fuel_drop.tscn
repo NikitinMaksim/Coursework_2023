@@ -67,7 +67,7 @@ _data = {
 [node name="Fuel_drop" type="Area2D"]
 visible = false
 scale = Vector2(5, 5)
-collision_layer = 0
+collision_layer = 4
 script = ExtResource("1_5ddar")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

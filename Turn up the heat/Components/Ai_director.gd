@@ -69,7 +69,7 @@ func _on_points_timer_timeout():
 			ammo_priority = 2
 	var roll = rng.randi_range(1,armor_priority+ammo_priority+fuel_priority+nothing)
 	var point = rng.randi_range(0,360)
-	var spawn_pos = player.global_position+Vector2(300,0).rotated(deg_to_rad(point))
+	var spawn_pos = player.global_position+Vector2(500,0).rotated(deg_to_rad(point))
 	if roll>armor_priority+ammo_priority+fuel_priority:
 		if nothing>0:
 			nothing-=1
@@ -100,11 +100,11 @@ func calculate_number_of_enemies():
 		number_of_small_enemy = points/4*3/small_enemy_cost
 	elif minutes_passed>3:
 		if priority == "melee":
-			points_for_big = points * 0.35
-			points_for_range = points * 0.15
+			points_for_big = points * 0.30
+			points_for_range = points * 0.20
 		elif priority == "range":
-			points_for_big = points * 0.15
-			points_for_range = points * 0.35
+			points_for_big = points * 0.20
+			points_for_range = points * 0.30
 		else:
 			points_for_big = points * 0.25
 			points_for_range = points * 0.25
@@ -142,10 +142,10 @@ func roll_for_enemy():
 	var random_spawn: int = rng.randi_range(1,3)
 	if random_spawn==1 and number_of_small_enemy>0:
 		return "small_enemy"
-	elif random_spawn==2 and number_of_big_enemy>0:
-		return "big_enemy"
 	elif random_spawn==3 and number_of_range_enemy>0:
 		return "range_enemy"
+	elif random_spawn==2 and number_of_big_enemy>0:
+		return "big_enemy"
 	elif total_number_of_enemies==0:
 		return "none"
 	else:
