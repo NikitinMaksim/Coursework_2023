@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=3 uid="uid://catu3dqbjqrh4"]
+
+[ext_resource type="Script" path="res://points_popup.gd" id="1_h02py"]
+
+[node name="points_popup" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_h02py")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -18.0
+offset_top = -38.5
+offset_right = 56.0
+offset_bottom = -12.5
+text = "-10"
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="GunData" load_steps=4 format=3 uid="uid://7xnd2aqibv47"]
+
+[ext_resource type="PackedScene" uid="uid://cibngnj3upeb" path="res://Resources/Bullets/MiningLaser.tscn" id="1_2hrew"]
+[ext_resource type="Script" path="res://Resources/Guns/Gun_data.gd" id="1_a1o7v"]
+[ext_resource type="Texture2D" uid="uid://8ow5jkb8ubv3" path="res://Sprites/Weapons/MiningLaser.png" id="2_u65qa"]
+
+[resource]
+script = ExtResource("1_a1o7v")
+is_melee = false
+damage = 25.0
+clip = 50
+fire_cost = 1
+bullets_per_second = 5.0
+reload_time = 5.0
+spread = 5.0
+projectiles_fired = 1
+pierce = 0
+bounce = 0
+texture = ExtResource("2_u65qa")
+projectile = ExtResource("1_2hrew")
+x_offset = 0
+bullet_speed = 2500
+bullet_max_distance = 20000

@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3 uid="uid://cibngnj3upeb"]
+
+[ext_resource type="Script" path="res://Resources/Bullets/laser.gd" id="1_0q6oq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_og5m1"]
+size = Vector2(84, 10)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6bymp"]
+radius = 9.97245
+
+[node name="MiningLaser" type="Node2D"]
+script = ExtResource("1_0q6oq")
+
+[node name="Line2D" type="Line2D" parent="."]
+position = Vector2(-42, 0)
+points = PackedVector2Array(84, 0, 0, 0)
+default_color = Color(1, 0, 0, 1)
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_og5m1")
+
+[node name="Bounce_check" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bounce_check"]
+scale = Vector2(6, 6)
+shape = SubResource("CircleShape2D_6bymp")
+
+[node name="InvisTimer" type="Timer" parent="."]
+wait_time = 0.05
+one_shot = true
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
