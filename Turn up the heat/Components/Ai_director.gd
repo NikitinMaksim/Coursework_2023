@@ -25,6 +25,8 @@ var amount_of_enemies_killed_last_minute: int = 0
 
 @onready var player: Node = $"../Player"
 
+const CRIMSON_ORE = preload("res://MetaUpgrades/crimson_ore.tscn")
+
 func _ready():
 	$Points_timer.start()
 	SignalBus.add_points.connect(Callable(add_points.bind()))
@@ -94,7 +96,7 @@ func _on_points_timer_timeout():
 func calculate_number_of_enemies():
 	var points_for_big: float
 	var points_for_range: float
-	if minutes_passed>1:
+	if minutes_passed>1 and minutes_passed<=3:
 		points_for_big = points * 0.25
 		number_of_big_enemy = points_for_big/big_enemy_cost
 		number_of_small_enemy = points/4*3/small_enemy_cost
@@ -166,6 +168,7 @@ func on_minute_passed():
 	amount_of_enemies_killed_last_minute = 0
 	melee_damage_in_minute = 0
 	range_damage_in_minute = 0
+	spawn_ore()
 	
 func add_melee_damage(amount):
 	melee_damage_in_minute+=amount
@@ -179,3 +182,11 @@ func enemy_killed(Where:Vector2, stats):
 	expOrb.position = Where
 	expOrb.exp_drop = stats.exp_drop
 	owner.add_child.call_deferred(expOrb)
+
+func spawn_ore():
+	var rng = RandomNumberGenerator.new()
+	var point = rng.randi_range(0,360)
+	var spawn_pos = player.global_position+Vector2(1000,0).rotated(deg_to_rad(point))
+	var ore = CRIMSON_ORE.instantiate()
+	ore.global_position = spawn_pos
+	owner.add_child.call_deferred(ore)

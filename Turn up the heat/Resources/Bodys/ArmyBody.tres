@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="BodyData" load_steps=3 format=3 uid="uid://cik6f574fcrty"]
+
+[ext_resource type="Script" path="res://Resources/Bodys/Body_Data.gd" id="1_hmhtr"]
+[ext_resource type="Texture2D" uid="uid://c8gvmrjp1h5sv" path="res://Sprites/Player/ArmyBody.png" id="2_hj0x5"]
+
+[resource]
+script = ExtResource("1_hmhtr")
+armor_platings = 5
+speed = 300.0
+max_ammo = 400
+max_fuel = 200
+fuel_usage_every_sec = 1.0
+sprite_sheet = ExtResource("2_hj0x5")

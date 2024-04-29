@@ -4,6 +4,7 @@ extends Node2D
 
 func _ready():
 	sprite.frame = randi_range(0,2)
+	SignalBus.ore_spawned.emit(self)
 
 func _on_tree_exiting():
 	var points = randi_range(15,25)
@@ -12,4 +13,4 @@ func _on_tree_exiting():
 	new_popup.points = points
 	new_popup.position = global_position
 	new_popup.scale = Vector2(2,2)
-	get_parent().get_parent().add_child(new_popup)
+	get_parent().get_parent().add_child.call_deferred(new_popup)

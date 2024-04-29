@@ -9,6 +9,7 @@ extends CharacterBody2D
 @onready var timer_rage: Node = $Timer_Rage
 
 const DROP_ARROW = preload("res://Drops/drop_arrow.tscn")
+const ORE_ARROW = preload("res://MetaUpgrades/ore_arrow.tscn")
 const LITTLE_FUEL_DROP = preload("res://Drops/LittleFuelDrop.tscn")
 
 signal change_offset(x)
@@ -94,6 +95,7 @@ func _ready():
 	SignalBus.swap_can_shoot.connect(_on_swap_can_shoot)
 	SignalBus.enemy_died.connect(Callable(_on_enemy_kill.bind()))
 	SignalBus.drop_spawned.connect(Callable(_on_drop_spawned.bind()))
+	SignalBus.ore_spawned.connect(Callable(_on_ore_spawned.bind()))
 
 func _process(_delta):
 	update_animation_parameters()
@@ -342,4 +344,9 @@ func _on_timer_rage_timeout():
 func _on_drop_spawned(target):
 	var arrow = DROP_ARROW.instantiate()
 	arrow.target = target
+	add_child(arrow)
+
+func _on_ore_spawned(ore):
+	var arrow = ORE_ARROW.instantiate()
+	arrow.target = ore
 	add_child(arrow)

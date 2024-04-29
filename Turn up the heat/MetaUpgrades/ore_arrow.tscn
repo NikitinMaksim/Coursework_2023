@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dgva2qqjema14"]
+
+[ext_resource type="Texture2D" uid="uid://0o4332an2aty" path="res://MetaUpgrades/Ore_arrow.png" id="1_a1f76"]
+[ext_resource type="Script" path="res://MetaUpgrades/ore_arrow.gd" id="1_fgkpr"]
+
+[node name="ore_arrow" type="Node2D"]
+script = ExtResource("1_fgkpr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_a1f76")

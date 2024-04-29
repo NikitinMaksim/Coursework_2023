@@ -1,5 +1,6 @@
-res://Summons
 res://MetaUpgrades
+res://Resources/Bodys
+res://Summons
 res://Resources/Bullets
 res://Resources/Guns
 res://UI
@@ -14,4 +15,3 @@ res://Menus
 res://Drops
 res://Upgrades/Upgrades_Stats
 res://Upgrades
-res://Resources/Bodys
