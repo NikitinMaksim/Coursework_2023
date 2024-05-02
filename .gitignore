@@ -10,3 +10,9 @@ Turn up the heat/.godot/editor/editor_layout.cfg
 /Turn up the heat/.godot/editor
 Turn up the heat/.godot/editor/editor_layout.cfg
 *.cfg
+
+.godot/
+
+.import/
+export.cfg
+export_presets.cfg
