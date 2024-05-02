@@ -1,13 +1,16 @@
-[gd_resource type="Resource" script_class="BodyData" load_steps=3 format=3 uid="uid://bu3qum51rfwyf"]
+[gd_resource type="Resource" script_class="BodyData" load_steps=4 format=3 uid="uid://bu3qum51rfwyf"]
 
-[ext_resource type="Script" path="res://Resources/Bodys/Body_Data.gd" id="1_moc66"]
+[ext_resource type="PackedScene" uid="uid://cbwvvjabfsfck" path="res://Summons/Hauler_drone.tscn" id="1_8fl1l"]
+[ext_resource type="Script" path="res://Resources/templates/Body_Data.gd" id="1_moc66"]
 [ext_resource type="Texture2D" uid="uid://bvrdyj2x0hr05" path="res://Sprites/Player/HaulderBody.png" id="2_3cjdt"]
 
 [resource]
 script = ExtResource("1_moc66")
+name = "Hauler"
 armor_platings = 2
 speed = 350.0
 max_ammo = 400
 max_fuel = 350
 fuel_usage_every_sec = 1.0
 sprite_sheet = ExtResource("2_3cjdt")
+drone = ExtResource("1_8fl1l")

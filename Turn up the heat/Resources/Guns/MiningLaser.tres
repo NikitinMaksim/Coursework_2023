@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="GunData" load_steps=4 format=3 uid="uid://7xnd2aqibv47"]
 
 [ext_resource type="PackedScene" uid="uid://cibngnj3upeb" path="res://Resources/Bullets/MiningLaser.tscn" id="1_2hrew"]
-[ext_resource type="Script" path="res://Resources/Guns/Gun_data.gd" id="1_a1o7v"]
+[ext_resource type="Script" path="res://Resources/templates/Gun_data.gd" id="1_a1o7v"]
 [ext_resource type="Texture2D" uid="uid://8ow5jkb8ubv3" path="res://Sprites/Weapons/MiningLaser.png" id="2_u65qa"]
 
 [resource]

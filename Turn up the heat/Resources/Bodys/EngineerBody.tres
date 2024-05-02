@@ -1,13 +1,16 @@
-[gd_resource type="Resource" script_class="BodyData" load_steps=3 format=3 uid="uid://drj7ynrowjve3"]
+[gd_resource type="Resource" script_class="BodyData" load_steps=4 format=3 uid="uid://drj7ynrowjve3"]
 
-[ext_resource type="Script" path="res://Resources/Bodys/Body_Data.gd" id="1_ghadq"]
+[ext_resource type="Script" path="res://Resources/templates/Body_Data.gd" id="1_ghadq"]
+[ext_resource type="PackedScene" uid="uid://chaq0hxtg04rb" path="res://Summons/Standart_drone.tscn" id="1_srqju"]
 [ext_resource type="Texture2D" uid="uid://12csj8iv51bd" path="res://Sprites/Player/EngineerBody.png" id="2_si3jd"]
 
 [resource]
 script = ExtResource("1_ghadq")
+name = "Engineer"
 armor_platings = 2
 speed = 400.0
 max_ammo = 200
 max_fuel = 200
 fuel_usage_every_sec = 1.0
 sprite_sheet = ExtResource("2_si3jd")
+drone = ExtResource("1_srqju")

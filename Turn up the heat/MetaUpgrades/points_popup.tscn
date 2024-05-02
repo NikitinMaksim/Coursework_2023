@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://catu3dqbjqrh4"]
 
-[ext_resource type="Script" path="res://points_popup.gd" id="1_h02py"]
+[ext_resource type="Script" path="res://MetaUpgrades/points_popup.gd" id="1_h02py"]
 
 [node name="points_popup" type="Control"]
 layout_mode = 3

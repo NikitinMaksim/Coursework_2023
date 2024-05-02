@@ -8,12 +8,12 @@
 default_font = ExtResource("1_xwuhk")
 default_font_size = 36
 
-[sub_resource type="Gradient" id="Gradient_pvpqe"]
+[sub_resource type="Gradient" id="Gradient_grskl"]
 offsets = PackedFloat32Array(0, 0.821958, 1)
 colors = PackedColorArray(0.294118, 0.411765, 0.184314, 1, 0.760784, 0.537255, 0.309804, 1, 0.831373, 0.807843, 0.313726, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_185wd"]
-gradient = SubResource("Gradient_pvpqe")
+gradient = SubResource("Gradient_grskl")
 fill_to = Vector2(0.893162, 0.92735)
 
 [node name="MainMenu" type="Control"]

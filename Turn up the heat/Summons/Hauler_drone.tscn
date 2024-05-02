@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://cbwvvjabfsfck"]
 
-[ext_resource type="Script" path="res://HaulerDrone.gd" id="1_00ucn"]
+[ext_resource type="Script" path="res://Summons/HaulerDrone.gd" id="1_00ucn"]
 [ext_resource type="Texture2D" uid="uid://dirafbdsfa7ff" path="res://Sprites/Summons/HaulderDrone.png" id="2_wtklm"]
 
 [sub_resource type="Animation" id="Animation_7cuwh"]

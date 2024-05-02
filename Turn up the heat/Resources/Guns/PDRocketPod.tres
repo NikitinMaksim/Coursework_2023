@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="GunData" load_steps=4 format=3 uid="uid://pvpr3cnj0onl"]
 
 [ext_resource type="PackedScene" uid="uid://dqavkmkp3lja8" path="res://Resources/Bullets/pd_rocket.tscn" id="1_ktkab"]
-[ext_resource type="Script" path="res://Resources/Guns/Gun_data.gd" id="1_sb8lu"]
+[ext_resource type="Script" path="res://Resources/templates/Gun_data.gd" id="1_sb8lu"]
 [ext_resource type="Texture2D" uid="uid://cv1wqtwmtxfwe" path="res://Sprites/Weapons/PDRocketsPod.png" id="2_hni0c"]
 
 [resource]

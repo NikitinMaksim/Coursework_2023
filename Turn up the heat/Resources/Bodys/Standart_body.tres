@@ -1,13 +1,16 @@
-[gd_resource type="Resource" script_class="BodyData" load_steps=3 format=3 uid="uid://ndvyfpcxgqp6"]
+[gd_resource type="Resource" script_class="BodyData" load_steps=4 format=3 uid="uid://ndvyfpcxgqp6"]
 
-[ext_resource type="Script" path="res://Resources/Bodys/Body_Data.gd" id="1_gf0wl"]
+[ext_resource type="Script" path="res://Resources/templates/Body_Data.gd" id="1_7htj8"]
+[ext_resource type="PackedScene" uid="uid://c00c4ogfa2117" path="res://Summons/Mining_drone.tscn" id="1_nrjhq"]
 [ext_resource type="Texture2D" uid="uid://dchjbmw7wk1k3" path="res://Sprites/Player/MainBody.png" id="2_rgal5"]
 
 [resource]
-script = ExtResource("1_gf0wl")
+script = ExtResource("1_7htj8")
+name = "Miner"
 armor_platings = 3
 speed = 400.0
 max_ammo = 300
 max_fuel = 150
 fuel_usage_every_sec = 1.0
 sprite_sheet = ExtResource("2_rgal5")
+drone = ExtResource("1_nrjhq")

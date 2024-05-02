@@ -1,0 +1,131 @@
+[gd_scene load_steps=7 format=3 uid="uid://d3v5ct7ej3jfw"]
+
+[ext_resource type="Script" path="res://Menus/CharacterSelectionMenu.gd" id="1_yevtj"]
+[ext_resource type="Theme" uid="uid://dk2rjklrh8tbo" path="res://UI/MainTheme.tres" id="2_ucg8q"]
+[ext_resource type="Texture2D" uid="uid://dchjbmw7wk1k3" path="res://Sprites/Player/MainBody.png" id="3_emb1p"]
+
+[sub_resource type="Gradient" id="Gradient_pvpqe"]
+offsets = PackedFloat32Array(0, 0.821958, 1)
+colors = PackedColorArray(0.294118, 0.411765, 0.184314, 1, 0.760784, 0.537255, 0.309804, 1, 0.831373, 0.807843, 0.313726, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_iq5wb"]
+gradient = SubResource("Gradient_pvpqe")
+fill_to = Vector2(0.893162, 0.92735)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_20gx0"]
+atlas = ExtResource("3_emb1p")
+region = Rect2(0, 0, 32, 32)
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_ucg8q")
+script = ExtResource("1_yevtj")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_iq5wb")
+
+[node name="ItemList" type="ItemList" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 94.0
+offset_top = 96.0
+offset_right = -1422.0
+offset_bottom = -124.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_ucg8q")
+same_column_width = true
+
+[node name="CharacterTexture" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 528.0
+offset_top = 101.0
+offset_right = -949.0
+offset_bottom = -536.0
+texture = SubResource("AtlasTexture_20gx0")
+stretch_mode = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 912.0
+offset_top = 106.0
+offset_right = -454.0
+offset_bottom = -584.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DroneContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/DroneContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="VBoxContainer/DroneContainer"]
+layout_mode = 2
+
+[node name="ArmorContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/ArmorContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="VBoxContainer/ArmorContainer"]
+layout_mode = 2
+
+[node name="SpeedContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/SpeedContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="VBoxContainer/SpeedContainer"]
+layout_mode = 2
+
+[node name="MaxAmmoContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/MaxAmmoContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="VBoxContainer/MaxAmmoContainer"]
+layout_mode = 2
+
+[node name="MaxFuelContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/MaxFuelContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="VBoxContainer/MaxFuelContainer"]
+layout_mode = 2
+
+[connection signal="item_selected" from="ItemList" to="." method="_on_item_list_item_selected"]

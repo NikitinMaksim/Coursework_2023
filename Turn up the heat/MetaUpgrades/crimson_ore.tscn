@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://bahb0tu1maipv"]
 
-[ext_resource type="Script" path="res://CrimsonOre.gd" id="1_87tdn"]
+[ext_resource type="Script" path="res://MetaUpgrades/CrimsonOre.gd" id="1_87tdn"]
 [ext_resource type="PackedScene" uid="uid://dup4aygtorqy0" path="res://Components/health_component.tscn" id="2_ntj31"]
 [ext_resource type="PackedScene" uid="uid://bgx54257k05ql" path="res://Components/hitbox_component.tscn" id="3_tr3qq"]
 [ext_resource type="Texture2D" uid="uid://cgd4jbtk70eli" path="res://MetaUpgrades/CrimsonOres.png" id="4_p7g4g"]
