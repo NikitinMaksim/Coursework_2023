@@ -1,9 +1,9 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1714403054
+::res://::1714661413
 CrimsonOre.gd::GDScript::-1::1714403054::0::1::::<>Node2D<>::
 export_presets.cfg::TextFile::-1::1708487082::0::1::::<><>::
 HaulerDrone.gd::GDScript::-1::1714243631::0::1::::<>Node2D<>::
-Main_scene.tscn::PackedScene::6962399399476350527::1714403054::0::1::::<><>::uid://cm1kk7fl1jtqd::::res://Player/Player.tscn<>uid://byat7of71781d::::res://Sprites/Misc/Tilemap.png<>uid://ndvyfpcxgqp6::::res://Resources/Bodys/Standart_body.tres<>uid://bxcoi4elsladh::::res://Upgrades/upgrade_system.tscn<>uid://cempmouod714f::::res://UI/UI.tscn<>uid://cw4qhjpu3l22j::::res://Upgrades/upgrade_menu.tscn<>res://UI/PauseHandler.gd<>uid://gofj5cok8h7p::::res://UI/PauseUI.tscn<>uid://qusgup62nlgv::::res://Menus/loss_win_menu.tscn<>res://Components/Ai_director.gd<>uid://dvio1emahvfia::::res://Drops/Fuel_drop.tscn<>uid://bfqjdaot25jm4::::res://UI/PixeloidSans-mLxMm.ttf
+Main_scene.tscn::PackedScene::6962399399476350527::1714403334::0::1::::<><>::uid://cm1kk7fl1jtqd::::res://Player/Player.tscn<>uid://byat7of71781d::::res://Sprites/Misc/Tilemap.png<>uid://ndvyfpcxgqp6::::res://Resources/Bodys/Standart_body.tres<>uid://bxcoi4elsladh::::res://Upgrades/upgrade_system.tscn<>uid://cempmouod714f::::res://UI/UI.tscn<>uid://cw4qhjpu3l22j::::res://Upgrades/upgrade_menu.tscn<>res://UI/PauseHandler.gd<>uid://gofj5cok8h7p::::res://UI/PauseUI.tscn<>uid://qusgup62nlgv::::res://Menus/loss_win_menu.tscn<>res://Components/Ai_director.gd<>uid://dvio1emahvfia::::res://Drops/Fuel_drop.tscn<>uid://bfqjdaot25jm4::::res://UI/PixeloidSans-mLxMm.ttf
 points_popup.gd::GDScript::-1::1714331652::0::1::::<>Control<>::
 ::res://Components/::1714402698
 Ai_director.gd::GDScript::-1::1714402698::0::1::::<>Node<>::
@@ -12,12 +12,12 @@ health_component.tscn::PackedScene::8595766653652974161::1710941215::0::1::::<><
 HitboxComponent.gd::GDScript::-1::1710941970::0::1::::HitboxComponent<>CharacterBody2D<>::
 hitbox_component.tscn::PackedScene::2856909197613807243::1710941215::0::1::::<><>::res://Components/HitboxComponent.gd
 Signal_bus.gd::GDScript::-1::1714401888::0::1::::<>Node<>::
-::res://Drops/::1714243565
+::res://Drops/::1714403306
 Ammo_drop.gd::GDScript::-1::1714239779::0::1::::<>Area2D<>::
 Ammo_drop.tscn::PackedScene::977146542298479146::1714243565::0::1::::<><>::res://Drops/Ammo_drop.gd<>uid://ci0unp0ur3dok::::res://Sprites/Drops/Ammo_drop.png<>uid://bbfy35b1nht1c::::res://Sprites/Drops/Parachute.png
 Armor_drop.gd::GDScript::-1::1714239779::0::1::::<>Area2D<>::
 Armor_drop.tscn::PackedScene::324992522452088694::1714243565::0::1::::<><>::res://Drops/Armor_drop.gd<>uid://cpo3xwntnowus::::res://Sprites/Drops/Armor_drop.png<>uid://bbfy35b1nht1c::::res://Sprites/Drops/Parachute.png
-drop_arrow.tscn::PackedScene::8016205630100426850::1710943391::0::1::::<><>::res://UI/drop_arrow.gd<>uid://ctcqg4asldn44::::res://Sprites/Drops/Drop_arrow.png
+drop_arrow.tscn::PackedScene::8016205630100426850::1714403305::0::1::::<><>::res://UI/drop_arrow.gd<>uid://ctcqg4asldn44::::res://Sprites/Drops/Drop_arrow.png
 Fuel_drop.gd::GDScript::-1::1714239783::0::1::::<>Area2D<>::
 Fuel_drop.tscn::PackedScene::8650639486691958588::1714243565::0::1::::<><>::res://Drops/Fuel_drop.gd<>uid://dud62he2eau2v::::res://Sprites/Drops/Fuel_drop.png<>uid://bbfy35b1nht1c::::res://Sprites/Drops/Parachute.png
 LittleFuelDrop.gd::GDScript::-1::1708487082::0::1::::<>CharacterBody2D<>::
@@ -32,12 +32,12 @@ ExpOrb.tscn::PackedScene::1423301834786230880::1710941797::0::1::::<><>::res://E
 Big_enemy.gd::GDScript::-1::1710941969::0::1::::<>CharacterBody2D<>::
 Big_enemy.tres::Resource/Resource::2493909058201460367::1710941797::0::1::::<><>::res://Enemies/Enemy_Data.gd
 Big_enemy.tscn::PackedScene::7372168258378198812::1714402492::0::1::::<><>::res://Enemies/Big_enemy/Big_enemy.gd<>uid://bbsck2n0r4mw2::::res://Enemies/Big_enemy/Big_enemy.tres<>uid://dedelhwe8miej::::res://Sprites/Enemies/Big_enemy.png<>uid://dup4aygtorqy0::::res://Components/health_component.tscn<>uid://bgx54257k05ql::::res://Components/hitbox_component.tscn
-::res://Enemies/Range_enemy/::1714402492
+::res://Enemies/Range_enemy/::1714403334
 Ball.gd::GDScript::-1::1699627487::0::1::::<>Node2D<>::
 Ball.tscn::PackedScene::7418594774019261494::1714234527::0::1::::<><>::uid://rcldlfmmsqn6::::res://Sprites/Enemies/Ball.png<>res://Enemies/Range_enemy/Ball.gd
 RangeEnemy.tres::Resource/Resource::478719649979337760::1710941797::0::1::::<><>::res://Enemies/Enemy_Data.gd
 Range_enemy.gd::GDScript::-1::1714234352::0::1::::<>CharacterBody2D<>::
-range_enemy.tscn::PackedScene::5683063563869090222::1714402492::0::1::::<><>::res://Enemies/Range_enemy/Range_enemy.gd<>uid://g25pb0vb08sa::::res://Enemies/Range_enemy/RangeEnemy.tres<>uid://bbah2iumyk4m::::res://Sprites/Enemies/RangeEnemy.png<>uid://dup4aygtorqy0::::res://Components/health_component.tscn<>uid://bgx54257k05ql::::res://Components/hitbox_component.tscn
+range_enemy.tscn::PackedScene::5683063563869090222::1714403334::0::1::::<><>::res://Enemies/Range_enemy/Range_enemy.gd<>uid://g25pb0vb08sa::::res://Enemies/Range_enemy/RangeEnemy.tres<>uid://bbah2iumyk4m::::res://Sprites/Enemies/RangeEnemy.png<>uid://dup4aygtorqy0::::res://Components/health_component.tscn<>uid://bgx54257k05ql::::res://Components/hitbox_component.tscn
 ::res://Enemies/Small_enemy/::1713952787
 SmallEnemy.gd::GDScript::-1::1713952787::0::1::::<>CharacterBody2D<>::
 Small_enemy.tres::Resource/Resource::111412025857914298::1710941797::0::1::::<><>::res://Enemies/Enemy_Data.gd
@@ -49,10 +49,12 @@ MainMenu.gd::GDScript::-1::1710941970::0::1::::<>Control<>::
 MainMenu.tscn::PackedScene::3655276275487101643::1714402492::0::1::::<><>::uid://bfqjdaot25jm4::::res://UI/PixeloidSans-mLxMm.ttf<>res://Menus/MainMenu.gd<>uid://cbjn5vbxbykpb::::res://Menus/SettingsUI.tscn
 SettingsUI.gd::GDScript::-1::1711035280::0::1::::<>Control<>::
 SettingsUI.tscn::PackedScene::4862453611116347287::1714243565::0::1::::<><>::uid://dk2rjklrh8tbo::::res://UI/MainTheme.tres<>res://Menus/SettingsUI.gd
-::res://MetaUpgrades/::1714403224
+::res://MetaUpgrades/::1714403546
 CrimsonOres.png::CompressedTexture2D::5201944509784685910::1714329779::1714329817::1::::<><>::
-crimson_ore.tscn::PackedScene::2400977719849016243::1714402492::0::1::::<><>::res://CrimsonOre.gd<>uid://dup4aygtorqy0::::res://Components/health_component.tscn<>uid://bgx54257k05ql::::res://Components/hitbox_component.tscn<>uid://cgd4jbtk70eli::::res://MetaUpgrades/CrimsonOres.png
+crimson_ore.tscn::PackedScene::2400977719849016243::1714403334::0::1::::<><>::res://CrimsonOre.gd<>uid://dup4aygtorqy0::::res://Components/health_component.tscn<>uid://bgx54257k05ql::::res://Components/hitbox_component.tscn<>uid://cgd4jbtk70eli::::res://MetaUpgrades/CrimsonOres.png
+ore_arrow.gd::GDScript::-1::1714403406::0::1::::<>Node2D<>::
 Ore_arrow.png::CompressedTexture2D::1785434686909168518::1714403224::1714403228::1::::<><>::
+ore_arrow.tscn::PackedScene::7623796127683394641::1714403546::0::1::::<><>::uid://0o4332an2aty::::res://MetaUpgrades/Ore_arrow.png<>res://MetaUpgrades/ore_arrow.gd
 points_popup.tscn::PackedScene::4813329069143036543::1714332719::0::1::::<><>::res://points_popup.gd
 ::res://Music and sounds/::1714243565
 default_bus_layout.tres::AudioBusLayout::4316917719455129644::1711035271::0::1::::<><>::
@@ -62,18 +64,18 @@ Music.mp3::AudioStreamMP3::6366156549956701504::1708487082::1709547671::1::::<><
 Reload.mp3::AudioStreamMP3::2141303119410183854::1708487082::1709547671::1::::<><>::
 SoundBus.gd::GDScript::-1::1710941971::0::1::::<>Node<>::
 SoundBus.tscn::PackedScene::826480322145924300::1714243565::0::1::::<><>::res://Music and sounds/SoundBus.gd<>uid://cwx2wyryfpits::::res://Music and sounds/Music.mp3<>uid://4iimg70lcrqk::::res://Music and sounds/GunFire.mp3<>uid://dbl3fmbthm2w8::::res://Music and sounds/Die.mp3<>uid://5ri7jwi701pa::::res://Music and sounds/Reload.mp3
-::res://Player/::1714402492
+::res://Player/::1714403334
 Gun.gd::GDScript::-1::1710941969::0::1::::<>Sprite2D<>::
 Muzzle.gd::GDScript::-1::1710941970::0::1::::<>Marker2D<>::
-Player.gd::GDScript::-1::1714402023::0::1::::<>CharacterBody2D<>::
-Player.tscn::PackedScene::5669408029520995831::1714402492::0::1::::<><>::res://Player/Player.gd<>uid://cgg7wit8qtreu::::res://Resources/Guns/Machine_gun.tres<>uid://7fhe6gupp5ys::::res://Resources/Guns/Drill.tres<>uid://dchjbmw7wk1k3::::res://Sprites/Player/MainBody.png<>res://Player/Gun.gd<>uid://v7iy0etlfafx::::res://Sprites/Weapons/Gun.png<>res://Player/Muzzle.gd<>res://Player/ReloadProgressBar.gd<>uid://bfqjdaot25jm4::::res://UI/PixeloidSans-mLxMm.ttf
+Player.gd::GDScript::-1::1714403331::0::1::::<>CharacterBody2D<>::
+Player.tscn::PackedScene::5669408029520995831::1714403334::0::1::::<><>::res://Player/Player.gd<>uid://cgg7wit8qtreu::::res://Resources/Guns/Machine_gun.tres<>uid://7fhe6gupp5ys::::res://Resources/Guns/Drill.tres<>uid://dchjbmw7wk1k3::::res://Sprites/Player/MainBody.png<>res://Player/Gun.gd<>uid://v7iy0etlfafx::::res://Sprites/Weapons/Gun.png<>res://Player/Muzzle.gd<>res://Player/ReloadProgressBar.gd<>uid://bfqjdaot25jm4::::res://UI/PixeloidSans-mLxMm.ttf
 ReloadProgressBar.gd::GDScript::-1::1710941970::0::1::::<>ProgressBar<>::
 ::res://Resources/::1709548078
 ::res://Resources/Bodys/::1714401754
-Body_Data.gd::GDScript::-1::1710323013::0::1::::BodyData<>Resource<>::
 ArmyBody.tres::Resource/BodyData::5356888676234997346::1714401754::0::1::::<><>::res://Resources/Bodys/Body_Data.gd<>uid://c8gvmrjp1h5sv::::res://Sprites/Player/ArmyBody.png
-HaulerBody.tres::Resource/BodyData::3849007999158379525::1714401754::0::1::::<><>::res://Resources/Bodys/Body_Data.gd<>uid://bvrdyj2x0hr05::::res://Sprites/Player/HaulderBody.png
+Body_Data.gd::GDScript::-1::1710323013::0::1::::BodyData<>Resource<>::
 EngineerBody.tres::Resource/BodyData::8373038305265736480::1714401754::0::1::::<><>::res://Resources/Bodys/Body_Data.gd<>uid://12csj8iv51bd::::res://Sprites/Player/EngineerBody.png
+HaulerBody.tres::Resource/BodyData::3849007999158379525::1714401754::0::1::::<><>::res://Resources/Bodys/Body_Data.gd<>uid://bvrdyj2x0hr05::::res://Sprites/Player/HaulderBody.png
 Standart_body.tres::Resource/BodyData::919966302369091965::1714401754::0::1::::<><>::res://Resources/Bodys/Body_Data.gd<>uid://dchjbmw7wk1k3::::res://Sprites/Player/MainBody.png
 ::res://Resources/Bullets/::1714402492
 bullet.gd::GDScript::-1::1713952787::0::1::::<>Node2D<>::
@@ -86,7 +88,7 @@ pd_rocket.tscn::PackedScene::8283577110522603453::1714235403::0::1::::<><>::res:
 Drill.tres::Resource/Resource::2256798685734379554::1713953377::0::1::::<><>::res://Resources/Guns/Gun_data.gd<>uid://dyoy1pn7iwf3k::::res://Resources/Melee hits/melee_projectile.tscn<>uid://dn1sqifqn4j5r::::res://Sprites/Weapons/Drill.png
 Gun_data.gd::GDScript::-1::1713953373::0::1::::GunData<>Resource<>::
 Machine_gun.tres::Resource/Resource::5208343378032791640::1710942799::0::1::::<><>::uid://bsowby1rtlnue::::res://Resources/Bullets/bullet.tscn<>res://Resources/Guns/Gun_data.gd<>uid://v7iy0etlfafx::::res://Sprites/Weapons/Gun.png
-MiningLaser.tres::Resource/GunData::2294319781916265814::1714334066::0::1::::<><>::uid://cibngnj3upeb::::res://Resources/Bullets/MiningLaser.tscn<>res://Resources/Guns/Gun_data.gd<>uid://8ow5jkb8ubv3::::res://Sprites/Weapons/MiningLaser.png
+MiningLaser.tres::Resource/Resource::2294319781916265814::1714334066::0::1::::<><>::uid://cibngnj3upeb::::res://Resources/Bullets/MiningLaser.tscn<>res://Resources/Guns/Gun_data.gd<>uid://8ow5jkb8ubv3::::res://Sprites/Weapons/MiningLaser.png
 PDRocketPod.tres::Resource/Resource::1097127175140720885::1714234692::0::1::::<><>::uid://dqavkmkp3lja8::::res://Resources/Bullets/pd_rocket.tscn<>res://Resources/Guns/Gun_data.gd<>uid://cv1wqtwmtxfwe::::res://Sprites/Weapons/PDRocketsPod.png
 TinyGun.tres::Resource/Resource::2617774545630581738::1713887911::0::1::::<><>::res://Resources/Guns/Gun_data.gd<>uid://bsowby1rtlnue::::res://Resources/Bullets/bullet.tscn<>uid://b72flid5j1vsj::::res://Sprites/Weapons/TinyGun.png
 ::res://Resources/Melee hits/::1710942788
@@ -154,12 +156,12 @@ Dispenser.gd::GDScript::-1::1699627487::0::1::::<>Node2D<>::
 dispenser.tscn::PackedScene::7283295868107153581::1710941739::0::1::::<><>::res://Testing/Dispenser.gd<>uid://blc0au3ur8v81::::res://Testing/AmmoAndFuelDispenser.png
 target_dummy.png::CompressedTexture2D::3027629153913451408::1710940131::1710941184::1::::<><>::
 target_dummy.tscn::PackedScene::1354560616285183638::1710941215::0::1::::<><>::uid://bjeuuy7qfpiqi::::res://Testing/target_dummy.png<>uid://dup4aygtorqy0::::res://Components/health_component.tscn<>uid://bgx54257k05ql::::res://Components/hitbox_component.tscn
-::res://UI/::1714402492
+::res://UI/::1714403403
 armor_plate.tscn::PackedScene::2620235212266627229::1710942750::0::1::::<><>::uid://xyaqa5ofg05g::::res://Sprites/UI/ArmorPlate.png
 Clock.gd::GDScript::-1::1710323013::0::1::::<>Label<>::
 Damage_popup.gd::GDScript::-1::1710940131::0::1::::<>Control<>::
 damage_popup.tscn::PackedScene::5646961170224568741::1714332719::0::1::::<><>::res://UI/Damage_popup.gd
-drop_arrow.gd::GDScript::-1::1713952787::0::1::::<>Node2D<>::
+drop_arrow.gd::GDScript::-1::1714403403::0::1::::<>Node2D<>::
 Health.gd::GDScript::-1::1710941970::0::1::::<>HBoxContainer<>::
 MainTheme.tres::Theme::7917937490850840532::1714400791::0::1::::<><>::uid://bfqjdaot25jm4::::res://UI/PixeloidSans-mLxMm.ttf
 PauseHandler.gd::GDScript::-1::1710323013::0::1::::<>Node<>::
