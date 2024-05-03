@@ -23,6 +23,7 @@ buses/default_bus_layout="res://Music and sounds/default_bus_layout.tres"
 
 SignalBus="*res://Components/Signal_bus.gd"
 SoundBus="*res://Music and sounds/SoundBus.tscn"
+SingletonDataHolder="*res://Components/SingletonDataHolder.gd"
 
 [debug]
 

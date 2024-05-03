@@ -14,3 +14,4 @@ max_fuel = 350
 fuel_usage_every_sec = 1.0
 sprite_sheet = ExtResource("2_3cjdt")
 drone = ExtResource("1_8fl1l")
+drone_description = "Hauler drone. Hauls crates closer to the player"

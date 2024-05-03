@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Summons/PD_missle_drone.gd" id="1_d30tj"]
 [ext_resource type="Texture2D" uid="uid://btwjy1iyvsexu" path="res://Sprites/Summons/PointDefenceDrone.png" id="1_n5v1u"]
 [ext_resource type="Texture2D" uid="uid://cv1wqtwmtxfwe" path="res://Sprites/Weapons/PDRocketsPod.png" id="2_4yopp"]
-[ext_resource type="Resource" uid="uid://pvpr3cnj0onl" path="res://Resources/Guns/PDRocketPod.tres" id="2_swjun"]
+[ext_resource type="Resource" uid="uid://pvpr3cnj0onl" path="res://Resources/Guns/DroneGuns/PDRocketPod.tres" id="2_swjun"]
 
 [sub_resource type="Animation" id="Animation_7cuwh"]
 resource_name = "Idle"

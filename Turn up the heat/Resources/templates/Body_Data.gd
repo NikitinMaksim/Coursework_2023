@@ -9,3 +9,4 @@ class_name BodyData
 @export var fuel_usage_every_sec: float = 1
 @export var sprite_sheet: CompressedTexture2D
 @export var drone: PackedScene
+@export var drone_description: String

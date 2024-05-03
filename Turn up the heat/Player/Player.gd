@@ -70,6 +70,12 @@ var modifiers = {
 }
 
 func _ready():
+	body = SingletonDataHolder.get_body()
+	weapons[0] = SingletonDataHolder.get_gun1()
+	weapons[1] = SingletonDataHolder.get_gun2()
+	var summon = body.drone.instantiate()
+	summon.orbit_target = self
+	get_parent().add_child.call_deferred(summon)
 	aniplayer.active = true
 	$Sprite2D.texture=body.sprite_sheet
 	change_gun(current_gun)

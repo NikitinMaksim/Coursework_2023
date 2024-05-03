@@ -14,3 +14,4 @@ max_fuel = 150
 fuel_usage_every_sec = 1.0
 sprite_sheet = ExtResource("2_rgal5")
 drone = ExtResource("1_nrjhq")
+drone_description = "Mining drone. Mines crimson ore for the player"

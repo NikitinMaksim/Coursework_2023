@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://c7fme6u766bon" path="res://Sprites/Summons/MinerDrone.png" id="1_4vj76"]
 [ext_resource type="Script" path="res://Summons/Mining_drone.gd" id="1_pt0ul"]
-[ext_resource type="Resource" uid="uid://7xnd2aqibv47" path="res://Resources/Guns/MiningLaser.tres" id="2_vduk2"]
+[ext_resource type="Resource" uid="uid://7xnd2aqibv47" path="res://Resources/Guns/DroneGuns/MiningLaser.tres" id="2_vduk2"]
 
 [sub_resource type="Animation" id="Animation_7cuwh"]
 resource_name = "Idle"

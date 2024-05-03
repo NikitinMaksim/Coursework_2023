@@ -1,6 +1,7 @@
 extends Resource
 class_name GunData
 
+@export var name: String
 @export var is_melee: bool = false
 @export var damage: float = 0
 @export var clip: int = 0

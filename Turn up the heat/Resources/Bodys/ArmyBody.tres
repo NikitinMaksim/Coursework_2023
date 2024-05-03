@@ -14,3 +14,4 @@ max_fuel = 200
 fuel_usage_every_sec = 1.0
 sprite_sheet = ExtResource("2_hj0x5")
 drone = ExtResource("1_41l7x")
+drone_description = "Point Defence drone. Shoots down enemy projectiles"
