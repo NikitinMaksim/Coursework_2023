@@ -1,20 +1,20 @@
 [gd_scene load_steps=3 format=3 uid="uid://dyoy1pn7iwf3k"]
 
-[ext_resource type="Script" path="res://Resources/Melee hits/Melee_projectile.gd" id="1_wx7ak"]
-[ext_resource type="Texture2D" uid="uid://byw13tw5nrarx" path="res://Sprites/Projectiles/Drill_projectie.png" id="2_fr2i5"]
+[ext_resource type="Script" path="res://Resources/Melee hits/DrillProjectile.gd" id="1_xu8ye"]
+[ext_resource type="Texture2D" uid="uid://byw13tw5nrarx" path="res://Sprites/Projectiles/Drill_projectie.png" id="2_fxikg"]
 
-[node name="Melee_projectile" type="Node2D"]
+[node name="DrillProjectile" type="Node2D"]
 scale = Vector2(4, 4)
-script = ExtResource("1_wx7ak")
+script = ExtResource("1_xu8ye")
 max_distance = 1000
 speed = 500
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_fr2i5")
+texture = ExtResource("2_fxikg")
 
 [node name="Area2D" type="Area2D" parent="Sprite2D"]
 collision_layer = 0
-collision_mask = 2
+collision_mask = 34
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite2D/Area2D"]
 build_mode = 1
