@@ -82,7 +82,7 @@ func _on_shoot_timer_timeout():
 			else:
 				projectile.rotation = (gun.rotation - deg_to_rad(spread/2) + deg_to_rad(spread/(projectiles_count-1)*x))
 			projectile.target = shooting_target
-			owner.add_child(projectile)
+			get_parent().add_child(projectile)
 		enemies.erase(shooting_target)
 		SoundBus.play_shoot_sound()
 		if clip<=0:

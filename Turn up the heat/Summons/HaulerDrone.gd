@@ -37,7 +37,7 @@ func _process(delta):
 		if global_position.distance_squared_to(orbit_target.global_position)<150000:
 			if holding_crate:
 				holding_crate.set_collision_layer_value(3,false)
-				holding_crate.reparent(owner)
+				holding_crate.reparent(get_parent())
 				crates.erase(holding_crate)
 				holding_crate = null
 			is_flying_to_player = false

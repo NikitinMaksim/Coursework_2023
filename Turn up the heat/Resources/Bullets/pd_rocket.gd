@@ -18,5 +18,5 @@ func _process(delta):
 		queue_free()
 
 func _on_area_2d_area_entered(area):
-	area.owner.queue_free()
+	area.get_parent().queue_free()
 	queue_free()

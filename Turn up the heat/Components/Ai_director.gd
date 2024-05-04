@@ -78,17 +78,17 @@ func _on_points_timer_timeout():
 	elif roll>armor_priority+ammo_priority:
 		var drop = preload("res://Drops/Fuel_drop.tscn").instantiate()
 		drop.position = spawn_pos
-		owner.add_child(drop)
+		get_parent().add_child(drop)
 		nothing+=1
 	elif roll>armor_priority:
 		var drop = preload("res://Drops/Ammo_drop.tscn").instantiate()
 		drop.position = spawn_pos
-		owner.add_child(drop)
+		get_parent().add_child(drop)
 		nothing+=1
 	else:
 		var drop = preload("res://Drops/Armor_drop.tscn").instantiate()
 		drop.position = spawn_pos
-		owner.add_child(drop)
+		get_parent().add_child(drop)
 		nothing+=1
 	points = points*(1+modifier)
 	calculate_number_of_enemies()
@@ -137,7 +137,7 @@ func spawn_enemies():
 		if enemy:
 			amount_of_enemies_spawned_last_minute+=1
 			enemy.position = spawn_pos
-			get_owner().add_child.call_deferred(enemy)
+			get_parent().add_child.call_deferred(enemy)
 		
 func roll_for_enemy():
 	var rng = RandomNumberGenerator.new()
@@ -181,7 +181,7 @@ func enemy_killed(Where:Vector2, stats):
 	var expOrb = preload("res://Enemies/ExpOrb.tscn").instantiate()
 	expOrb.position = Where
 	expOrb.exp_drop = stats.exp_drop
-	owner.add_child.call_deferred(expOrb)
+	get_parent().add_child.call_deferred(expOrb)
 
 func spawn_ore():
 	var rng = RandomNumberGenerator.new()
@@ -189,4 +189,4 @@ func spawn_ore():
 	var spawn_pos = player.global_position+Vector2(1000,0).rotated(deg_to_rad(point))
 	var ore = CRIMSON_ORE.instantiate()
 	ore.global_position = spawn_pos
-	owner.add_child.call_deferred(ore)
+	get_parent().add_child.call_deferred(ore)

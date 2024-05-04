@@ -158,7 +158,7 @@ func shoot():
 			projectile.rotation = $Gun.rotation
 		else:
 			projectile.rotation = ($Gun.rotation - deg_to_rad(spread/2) + deg_to_rad(spread/(projectiles_count-1)*x))
-		owner.add_child(projectile)
+		get_parent().add_child(projectile)
 	if modifiers["is_backwards_fire_active"]:
 		var projectile = weapons[current_gun].projectile.instantiate()
 		if (weapon.is_melee):
@@ -171,7 +171,7 @@ func shoot():
 		projectile.attack = weapon.damage*(1+(float(modifiers["damage"])/100)+rage_damage_modifier+armor_damage_modifier)
 		projectile.global_position = $Gun/Marker2D.global_position
 		projectile.rotation = $Gun.rotation+deg_to_rad(180)
-		owner.add_child(projectile)
+		get_parent().add_child(projectile)
 	timer_between_shots.start()
 	SoundBus.play_shoot_sound()
 	update_magazine_label()
@@ -269,7 +269,7 @@ func _repair_armor(amount):
 func hurt(damage):
 	var enemys = $Area2D.get_overlapping_bodies()
 	for enemy in enemys:
-		enemy.owner.is_knocked_back = true
+		enemy.get_parent().is_knocked_back = true
 	if $"I-Frames".is_stopped():
 		if current_armor>0:
 			current_armor -= damage
