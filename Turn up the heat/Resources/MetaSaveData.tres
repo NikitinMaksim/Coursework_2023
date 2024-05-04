@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="MetaUpgradesStats" load_steps=2 format=3 uid="uid://ci2u0rbk085v2"]
+
+[ext_resource type="Script" path="res://Resources/templates/MetaUpgrades.gd" id="1_7kb5c"]
+
+[resource]
+script = ExtResource("1_7kb5c")
+total_points = 0
+damage_levels = 0
+max_damage_levels = 3
+armor_levels = 0
+max_armor_levels = 3
+speed_levels = 0
+max_speed_levels = 3
+projectile_count_levels = 0
+max_projectile_count_levels = 3
+ammo_levels = 0
+max_ammo_levels = 3
+fuel_levels = 0
+max_fuel_levels = 3
