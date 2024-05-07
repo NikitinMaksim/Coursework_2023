@@ -154,7 +154,7 @@ func roll_for_enemy():
 		roll_for_enemy()
 		
 func on_minute_passed():
-	if minutes_passed==5:
+	if minutes_passed==10:
 		$"../CanvasLayer/Loss_win_menu".visible = true
 		SignalBus.win.emit()
 		SignalBus.pause_game.emit()
