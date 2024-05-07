@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://d3v5ct7ej3jfw"]
+[gd_scene load_steps=13 format=3 uid="uid://d3v5ct7ej3jfw"]
 
 [ext_resource type="Script" path="res://Menus/CharacterSelectionMenu.gd" id="1_yevtj"]
 [ext_resource type="Theme" uid="uid://dk2rjklrh8tbo" path="res://UI/MainTheme.tres" id="2_ucg8q"]
@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://6do3yiveerr" path="res://Upgrades/Sprites/Sustain_3.png" id="5_w5j00"]
 [ext_resource type="Texture2D" uid="uid://cvkvmilp5wr3d" path="res://Sprites/UI/Ammo.png" id="6_uv5su"]
 [ext_resource type="Texture2D" uid="uid://d3jsuc5ud558i" path="res://Sprites/UI/Fuelcan.png" id="7_tetn6"]
+[ext_resource type="Script" path="res://Menus/MetaUpgrades.gd" id="8_jcdi7"]
+[ext_resource type="Resource" uid="uid://ci2u0rbk085v2" path="res://Resources/MetaSaveData.tres" id="9_u5pj1"]
 
 [sub_resource type="Gradient" id="Gradient_pvpqe"]
 offsets = PackedFloat32Array(0, 0.821958, 1)
@@ -197,6 +199,40 @@ size_flags_horizontal = 3
 size_flags_vertical = 1
 vertical_alignment = 1
 autowrap_mode = 3
+
+[node name="MetaUpgrades" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("8_jcdi7")
+Upgrades = ExtResource("9_u5pj1")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="MetaUpgrades"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_iq5wb")
+
+[node name="MarginContainer" type="MarginContainer" parent="MetaUpgrades"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.459375
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MetaUpgrades/MarginContainer"]
+layout_mode = 2
+alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [connection signal="item_selected" from="CharacterList" to="." method="_on_item_list_item_selected"]
 [connection signal="item_selected" from="WeaponList1" to="." method="_on_weapon_list_1_item_selected"]

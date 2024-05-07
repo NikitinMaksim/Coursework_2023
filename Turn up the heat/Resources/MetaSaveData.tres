@@ -5,15 +5,11 @@
 [resource]
 script = ExtResource("1_7kb5c")
 total_points = 0
-damage_levels = 0
-max_damage_levels = 3
-armor_levels = 0
-max_armor_levels = 3
-speed_levels = 0
-max_speed_levels = 3
-projectile_count_levels = 0
-max_projectile_count_levels = 3
-ammo_levels = 0
-max_ammo_levels = 3
-fuel_levels = 0
-max_fuel_levels = 3
+upgrades = {
+"armor": ["Armor", 0, 3, 50],
+"damage": ["Damage", 0, 3, 50],
+"max_ammo": ["Max Ammo", 0, 3, 100],
+"max_fuel": ["Max Fuel", 0, 3, 100],
+"projectile": ["Projectile", 0, 3, 150],
+"speed": ["Speed", 0, 3, 50]
+}

@@ -307,6 +307,8 @@ func get_exp(amount):
 		if exp_for_ammo_counter>3:
 			exp_for_ammo_counter-=3
 			_fill_ammo(1)
+	if modifiers["is_fuel_drops_active"]:
+		_fill_fuel(1)
 	set_exp_ui.emit(total_exp)
 
 func change_stats(stat,value):
@@ -338,10 +340,10 @@ func _on_swap_can_shoot():
 	can_shoot = !can_shoot
 
 func _on_enemy_kill(place, stats):
-	if modifiers["is_fuel_drops_active"]:
-		var drop = LITTLE_FUEL_DROP.instantiate()
-		drop.global_position = place
-		get_parent().add_child.call_deferred(drop)
+	#if modifiers["is_fuel_drops_active"]:
+	#	var drop = LITTLE_FUEL_DROP.instantiate()
+	#	drop.global_position = place
+	#	get_parent().add_child.call_deferred(drop)
 	SoundBus.play_die_sound()
 
 func _on_timer_rage_timeout():

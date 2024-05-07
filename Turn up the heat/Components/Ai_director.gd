@@ -1,6 +1,7 @@
 extends Node
 
 var quarters_passed: int = 0
+var quarters_passed_for_ore: int = 0
 var minutes_passed: int = 0
 var points:int=60
 
@@ -51,6 +52,10 @@ func _on_points_timer_timeout():
 		quarters_passed = 0
 		minutes_passed += 1
 		on_minute_passed()
+	quarters_passed_for_ore += 1
+	if quarters_passed_for_ore == 3:
+		quarters_passed_for_ore = 0
+		spawn_ore()
 	add_points((minutes_passed+2)*15)
 	if amount_of_enemies_killed_last_minute>0 and amount_of_enemies_spawned_last_minute>0:
 		if amount_of_enemies_spawned_last_minute/amount_of_enemies_killed_last_minute>1.2:
@@ -168,11 +173,10 @@ func on_minute_passed():
 	amount_of_enemies_killed_last_minute = 0
 	melee_damage_in_minute = 0
 	range_damage_in_minute = 0
-	spawn_ore()
-	
+
 func add_melee_damage(amount):
 	melee_damage_in_minute+=amount
-	
+
 func add_range_damage(amount):
 	range_damage_in_minute+=amount
 
