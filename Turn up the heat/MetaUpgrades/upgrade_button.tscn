@@ -1,14 +1,27 @@
-[gd_scene load_steps=2 format=3 uid="uid://flidqlmlpqhe"]
+[gd_scene load_steps=3 format=3 uid="uid://flidqlmlpqhe"]
 
+[ext_resource type="Theme" uid="uid://dk2rjklrh8tbo" path="res://UI/MainTheme.tres" id="1_10b51"]
 [ext_resource type="Script" path="res://MetaUpgrades/upgrade_button.gd" id="1_mj86r"]
 
-[node name="UpgradeButton" type="HBoxContainer"]
+[node name="UpgradeButton" type="HBoxContainer" node_paths=PackedStringArray("button", "label")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_10b51")
 script = ExtResource("1_mj86r")
+button = NodePath("UpgradeButton")
+label = NodePath("Label")
 
-[node name="Button" type="Button" parent="."]
+[node name="Label" type="Label" parent="."]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="UpgradeButton" type="Button" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "3/3 500"
+
+[connection signal="pressed" from="UpgradeButton" to="." method="_on_button_pressed"]

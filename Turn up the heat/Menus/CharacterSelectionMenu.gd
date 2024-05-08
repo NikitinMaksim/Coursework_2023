@@ -44,6 +44,10 @@ func _ready():
 				weapon_list_1.add_item(weapon_name,weapon_sprite)
 				gunslist.append(weapon_import)
 			file_name = dirweapons.get_next()
+	char_list.select(0)
+	_on_item_list_item_selected(0)
+	weapon_list_1.select(0)
+	weapon_list_2.select(0)
 
 func _on_item_list_item_selected(index):
 	selectedbody = index
@@ -70,6 +74,11 @@ func _on_start_game_pressed():
 	SingletonDataHolder.set_body(character_list[selectedbody])
 	SingletonDataHolder.set_gun1(gunslist[selectedgun])
 	SingletonDataHolder.set_gun2(meleelist[selectedmelee])
+	if SingletonDataHolder.metaupgrades == null:
+		if ResourceLoader.exists("user://upgrades.tres"):
+			SingletonDataHolder.set_meta_upgrades(load("user://upgrades.tres")) 
+		else:
+			SingletonDataHolder.set_meta_upgrades(load("res://Resources/MetaSaveData.tres"))
 	get_tree().change_scene_to_file("res://Main_scene.tscn")
 
 func _on_weapon_list_1_item_selected(index):
@@ -77,3 +86,9 @@ func _on_weapon_list_1_item_selected(index):
 
 func _on_weapon_list_2_item_selected(index):
 	selectedmelee = index
+
+func _on_button_pressed():
+	$MetaUpgrades.visible = true
+
+func _on_exit_pressed():
+	get_tree().change_scene_to_file("res://Menus/MainMenu.tscn")

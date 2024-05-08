@@ -91,7 +91,6 @@ func _ready():
 	$"../CanvasLayer/Action_UI/Grid/Left up corner/Health".setArmor(current_armor)
 	update_magazine_label()
 	exp_till_next_lvl = 1+pow(level,2)
-	
 	SignalBus.fill_ammo.connect(Callable(_fill_ammo.bind()))
 	SignalBus.fill_fuel.connect(Callable(_fill_fuel.bind()))
 	SignalBus.repair_armor.connect(Callable(_repair_armor.bind()))
@@ -102,6 +101,7 @@ func _ready():
 	SignalBus.enemy_died.connect(Callable(_on_enemy_kill.bind()))
 	SignalBus.drop_spawned.connect(Callable(_on_drop_spawned.bind()))
 	SignalBus.ore_spawned.connect(Callable(_on_ore_spawned.bind()))
+	apply_meta_upgrades()
 
 func _process(_delta):
 	update_animation_parameters()
@@ -358,3 +358,9 @@ func _on_ore_spawned(ore):
 	var arrow = ORE_ARROW.instantiate()
 	arrow.target = ore
 	add_child(arrow)
+
+func apply_meta_upgrades():
+	var upgrades = SingletonDataHolder.get_meta_upgrades().upgrades
+	for upgrade in upgrades:
+		for n in upgrades[upgrade][1]:
+			SignalBus.modify_player_stats.emit(upgrade, upgrades[upgrade][4])

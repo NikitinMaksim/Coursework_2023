@@ -28,3 +28,14 @@ func set_meta_upgrades(stats):
 
 func get_meta_upgrades():
 	return metaupgrades
+
+func get_remaining_points():
+	return metaupgrades.total_points
+
+func subtract_points(amount: int):
+	metaupgrades.total_points -= amount
+	ResourceSaver.save(metaupgrades, "user://upgrades.tres")
+
+func add_points(amount: int):
+	metaupgrades.total_points += amount
+	ResourceSaver.save(metaupgrades, "user://upgrades.tres")

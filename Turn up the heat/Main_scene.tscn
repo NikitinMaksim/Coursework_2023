@@ -1,7 +1,7 @@
 [gd_scene load_steps=16 format=3 uid="uid://c6gvx3h1wsmxr"]
 
 [ext_resource type="PackedScene" uid="uid://cm1kk7fl1jtqd" path="res://Player/Player.tscn" id="1_4lbih"]
-[ext_resource type="Resource" uid="uid://cik6f574fcrty" path="res://Resources/Bodys/ArmyBody.tres" id="2_38x6u"]
+[ext_resource type="Resource" uid="uid://cik6f574fcrty" path="res://Resources/Bodys/2ArmyBody.tres" id="2_38x6u"]
 [ext_resource type="Texture2D" uid="uid://byat7of71781d" path="res://Sprites/Misc/Tilemap.png" id="2_e342k"]
 [ext_resource type="PackedScene" uid="uid://bxcoi4elsladh" path="res://Upgrades/upgrade_system.tscn" id="3_x44yi"]
 [ext_resource type="PackedScene" uid="uid://cempmouod714f" path="res://UI/UI.tscn" id="5_ggsaw"]

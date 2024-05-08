@@ -27,6 +27,7 @@ var amount_of_enemies_killed_last_minute: int = 0
 @onready var player: Node = $"../Player"
 
 const CRIMSON_ORE = preload("res://MetaUpgrades/crimson_ore.tscn")
+var meta_points: int = 0
 
 func _ready():
 	$Points_timer.start()
@@ -34,6 +35,7 @@ func _ready():
 	SignalBus.melee_damage_dealt.connect(Callable(add_melee_damage.bind()))
 	SignalBus.range_damage_dealt.connect(Callable(add_range_damage.bind()))
 	SignalBus.enemy_died.connect(Callable(enemy_killed.bind()))
+	SignalBus.add_meta_points.connect(Callable(add_meta_points.bind()))
 	calculate_number_of_enemies()
 	spawn_enemies()
 
@@ -194,3 +196,6 @@ func spawn_ore():
 	var ore = CRIMSON_ORE.instantiate()
 	ore.global_position = spawn_pos
 	get_parent().add_child.call_deferred(ore)
+
+func add_meta_points(amount):
+	SingletonDataHolder.add_points(amount)
