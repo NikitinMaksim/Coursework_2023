@@ -1,0 +1,102 @@
+# LANGUAGE translation for Turn up the heat for the following files:
+# res://Main_scene.tscn
+# res://Menus/CharacterSelectionMenu.tscn
+# res://Menus/loss_win_menu.tscn
+# res://Menus/MainMenu.tscn
+# res://Menus/SettingsUI.tscn
+# res://MetaUpgrades/upgrade_button.tscn
+#
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Turn up the heat\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8-bit\n"
+
+#: Main_scene.tscn
+msgid "Use the fuel wisely"
+msgstr ""
+
+#: Menus/CharacterSelectionMenu.tscn
+msgid "Start game"
+msgstr ""
+
+#: Menus/CharacterSelectionMenu.tscn
+msgid "Close"
+msgstr ""
+
+#: Menus/CharacterSelectionMenu.tscn
+msgid "Meta upgrades"
+msgstr ""
+
+#: Menus/CharacterSelectionMenu.tscn
+#: Menus/loss_win_menu.tscn
+msgid "Exit"
+msgstr ""
+
+#: Menus/loss_win_menu.tscn
+msgid "You lost"
+msgstr ""
+
+#: Menus/loss_win_menu.tscn
+msgid "You won!"
+msgstr ""
+
+#: Menus/loss_win_menu.tscn
+msgid "Try Again"
+msgstr ""
+
+#: Menus/loss_win_menu.tscn
+msgid "Main Menu"
+msgstr ""
+
+#: Menus/MainMenu.tscn
+msgid "Play"
+msgstr ""
+
+#: Menus/MainMenu.tscn
+msgid "Settings"
+msgstr ""
+
+#: Menus/MainMenu.tscn
+msgid "Quit"
+msgstr ""
+
+#: Menus/SettingsUI.tscn
+msgid "WORK IN PROGRESS"
+msgstr ""
+
+#: Menus/SettingsUI.tscn
+msgid "Master volume"
+msgstr ""
+
+#: Menus/SettingsUI.tscn
+msgid "Music"
+msgstr ""
+
+#: Menus/SettingsUI.tscn
+msgid "Effects"
+msgstr ""
+
+#: Menus/SettingsUI.tscn
+msgid "Apply"
+msgstr ""
+
+#: Menus/SettingsUI.tscn
+msgid "Reset"
+msgstr ""
+
+#: Menus/SettingsUI.tscn
+msgid "Default"
+msgstr ""
+
+#: Menus/SettingsUI.tscn
+msgid "X"
+msgstr ""
+
+#: MetaUpgrades/upgrade_button.tscn
+msgid "3/3 500"
+msgstr ""

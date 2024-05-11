@@ -1,0 +1,107 @@
+# LANGUAGE translation for Turn up the heat for the following files:
+# res://Main_scene.tscn
+# res://Menus/CharacterSelectionMenu.tscn
+# res://Menus/loss_win_menu.tscn
+# res://Menus/MainMenu.tscn
+# res://Menus/SettingsUI.tscn
+# res://MetaUpgrades/upgrade_button.tscn
+#
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Turn up the heat\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.4.4\n"
+
+#: Main_scene.tscn
+msgid "Use the fuel wisely"
+msgstr "Используй топливо с умом"
+
+#: Menus/CharacterSelectionMenu.tscn
+msgid "Start game"
+msgstr "Начать игру"
+
+#: Menus/CharacterSelectionMenu.tscn
+msgid "Close"
+msgstr "Закрыть"
+
+#: Menus/CharacterSelectionMenu.tscn
+msgid "Meta upgrades"
+msgstr "Улучшения"
+
+#: Menus/CharacterSelectionMenu.tscn Menus/loss_win_menu.tscn
+msgid "Exit"
+msgstr "Выйти"
+
+#: Menus/loss_win_menu.tscn
+msgid "You lost"
+msgstr "Ты проиграл"
+
+#: Menus/loss_win_menu.tscn
+msgid "You won!"
+msgstr "Ты победил!"
+
+#: Menus/loss_win_menu.tscn
+msgid "Try Again"
+msgstr "Попробовать снова"
+
+#: Menus/loss_win_menu.tscn
+msgid "Main Menu"
+msgstr "Главное меню"
+
+#: Menus/MainMenu.tscn
+msgid "Play"
+msgstr "Играть"
+
+#: Menus/MainMenu.tscn
+msgid "Settings"
+msgstr "Настройки"
+
+#: Menus/MainMenu.tscn
+msgid "Quit"
+msgstr "Выйти"
+
+#: Menus/SettingsUI.tscn
+msgid "WORK IN PROGRESS"
+msgstr "В РАЗРАБОТКЕ"
+
+#: Menus/SettingsUI.tscn
+msgid "Master volume"
+msgstr "Общая громкость"
+
+#: Menus/SettingsUI.tscn
+msgid "Music"
+msgstr "Музыка"
+
+#: Menus/SettingsUI.tscn
+msgid "Effects"
+msgstr "Эффекты"
+
+#: Menus/SettingsUI.tscn
+msgid "Apply"
+msgstr "Применить"
+
+#: Menus/SettingsUI.tscn
+msgid "Reset"
+msgstr "Сбросить"
+
+#: Menus/SettingsUI.tscn
+msgid "Default"
+msgstr "Стандартные"
+
+#: Menus/SettingsUI.tscn
+msgid "X"
+msgstr "X"
+
+#: MetaUpgrades/upgrade_button.tscn
+msgid "3/3 500"
+msgstr "3/3 500"

@@ -13,3 +13,11 @@ func _on_quit_pressed():
 func _on_settings_ui_visibility_changed():
 	if $SettingsUI.visible == false:
 		$TextureRect/MarginContainer/VBoxContainer.visible = true
+
+func _on_button_english_pressed():
+	TranslationServer.set_locale("en")
+	TranslationServer.reload_pseudolocalization()
+
+func _on_button_russian_pressed():
+	TranslationServer.set_locale("ru")
+	TranslationServer.reload_pseudolocalization()
