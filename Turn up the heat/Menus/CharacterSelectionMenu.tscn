@@ -275,6 +275,14 @@ offset_right = 500.0
 offset_bottom = 955.0
 text = "Exit"
 
+[node name="RefundUpgrades" type="Button" parent="MetaUpgrades"]
+layout_mode = 1
+offset_left = 510.0
+offset_top = 900.0
+offset_right = 910.0
+offset_bottom = 955.0
+text = "Refund upgrades"
+
 [connection signal="item_selected" from="CharacterList" to="." method="_on_item_list_item_selected"]
 [connection signal="item_selected" from="WeaponList1" to="." method="_on_weapon_list_1_item_selected"]
 [connection signal="item_selected" from="WeaponList2" to="." method="_on_weapon_list_2_item_selected"]
@@ -283,3 +291,4 @@ text = "Exit"
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="visibility_changed" from="MetaUpgrades" to="MetaUpgrades" method="_on_visibility_changed"]
 [connection signal="pressed" from="MetaUpgrades/HideUpgrades" to="MetaUpgrades" method="_on_hide_upgrades_pressed"]
+[connection signal="pressed" from="MetaUpgrades/RefundUpgrades" to="MetaUpgrades" method="_on_refund_upgrades_pressed"]

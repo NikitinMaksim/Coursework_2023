@@ -25,9 +25,15 @@ func update_label():
 		label.text = str(current_upgrades) + "/" + str(max_upgrades) + " Full" 
 
 func _on_button_pressed():
-	if SingletonDataHolder.get_remaining_points()>cost and current_upgrades<max_upgrades:
+	if SingletonDataHolder.get_remaining_points()>=cost and current_upgrades<max_upgrades:
 		current_upgrades += 1
 		SingletonDataHolder.subtract_points(cost)
 		cost *= 2
 		update_stats.emit()
 		update_label()
+
+func refund():
+	for i in range(1, current_upgrades+1):
+		cost/= 2
+		SingletonDataHolder.add_points(cost)
+	current_upgrades = 0

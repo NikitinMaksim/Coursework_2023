@@ -33,3 +33,8 @@ func _on_hide_upgrades_pressed():
 		internalUpgrades.upgrades[child.stat][3] = child.cost
 	SingletonDataHolder.set_meta_upgrades(internalUpgrades)
 	ResourceSaver.save(SingletonDataHolder.get_meta_upgrades(), "user://upgrades.tres")
+
+func _on_refund_upgrades_pressed():
+	for child in $MarginContainer/VBoxContainer.get_children():
+		child.refund()
+	_on_visibility_changed()
