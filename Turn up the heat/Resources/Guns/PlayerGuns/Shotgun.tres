@@ -8,9 +8,9 @@
 script = ExtResource("1_oj2ik")
 name = "Shotgun"
 is_melee = false
-damage = 20.0
+damage = 10.0
 clip = 10
-fire_cost = 2
+fire_cost = 1
 bullets_per_second = 1.0
 reload_time = 3.0
 spread = 25.0
