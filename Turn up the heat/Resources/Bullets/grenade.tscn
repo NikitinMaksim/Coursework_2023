@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dpggapygpegck"]
+
+[ext_resource type="Texture2D" uid="uid://dwv80nq56u8u1" path="res://Sprites/Projectiles/Grenade.png" id="1_a56ji"]
+[ext_resource type="Script" path="res://Resources/Bullets/grenade.gd" id="1_yvach"]
+
+[node name="Grenade" type="Node2D"]
+scale = Vector2(5, 5)
+script = ExtResource("1_yvach")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_a56ji")

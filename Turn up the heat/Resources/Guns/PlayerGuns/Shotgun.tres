@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="GunData" load_steps=4 format=3 uid="uid://rpvs6l2osabw"]
+
+[ext_resource type="PackedScene" uid="uid://bsowby1rtlnue" path="res://Resources/Bullets/bullet.tscn" id="1_iqw4d"]
+[ext_resource type="Script" path="res://Resources/templates/Gun_data.gd" id="1_oj2ik"]
+[ext_resource type="Texture2D" uid="uid://bhpw5looop4jd" path="res://Sprites/Weapons/Shotgun.png" id="3_b5mbg"]
+
+[resource]
+script = ExtResource("1_oj2ik")
+name = "Shotgun"
+is_melee = false
+damage = 20.0
+clip = 10
+fire_cost = 2
+bullets_per_second = 1.0
+reload_time = 3.0
+spread = 25.0
+projectiles_fired = 5
+pierce = 1
+bounce = 0
+texture = ExtResource("3_b5mbg")
+projectile = ExtResource("1_iqw4d")
+x_offset = 0
+bullet_speed = 450
+bullet_max_distance = 20000
