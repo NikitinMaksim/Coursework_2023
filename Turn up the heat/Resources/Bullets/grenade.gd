@@ -8,4 +8,4 @@ func _ready():
 #TODO наносит 1/5 урона при столкновении, полный урон по области или когда кончаются пробития и происходит столкновение или когда полностью останавливается
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	#$GPUParticles2D.emitting = true

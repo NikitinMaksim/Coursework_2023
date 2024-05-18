@@ -1,7 +1,35 @@
-[gd_scene load_steps=3 format=3 uid="uid://dpggapygpegck"]
+[gd_scene load_steps=10 format=3 uid="uid://dpggapygpegck"]
 
 [ext_resource type="Texture2D" uid="uid://dwv80nq56u8u1" path="res://Sprites/Projectiles/Grenade.png" id="1_a56ji"]
 [ext_resource type="Script" path="res://Resources/Bullets/grenade.gd" id="1_yvach"]
+
+[sub_resource type="Gradient" id="Gradient_qalk3"]
+colors = PackedColorArray(0.982884, 0, 0.220962, 1, 0.599951, 0.267772, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_dy4l6"]
+gradient = SubResource("Gradient_qalk3")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_fi13y"]
+spread = 180.0
+initial_velocity_min = 100.0
+initial_velocity_max = 150.0
+gravity = Vector3(0, 0, 0)
+color_ramp = SubResource("GradientTexture1D_dy4l6")
+
+[sub_resource type="Gradient" id="Gradient_4elgv"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_fujjh"]
+gradient = SubResource("Gradient_4elgv")
+width = 8
+height = 8
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_py612"]
+radius = 29.8107
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ygmji"]
+radius = 4.44072
 
 [node name="Grenade" type="Node2D"]
 scale = Vector2(5, 5)
@@ -9,3 +37,22 @@ script = ExtResource("1_yvach")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_a56ji")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 120
+process_material = SubResource("ParticleProcessMaterial_fi13y")
+texture = SubResource("GradientTexture2D_fujjh")
+lifetime = 0.15
+one_shot = true
+explosiveness = 1.0
+
+[node name="ExplosionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExplosionArea"]
+shape = SubResource("CircleShape2D_py612")
+
+[node name="TouchArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TouchArea"]
+shape = SubResource("CircleShape2D_ygmji")
