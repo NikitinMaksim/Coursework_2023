@@ -56,3 +56,5 @@ shape = SubResource("CircleShape2D_py612")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TouchArea"]
 shape = SubResource("CircleShape2D_ygmji")
+
+[connection signal="body_entered" from="TouchArea" to="." method="_on_touch_area_body_entered"]
