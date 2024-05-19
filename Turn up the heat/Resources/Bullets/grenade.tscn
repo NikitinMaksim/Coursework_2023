@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://dpggapygpegck"]
+[gd_scene load_steps=11 format=3 uid="uid://dpggapygpegck"]
 
 [ext_resource type="Texture2D" uid="uid://dwv80nq56u8u1" path="res://Sprites/Projectiles/Grenade.png" id="1_a56ji"]
 [ext_resource type="Script" path="res://Resources/Bullets/grenade.gd" id="1_yvach"]
+[ext_resource type="Script" path="res://Resources/Bullets/SelfDestructParticles.gd" id="3_pjruv"]
 
 [sub_resource type="Gradient" id="Gradient_qalk3"]
 colors = PackedColorArray(0.982884, 0, 0.220962, 1, 0.599951, 0.267772, 0, 1)
@@ -46,15 +47,26 @@ texture = SubResource("GradientTexture2D_fujjh")
 lifetime = 0.15
 one_shot = true
 explosiveness = 1.0
+script = ExtResource("3_pjruv")
 
 [node name="ExplosionArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExplosionArea"]
 shape = SubResource("CircleShape2D_py612")
 
 [node name="TouchArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TouchArea"]
 shape = SubResource("CircleShape2D_ygmji")
 
+[node name="DetonationTimer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[connection signal="finished" from="GPUParticles2D" to="GPUParticles2D" method="_on_finished"]
 [connection signal="body_entered" from="TouchArea" to="." method="_on_touch_area_body_entered"]
+[connection signal="timeout" from="DetonationTimer" to="." method="_on_detonation_timer_timeout"]
