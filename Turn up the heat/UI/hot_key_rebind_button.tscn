@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=3 uid="uid://4s2p6jopmji"]
+
+[ext_resource type="Theme" uid="uid://dk2rjklrh8tbo" path="res://UI/MainTheme.tres" id="1_y2qrc"]
+[ext_resource type="Script" path="res://UI/hot_key_rebind_button.gd" id="2_864oy"]
+
+[node name="HotKeyRebindButton" type="Control" groups=["hotkey_button"]]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_y2qrc")
+script = ExtResource("2_864oy")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Action: "
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+toggle_mode = true
+text = "Action_Key
+"
+
+[connection signal="toggled" from="HBoxContainer/Button" to="." method="_on_button_toggled"]

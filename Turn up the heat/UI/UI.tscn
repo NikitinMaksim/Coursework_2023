@@ -124,7 +124,7 @@ autostart = true
 [node name="LvLUpNotif" type="Label" parent="Grid/VBoxContainer"]
 visible = false
 layout_mode = 2
-text = "Press space to level up"
+text = "You have unspent upgrade points"
 label_settings = SubResource("LabelSettings_l38ex")
 horizontal_alignment = 1
 vertical_alignment = 1

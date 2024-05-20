@@ -19,11 +19,6 @@ var attack: float
 var remaining_distance: int = 100
 var bounce_distance: int = 700
 
-func _ready():
-	pass # Replace with function body.
-
-#TODO наносит 1/5 урона при столкновении, полный урон по области или когда кончаются пробития и происходит столкновение или когда полностью останавливается
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	position += transform.x * speed * delta
 	remaining_distance -= speed*delta
@@ -42,8 +37,9 @@ func _on_touch_area_body_entered(body):
 		_on_detonation_timer_timeout()
 
 func end_of_life():
-	$GPUParticles2D.emitting = true
-	$GPUParticles2D.reparent(get_parent())
+	if is_instance_valid($GPUParticles2D):
+		$GPUParticles2D.emitting = true
+		$GPUParticles2D.reparent(get_parent())
 	detonation_timer.start()
 
 func _on_detonation_timer_timeout():

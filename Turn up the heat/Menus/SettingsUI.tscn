@@ -1,7 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cbjn5vbxbykpb"]
+[gd_scene load_steps=7 format=3 uid="uid://cbjn5vbxbykpb"]
 
 [ext_resource type="Theme" uid="uid://dk2rjklrh8tbo" path="res://UI/MainTheme.tres" id="1_b4vgn"]
 [ext_resource type="Script" path="res://Menus/SettingsUI.gd" id="2_7mxay"]
+[ext_resource type="PackedScene" uid="uid://4s2p6jopmji" path="res://UI/hot_key_rebind_button.tscn" id="3_sx51w"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_as505"]
 
 [sub_resource type="InputEventKey" id="InputEventKey_5tkmw"]
 keycode = 4194305
@@ -14,6 +17,10 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -69.0
+offset_top = -28.0
+offset_right = -69.0
+offset_bottom = -28.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_b4vgn")
@@ -21,7 +28,6 @@ script = ExtResource("2_7mxay")
 metadata/_edit_use_anchors_ = true
 
 [node name="Panel" type="Panel" parent="."]
-self_modulate = Color(0, 0, 0, 1)
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.253385
@@ -43,26 +49,63 @@ current_tab = 2
 all_tabs_in_front = true
 metadata/_edit_use_anchors_ = true
 
-[node name="Gameplay" type="VBoxContainer" parent="Panel/TabContainer"]
+[node name="Video" type="VBoxContainer" parent="Panel/TabContainer"]
 visible = false
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Panel/TabContainer/Gameplay"]
-layout_mode = 2
-size_flags_horizontal = 4
-text = "WORK IN PROGRESS"
-
-[node name="Controls" type="VBoxContainer" parent="Panel/TabContainer"]
-visible = false
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/TabContainer/Video"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Panel/TabContainer/Controls"]
+[node name="LeftColumn" type="VBoxContainer" parent="Panel/TabContainer/Video/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="FullScreenContainer" type="HBoxContainer" parent="Panel/TabContainer/Video/HBoxContainer/LeftColumn"]
+layout_mode = 2
+
+[node name="FullScreenLabel" type="Label" parent="Panel/TabContainer/Video/HBoxContainer/LeftColumn/FullScreenContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Fullscreen"
+
+[node name="FullScreenButton" type="CheckButton" parent="Panel/TabContainer/Video/HBoxContainer/LeftColumn/FullScreenContainer"]
+layout_mode = 2
+button_pressed = true
+
+[node name="V-SyncContainer2" type="HBoxContainer" parent="Panel/TabContainer/Video/HBoxContainer/LeftColumn"]
+layout_mode = 2
+
+[node name="V-SyncLabel" type="Label" parent="Panel/TabContainer/Video/HBoxContainer/LeftColumn/V-SyncContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "V-sync"
+
+[node name="V-SyncButton" type="CheckButton" parent="Panel/TabContainer/Video/HBoxContainer/LeftColumn/V-SyncContainer2"]
+layout_mode = 2
+
+[node name="RightColumn" type="VBoxContainer" parent="Panel/TabContainer/Video/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VideoButtons" type="HBoxContainer" parent="Panel/TabContainer/Video"]
 layout_mode = 2
 size_flags_horizontal = 4
-text = "WORK IN PROGRESS"
-clip_text = true
+size_flags_vertical = 10
+
+[node name="VApplyButton" type="Button" parent="Panel/TabContainer/Video/VideoButtons"]
+layout_mode = 2
+text = "Apply"
+
+[node name="VResetButton" type="Button" parent="Panel/TabContainer/Video/VideoButtons"]
+layout_mode = 2
+text = "Reset"
+
+[node name="VDefaultButton" type="Button" parent="Panel/TabContainer/Video/VideoButtons"]
+layout_mode = 2
+text = "Default"
 
 [node name="Audio" type="VBoxContainer" parent="Panel/TabContainer"]
+visible = false
 layout_mode = 2
 
 [node name="Main" type="HBoxContainer" parent="Panel/TabContainer/Audio"]
@@ -131,7 +174,74 @@ text = "Reset"
 layout_mode = 2
 text = "Default"
 
-[node name="Exit" type="Button" parent="Panel"]
+[node name="Controls" type="VBoxContainer" parent="Panel/TabContainer"]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel/TabContainer/Controls"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/TabContainer/Controls/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 60
+
+[node name="HSeparator" type="HSeparator" parent="Panel/TabContainer/Controls/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+theme_override_styles/separator = SubResource("StyleBoxEmpty_as505")
+
+[node name="HotKeyRebindButton" parent="Panel/TabContainer/Controls/ScrollContainer/VBoxContainer" instance=ExtResource("3_sx51w")]
+layout_mode = 2
+
+[node name="HotKeyRebindButton2" parent="Panel/TabContainer/Controls/ScrollContainer/VBoxContainer" instance=ExtResource("3_sx51w")]
+layout_mode = 2
+action_name = "move_right"
+
+[node name="HotKeyRebindButton3" parent="Panel/TabContainer/Controls/ScrollContainer/VBoxContainer" instance=ExtResource("3_sx51w")]
+layout_mode = 2
+action_name = "move_up"
+
+[node name="HotKeyRebindButton4" parent="Panel/TabContainer/Controls/ScrollContainer/VBoxContainer" instance=ExtResource("3_sx51w")]
+layout_mode = 2
+action_name = "move_down"
+
+[node name="HotKeyRebindButton5" parent="Panel/TabContainer/Controls/ScrollContainer/VBoxContainer" instance=ExtResource("3_sx51w")]
+layout_mode = 2
+action_name = "swap_weapon"
+
+[node name="HotKeyRebindButton6" parent="Panel/TabContainer/Controls/ScrollContainer/VBoxContainer" instance=ExtResource("3_sx51w")]
+layout_mode = 2
+action_name = "reload"
+
+[node name="HotKeyRebindButton7" parent="Panel/TabContainer/Controls/ScrollContainer/VBoxContainer" instance=ExtResource("3_sx51w")]
+layout_mode = 2
+action_name = "LevelUp"
+
+[node name="HSeparator2" type="HSeparator" parent="Panel/TabContainer/Controls/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+theme_override_styles/separator = SubResource("StyleBoxEmpty_as505")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/TabContainer/Controls"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+
+[node name="CApplyButton" type="Button" parent="Panel/TabContainer/Controls/HBoxContainer"]
+layout_mode = 2
+text = "Apply"
+
+[node name="CResetButton" type="Button" parent="Panel/TabContainer/Controls/HBoxContainer"]
+layout_mode = 2
+text = "Reset"
+
+[node name="CDefaultButton" type="Button" parent="Panel/TabContainer/Controls/HBoxContainer"]
+layout_mode = 2
+text = "Default"
+
+[node name="Exit" type="Button" parent="Panel" groups=["exitbutton"]]
 z_index = 3
 layout_mode = 2
 anchor_left = 0.000527982
@@ -143,6 +253,11 @@ text = "X"
 metadata/_edit_use_anchors_ = true
 
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+[connection signal="toggled" from="Panel/TabContainer/Video/HBoxContainer/LeftColumn/FullScreenContainer/FullScreenButton" to="." method="_on_full_screen_button_toggled"]
+[connection signal="toggled" from="Panel/TabContainer/Video/HBoxContainer/LeftColumn/V-SyncContainer2/V-SyncButton" to="." method="_on_v_sync_button_toggled"]
+[connection signal="pressed" from="Panel/TabContainer/Video/VideoButtons/VApplyButton" to="." method="_on_v_apply_button_pressed"]
+[connection signal="pressed" from="Panel/TabContainer/Video/VideoButtons/VResetButton" to="." method="_on_v_reset_button_pressed"]
+[connection signal="pressed" from="Panel/TabContainer/Video/VideoButtons/VDefaultButton" to="." method="_on_v_default_button_pressed"]
 [connection signal="value_changed" from="Panel/TabContainer/Audio/Main/MainSlider" to="." method="_on_main_slider_value_changed"]
 [connection signal="value_changed" from="Panel/TabContainer/Audio/Music/MusicSlider" to="." method="_on_music_slider_value_changed"]
 [connection signal="drag_ended" from="Panel/TabContainer/Audio/Effects/EffectsSlider" to="." method="_on_effects_slider_drag_ended"]
@@ -150,4 +265,7 @@ metadata/_edit_use_anchors_ = true
 [connection signal="pressed" from="Panel/TabContainer/Audio/HBoxContainer/ApplyButton" to="." method="_on_apply_button_pressed"]
 [connection signal="pressed" from="Panel/TabContainer/Audio/HBoxContainer/ResetButton" to="." method="_on_reset_button_pressed"]
 [connection signal="pressed" from="Panel/TabContainer/Audio/HBoxContainer/DefaultButton" to="." method="_on_default_button_pressed"]
+[connection signal="pressed" from="Panel/TabContainer/Controls/HBoxContainer/CApplyButton" to="." method="_on_c_apply_button_pressed"]
+[connection signal="pressed" from="Panel/TabContainer/Controls/HBoxContainer/CResetButton" to="." method="_on_c_reset_button_pressed"]
+[connection signal="pressed" from="Panel/TabContainer/Controls/HBoxContainer/CDefaultButton" to="." method="_on_c_default_button_pressed"]
 [connection signal="pressed" from="Panel/Exit" to="." method="_on_exit_pressed"]
