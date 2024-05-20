@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="GunData" load_steps=4 format=3 uid="uid://trhvda3aomd3"]
+
+[ext_resource type="PackedScene" uid="uid://dtqpnpyqbhoac" path="res://Resources/Melee hits/c_4.tscn" id="1_ajxed"]
+[ext_resource type="Script" path="res://Resources/templates/Gun_data.gd" id="1_h1t7l"]
+[ext_resource type="Texture2D" uid="uid://s1nih8wpp6ir" path="res://Sprites/Weapons/C4.png" id="2_sqmdy"]
+
+[resource]
+script = ExtResource("1_h1t7l")
+name = "C4"
+is_melee = true
+damage = 300.0
+clip = 1
+fire_cost = 15
+bullets_per_second = 1.0
+reload_time = 2.5
+spread = 0.0
+projectiles_fired = 1
+pierce = 0
+bounce = 0
+texture = ExtResource("2_sqmdy")
+projectile = ExtResource("1_ajxed")
+x_offset = 0
+bullet_speed = 150
+bullet_max_distance = 150

@@ -138,7 +138,7 @@ func shoot():
 	var damage: float = weapon.damage*(1+(float(modifiers["damage"])/100)+rage_damage_modifier+armor_damage_modifier)
 	var aspeed: float = (weapon.bullets_per_second*(1+float(modifiers["attack_speed"])/100)*fuel_attack_speed_modifier)
 	SignalBus.add_points.emit(round((damage+aspeed)/20))
-	clip -= weapon.fire_cost
+	clip -= 1
 	var projectiles_count = weapon.projectiles_fired+modifiers["projectile"]
 	for x in projectiles_count:
 		var projectile = weapons[current_gun].projectile.instantiate()
@@ -199,14 +199,14 @@ func swap_weapon():
 
 func _on_timer_reload_timeout():
 	if not weapons[current_gun].is_melee:
-		current_ammo += clip
-		clip = clamp(current_ammo,0,max_clip)
-		current_ammo -= clip
+		current_ammo += clip*weapons[current_gun].fire_cost
+		clip = clamp(current_ammo/weapons[current_gun].fire_cost,0,max_clip)
+		current_ammo -= clip*weapons[current_gun].fire_cost
 		set_ammo_ui.emit(current_ammo)
 	else:
-		current_fuel += clip
-		clip = clamp(current_fuel,0,max_clip)
-		current_fuel -= clip
+		current_fuel += clip*weapons[current_gun].fire_cost
+		clip = clamp(current_fuel/weapons[current_gun].fire_cost,0,max_clip)
+		current_fuel -= clip*weapons[current_gun].fire_cost
 		set_fuel_ui.emit(current_fuel)
 	update_magazine_label()
 	SoundBus.play_reload_sound()

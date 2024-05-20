@@ -8,10 +8,10 @@
 script = ExtResource("1_axr6i")
 name = "Power fist"
 is_melee = true
-damage = 20.0
+damage = 50.0
 clip = 5
 fire_cost = 1
-bullets_per_second = 3.0
+bullets_per_second = 1.5
 reload_time = 1.0
 spread = 55.0
 projectiles_fired = 1
