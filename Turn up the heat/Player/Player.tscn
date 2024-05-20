@@ -1,8 +1,8 @@
 [gd_scene load_steps=17 format=3 uid="uid://cm1kk7fl1jtqd"]
 
 [ext_resource type="Script" path="res://Player/Player.gd" id="1_8kf3r"]
-[ext_resource type="Resource" uid="uid://cgg7wit8qtreu" path="res://Resources/Guns/PlayerGuns/Machine_gun.tres" id="2_6ecqg"]
-[ext_resource type="Resource" uid="uid://7fhe6gupp5ys" path="res://Resources/Guns/PlayerGuns/Drill.tres" id="3_jyuny"]
+[ext_resource type="Resource" uid="uid://cgg7wit8qtreu" path="res://Resources/Guns/PlayerGuns/1Machine_gun.tres" id="2_6ecqg"]
+[ext_resource type="Resource" uid="uid://7fhe6gupp5ys" path="res://Resources/Guns/PlayerGuns/1Drill.tres" id="3_56cfs"]
 [ext_resource type="Texture2D" uid="uid://dchjbmw7wk1k3" path="res://Sprites/Player/MainBody.png" id="4_fvx4b"]
 [ext_resource type="Script" path="res://Player/Gun.gd" id="4_koxme"]
 [ext_resource type="Texture2D" uid="uid://v7iy0etlfafx" path="res://Sprites/Weapons/Gun.png" id="5_lbhw0"]
@@ -82,7 +82,7 @@ radius = 70.2026
 scale = Vector2(5, 5)
 collision_mask = 5
 script = ExtResource("1_8kf3r")
-weapons = Array[Resource("res://Resources/templates/Gun_data.gd")]([ExtResource("2_6ecqg"), ExtResource("3_jyuny")])
+weapons = Array[Resource("res://Resources/templates/Gun_data.gd")]([ExtResource("2_6ecqg"), ExtResource("3_56cfs")])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(7.45058e-09, 4.76837e-07)
