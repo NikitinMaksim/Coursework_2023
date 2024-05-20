@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://c6gvx3h1wsmxr"]
+[gd_scene load_steps=18 format=3 uid="uid://c6gvx3h1wsmxr"]
 
 [ext_resource type="PackedScene" uid="uid://cm1kk7fl1jtqd" path="res://Player/Player.tscn" id="1_4lbih"]
 [ext_resource type="Resource" uid="uid://cik6f574fcrty" path="res://Resources/Bodys/2ArmyBody.tres" id="2_38x6u"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" path="res://Components/Ai_director.gd" id="8_mgqav"]
 [ext_resource type="PackedScene" uid="uid://dvio1emahvfia" path="res://Drops/Fuel_drop.tscn" id="11_phmc5"]
 [ext_resource type="FontFile" uid="uid://bfqjdaot25jm4" path="res://UI/PixeloidSans-mLxMm.ttf" id="12_ae18p"]
+[ext_resource type="PackedScene" uid="uid://cm76hx66vx6w5" path="res://Enemies/Range_enemy/range_enemy.tscn" id="13_ebq5j"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kc1pk"]
 texture = ExtResource("2_e342k")
@@ -315,6 +316,9 @@ label_settings = SubResource("LabelSettings_jl2gm")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_imhl2")
+
+[node name="RangeEnemy" parent="." instance=ExtResource("13_ebq5j")]
+position = Vector2(1198, 399)
 
 [connection signal="level_up" from="Player" to="Player/UpgradeSystem" method="_on_player_level_up"]
 [connection signal="set_ammo_ui" from="Player" to="CanvasLayer/Action_UI" method="_on_player_set_ammo_ui"]

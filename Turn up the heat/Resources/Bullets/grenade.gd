@@ -25,7 +25,8 @@ func _process(delta):
 	if (remaining_distance<0 and speed>0): 
 		speed = clamp(speed-50,0,speed)
 	if speed == 0 and detonation_timer.is_stopped():
-		end_of_life()
+		start_explosion()
+		detonation_timer.start()
 
 func _on_touch_area_body_entered(body):
 	if body is HitboxComponent:
@@ -33,14 +34,13 @@ func _on_touch_area_body_entered(body):
 		body.damage(damage)
 	current_pierce -= 1
 	if current_pierce<0:
-		end_of_life()
+		start_explosion()
 		_on_detonation_timer_timeout()
 
-func end_of_life():
+func start_explosion():
 	if is_instance_valid($GPUParticles2D):
 		$GPUParticles2D.emitting = true
 		$GPUParticles2D.reparent(get_parent())
-	detonation_timer.start()
 
 func _on_detonation_timer_timeout():
 	for enemy in explosion_area.get_overlapping_bodies():

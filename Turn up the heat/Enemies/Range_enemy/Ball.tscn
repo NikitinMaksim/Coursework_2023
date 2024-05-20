@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rfo05"]
 size = Vector2(6, 6)
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D" type="Node2D" groups=["enemy_projectile"]]
 scale = Vector2(5, 5)
 script = ExtResource("1_vhk7c")
 
