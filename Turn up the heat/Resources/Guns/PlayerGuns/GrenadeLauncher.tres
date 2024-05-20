@@ -21,4 +21,4 @@ texture = ExtResource("3_h63g1")
 projectile = ExtResource("1_fq1r3")
 x_offset = 0
 bullet_speed = 250
-bullet_max_distance = 5000
+bullet_max_distance = 150

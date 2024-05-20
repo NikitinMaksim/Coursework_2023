@@ -67,6 +67,10 @@ shape = SubResource("CircleShape2D_ygmji")
 wait_time = 0.1
 one_shot = true
 
+[node name="InvisTimer" type="Timer" parent="."]
+wait_time = 0.05
+one_shot = true
+
 [connection signal="finished" from="GPUParticles2D" to="GPUParticles2D" method="_on_finished"]
 [connection signal="body_entered" from="TouchArea" to="." method="_on_touch_area_body_entered"]
 [connection signal="timeout" from="DetonationTimer" to="." method="_on_detonation_timer_timeout"]

@@ -63,7 +63,7 @@ func _on_area_2d_body_entered(area):
 
 func end_of_life():
 	if is_split_active:
-		for x in range(1,6):
+		for x in range(0,6):
 			var split = duplicate()
 			split.global_position = global_position
 			split.rotation_degrees = (60*x)
