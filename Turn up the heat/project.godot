@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="Turn up the heat"
+config/tags=PackedStringArray("coursework")
 run/main_scene="res://Menus/MainMenu.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 run/max_fps=60
