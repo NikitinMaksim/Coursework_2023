@@ -62,22 +62,6 @@ func _on_visibility_changed():
 		$"Panel/TabContainer/Video/HBoxContainer/LeftColumn/V-SyncContainer2/V-SyncButton".button_pressed = true
 	else:
 		$"Panel/TabContainer/Video/HBoxContainer/LeftColumn/V-SyncContainer2/V-SyncButton".button_pressed = false
-	#InputMap.action_erase_events("move_left")
-	#InputMap.action_add_event("move_left",config.get_value("Keybinds","move_left")[0])
-	#InputMap.action_erase_events("move_right")
-	#InputMap.action_add_event("move_right",config.get_value("Keybinds","move_right")[0])
-	#InputMap.action_erase_events("move_up")
-	#InputMap.action_add_event("move_up",config.get_value("Keybinds","move_up")[0])
-	#InputMap.action_erase_events("move_down")
-	#InputMap.action_add_event("move_down",config.get_value("Keybinds","move_down")[0])
-	#InputMap.action_erase_events("swap_weapon")
-	#InputMap.action_add_event("swap_weapon",config.get_value("Keybinds","swap_weapon")[0])
-	#InputMap.action_erase_events("reload")
-	#InputMap.action_add_event("reload",config.get_value("Keybinds","reload")[0])
-	#InputMap.action_erase_events("LevelUp")
-	#InputMap.action_add_event("LevelUp",config.get_value("Keybinds","LevelUp")[0])
-	#for i in get_tree().get_nodes_in_group("hotkey_button"):
-		#i._ready()
 
 func _on_effects_slider_drag_ended(_value_changed):
 	SoundBus.play_shoot_sound()
