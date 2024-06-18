@@ -3,11 +3,6 @@ extends Resource
 class_name MetaUpgradesStats
 
 @export var total_points: int = 0
-#1 - Название
-#2 - Уровень
-#3 - МаксУровень
-#4 - Цена
-#5 - Процент за уровень
 @export var upgrades: Dictionary = {
 	"damage": ["Damage",0,3,50,10],
 	"armor": ["Armor",0,3,50,1],

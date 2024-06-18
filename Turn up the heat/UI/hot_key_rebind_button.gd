@@ -13,7 +13,6 @@ func _ready():
 
 func set_action_name() -> void:
 	label.text = "Unassigned"
-	
 	match action_name:
 		"move_left":
 			label.text = "Move left"
