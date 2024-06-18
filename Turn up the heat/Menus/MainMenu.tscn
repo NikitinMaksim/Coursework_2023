@@ -67,6 +67,10 @@ text = "Quit"
 [node name="SettingsUI" parent="." instance=ExtResource("3_e0ent")]
 visible = false
 layout_mode = 1
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
 
 [connection signal="pressed" from="TextureRect/MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="TextureRect/MarginContainer/VBoxContainer/Settings" to="." method="_on_settings_pressed"]
