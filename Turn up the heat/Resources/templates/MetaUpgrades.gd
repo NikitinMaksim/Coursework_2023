@@ -2,6 +2,7 @@ extends Resource
 
 class_name MetaUpgradesStats
 
+#Название, текущий уровень, максимальный уровень, цена, сила эффекта
 @export var total_points: int = 0
 @export var upgrades: Dictionary = {
 	"damage": ["Damage",0,3,50,10],
