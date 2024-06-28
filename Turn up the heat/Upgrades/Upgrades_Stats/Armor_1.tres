@@ -9,7 +9,7 @@ image = ExtResource("1_234ij")
 name = "Armor Up"
 tree = "Armor"
 tier = 1
-description = "You scrap one piece of armor"
+description = "You craft one piece of armor"
 stats = {
 "armor": 1,
 "attack_speed": 0,
